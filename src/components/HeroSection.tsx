@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Flame, Trophy, Sparkles, ShieldCheck } from 'lucide-react';
+import heroImg from '../assets/images/orvyn-hero-founder.png';
 
 interface HeroSectionProps {
   setCurrentTab: (tab: string) => void;
@@ -129,28 +130,12 @@ export default function HeroSection({ setCurrentTab, onOpenAuth }: HeroSectionPr
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-70"></div>
                 
                 <img
-                  src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=1200"
-                  alt="ORVYN Gastronomie Sportive"
-                  className="h-full w-full object-cover rounded-2xl filter grayscale-[15%] hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
+                  src={heroImg}
+                  alt="Fondatrice ORVYN - Nutrition Sportive Premium"
+                  className="h-full w-full object-cover rounded-2xl transition-all duration-700"
                 />
 
-                {/* Floating Micro-Badge 1: High protein guarantee */}
-                <motion.div 
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-6 left-6 z-20 rounded-2xl bg-black/80 border border-neutral-800 p-4.5 shadow-2xl backdrop-blur-xl flex items-center gap-3.5 max-w-[210px]"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
-                    <Trophy className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="font-mono text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">PROTÉINES MAX</p>
-                    <p className="font-display text-sm font-extrabold text-white">55g par Bowl</p>
-                  </div>
-                </motion.div>
-
-                {/* Floating Micro-Badge 2: Live performance speed */}
+                {/* Floating Micro-Badge 2: Premium nutrition */}
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -160,11 +145,26 @@ export default function HeroSection({ setCurrentTab, onOpenAuth }: HeroSectionPr
                     <Flame className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="font-mono text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">NUTRITION SAINE</p>
-                    <p className="font-display text-sm font-extrabold text-white">100% Ingrédients Frais</p>
+                    <p className="font-mono text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">ORVYN</p>
+                    <p className="font-display text-sm font-extrabold text-white">💪 Nutrition sportive premium</p>
                   </div>
                 </motion.div>
               </div>
+
+              {/* Floating Micro-Badge 1: Founder branding — shifted outside the frame */}
+              <motion.div 
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                className="relative -mt-6 ml-4 sm:ml-6 z-20 inline-flex items-center gap-3.5 rounded-2xl bg-black/80 border border-neutral-800 p-4.5 shadow-2xl backdrop-blur-xl max-w-[260px] hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
+                  <Trophy className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="font-mono text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">FONDATRICE</p>
+                  <p className="font-display text-sm font-extrabold text-white">🏆 Fondatrice ORVYN</p>
+                </div>
+              </motion.div>
 
               {/* Decorative background glow behind container frame */}
               <div className="absolute -inset-1.5 -z-10 rounded-[32px] bg-brand-green opacity-[0.08] blur-xl"></div>
