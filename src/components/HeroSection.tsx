@@ -1,36 +1,29 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Flame, Trophy, Sparkles, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, BarChart3, Zap, Flame, Trophy } from 'lucide-react';
 import heroImg from '../assets/images/orvyn-hero-founder.png';
 
 interface HeroSectionProps {
-  setCurrentTab: (tab: string) => void;
-  onOpenAuth: () => void;
+  setCurrentTab?: (tab: string) => void;
+  onOpenAuth?: () => void;
 }
 
-export default function HeroSection({ setCurrentTab, onOpenAuth }: HeroSectionProps) {
-  const handleScrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+export default function HeroSection(_props: HeroSectionProps) {
+  const navigate = useNavigate();
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#050505] py-20 lg:py-32">
-      {/* Subtle ambient light maps - No kitsch gradients, just high-end soft glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:h-[800px] sm:w-[800px] rounded-full bg-brand-green/5 blur-[120px] pointer-events-none"></div>
       
-      {/* Background grain element */}
       <div className="absolute inset-0 bg-grain opacity-60 pointer-events-none -z-10"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-center">
           
-          {/* Hero Left: Text & Actions */}
+          {/* Hero Left */}
           <div className="space-y-10 lg:col-span-7 flex flex-col justify-center">
             
-            {/* Tagline micro-label inspired by Apple & WHOOP */}
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -38,10 +31,9 @@ export default function HeroSection({ setCurrentTab, onOpenAuth }: HeroSectionPr
               className="inline-flex self-start items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-3.5 py-1 text-[10px] font-mono font-bold tracking-widest text-neutral-400 uppercase"
             >
               <Sparkles className="h-3 w-3 text-brand-green animate-pulse" />
-              <span>SÉLECTION ATHLÈTE • HAUTE GASTRONOMIE SPORTIVE</span>
+              <span>NUTRITION SPORTIVE • REPAS ADAPTÉS</span>
             </motion.div>
 
-            {/* Main title */}
             <div className="space-y-4">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
@@ -49,20 +41,19 @@ export default function HeroSection({ setCurrentTab, onOpenAuth }: HeroSectionPr
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl leading-[1.05]"
               >
-                La nutrition sportive <br />
+                Des repas sportifs <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-brand-green">
-                  réinventée.
+                  adaptés à tes objectifs
                 </span>
               </motion.h1>
 
-              {/* Concept description */}
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="text-sm sm:text-base text-neutral-400 font-sans leading-relaxed max-w-xl font-normal"
               >
-                Des repas riches en protéines, frais, équilibrés et préparés pour accompagner chaque objectif sportif.
+                Bowls protéinés, shakes et snacks pensés pour la prise de masse, la sèche et la récupération. Mange mieux après l'effort, sans perdre de temps.
               </motion.p>
             </div>
 
@@ -74,45 +65,39 @@ export default function HeroSection({ setCurrentTab, onOpenAuth }: HeroSectionPr
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
             >
               <button
-                id="hero-cta-order"
-                onClick={() => handleScrollToSection('menu-section')}
+                onClick={() => navigate('/repas')}
                 className="group flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-xs font-bold text-black tracking-wider uppercase transition-all duration-300 hover:bg-brand-green hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer"
               >
-                <span>Commander maintenant</span>
+                <span>Découvrir les repas</span>
                 <ArrowRight className="h-3.5 w-3.5 transition duration-300 group-hover:translate-x-1" />
               </button>
 
               <button
-                id="hero-cta-discover"
-                onClick={() => handleScrollToSection('subscriptions-section')}
+                onClick={() => navigate('/repas')}
                 className="flex items-center justify-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-8 py-4 text-xs font-bold text-neutral-300 tracking-wider uppercase transition-all duration-300 hover:border-neutral-500 hover:text-white cursor-pointer"
               >
-                <span>Découvrir les abonnements</span>
+                <span>Choisir mon objectif</span>
               </button>
             </motion.div>
 
-            {/* Core benefits summary checklist */}
+            {/* Reassurance bar */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="pt-8 border-t border-neutral-900 grid grid-cols-1 sm:grid-cols-2 gap-4 text-[11px] font-mono tracking-wider text-neutral-500 uppercase"
+              className="pt-6 flex flex-wrap items-center gap-6 text-[11px] font-mono tracking-wider text-neutral-500"
             >
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Ingrédients frais d'origine contrôlée</span>
+                <span>Riche en protéines</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Trophy className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Rapports de macros pesés au gramme</span>
+              <div className="flex items-center gap-2">
+                <BarChart3 className="h-4 w-4 text-brand-green shrink-0" />
+                <span>Infos nutritionnelles claires</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Flame className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Recettes de chefs de la FoodTech</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Sparkles className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Haute digestibilité & performance</span>
+              <div className="flex items-center gap-2">
+                <Zap className="h-4 w-4 text-brand-green shrink-0" />
+                <span>Commande simple et rapide</span>
               </div>
             </motion.div>
           </div>

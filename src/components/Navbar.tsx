@@ -69,8 +69,15 @@ export default function Navbar() {
           <Link to="/faq" className={linkClass('/faq')}>FAQ</Link>
         </nav>
 
-        <div className="flex items-center space-x-4">
-          <Link to="/" className="relative p-2 text-neutral-400 hover:text-brand-green hover:bg-neutral-900 transition rounded-full">
+        <div className="flex items-center space-x-3">
+          <Link
+            to="/repas"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[10px] font-bold text-black tracking-wider uppercase transition-all duration-300 hover:bg-brand-green hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+          >
+            Commander
+          </Link>
+
+          <Link to="/repas" className="relative p-2 text-neutral-400 hover:text-brand-green hover:bg-neutral-900 transition rounded-full">
             <ShoppingBag className="h-5 w-5" />
           </Link>
 

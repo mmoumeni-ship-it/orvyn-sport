@@ -11,24 +11,32 @@ export default function FAQ() {
 
   const faqList: FAQItem[] = [
     {
-      question: "Comment fonctionne la récupération de mes repas ORVYN ?",
-      answer: "Le fonctionnement est conçu pour être fluide et instantané : vous commandez votre repas ou shake sur l'application (à la carte ou via vos crédits d'abonnement). Vous choisissez votre heure de récupération. Nos stands connectés thermo-régulés d'élite, installés directement dans vos clubs partenaires ou Concept Lounges, conservent vos repas sous atmosphère contrôlée et réfrigérée à 3°C. À l'heure dite, entrez le code unique ou scannez le QR code reçu dans votre espace client sur l'écran tactile du stand : votre casier s'ouvre automatiquement."
+      question: "À qui s'adressent les repas ORVYN ?",
+      answer: "ORVYN s'adresse aux hommes et aux femmes de 18 à 45 ans qui pratiquent une activité physique régulière et recherchent une alimentation pratique, saine et adaptée à leurs objectifs sportifs. Que vous soyez en prise de masse, en sèche ou simplement soucieux de votre équilibre alimentaire, nos repas sont conçus pour vous."
     },
     {
-      question: "Que se passe-t-il si je ne peux pas récupérer mon repas le jour même ?",
-      answer: "Pour vous garantir une fraîcheur et une sécurité bactériologique absolue, tout repas non récupéré avant la fermeture de l'espace partenaire ou lounge est collecté par notre équipe logistique lors du réassort du lendemain matin. Ces repas non collectés sont immédiatement redistribués à des associations solidaires de lutte contre le gaspillage alimentaire. Aucun remboursement ne pourra être effectué pour les repas oubliés afin de responsabiliser notre communauté d'athlètes."
+      question: "Comment choisir un repas selon mon objectif ?",
+      answer: "Chaque recette ORVYN est associée à un ou plusieurs objectifs sportifs (prise de masse, sèche, récupération, maintien). Il vous suffit de filtrer les repas par objectif pour trouver ceux qui correspondent à vos besoins. Les informations nutritionnelles détaillées vous aident à faire le bon choix."
     },
     {
-      question: "Les repas ORVYN sont-ils adaptés à mes contraintes ou croyances ?",
-      answer: "Oui, la précision est au cœur de notre ADN. Nous proposons des alternatives s'adaptant à de nombreuses contraintes : options Halal certifiées, repas 100% Vegan et Végétarien, formules certifiées Sans Gluten, ainsi que des préparations Sans Lactose à haute digestibilité. Vous pouvez filtrer l'intégralité du menu en un clic."
+      question: "Les informations nutritionnelles sont-elles indiquées ?",
+      answer: "Oui, chaque repas ORVYN affiche ses calories, protéines, glucides et lipides de manière claire et transparente. Vous pouvez ainsi suivre vos apports facilement, sans avoir à calculer vous-même."
     },
     {
-      question: "D'où proviennent vos ingrédients et qui valide les valeurs nutritionnelles ?",
-      answer: "Chaque recette ORVYN est co-créée par des chefs diplômés de la FoodTech et des médecins nutritionnistes du sport de haut niveau. Nos viandes proviennent exclusivement d'élevages français éthiques, nos poissons sont issus de pêches durables et nos légumes sont cueillis localement et livrés chaque matin. Tout est cuisiné à basse température sous vide pour préserver les vitamines, antioxydants et acides aminés essentiels. Nos rapports de macros sont d'une précision scientifique absolue (pesés au gramme)."
+      question: "ORVYN convient-il à la prise de masse ?",
+      answer: "Oui, plusieurs de nos bowls et snacks sont adaptés à la prise de masse. Ils offrent un bon équilibre entre protéines, glucides et lipides pour soutenir le développement musculaire. Consultez la catégorie Prise de masse pour découvrir les repas recommandés."
     },
     {
-      question: "Comment installer un stand connecté ORVYN dans mon club ou entreprise ?",
-      answer: "Si vous êtes propriétaire d'un club de fitness haut de gamme, gérant d'une box de Crossfit ou responsable d'un grand campus d'entreprise, contactez notre équipe via l'onglet Contact. L'installation et la maintenance de notre stand connecté intelligent sont gratuites. Nous nous chargeons de l'intégralité de l'exploitation logistique quotidienne. C'est un service premium d'élite clés en main pour vos adhérents."
+      question: "ORVYN propose-t-il des repas pour la sèche ?",
+      answer: "Oui, nous proposons des repas adaptés à la sèche, avec un apport protéique élevé et des calories maîtrisées pour vous aider à atteindre vos objectifs de définition musculaire."
+    },
+    {
+      question: "Comment sont indiqués les allergènes ?",
+      answer: "La liste des allergènes est indiquée pour chaque recette. Vous pouvez les consulter directement sur la fiche produit avant de commander."
+    },
+    {
+      question: "Peut-on commander sans abonnement ?",
+      answer: "Oui, il est tout à fait possible de commander à la carte sans abonnement. Les abonnements sont une option pour ceux qui souhaitent une formule régulière avec des avantages supplémentaires."
     }
   ];
 
