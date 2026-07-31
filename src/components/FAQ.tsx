@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import SectionHeader from './ui/SectionHeader';
 
 interface FAQItem {
   question: string;
@@ -41,46 +42,45 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq-section" className="bg-[#050505] py-24 lg:py-32 border-b border-neutral-900 relative">
+    <section id="faq-section" className="bg-orvyn-carbon py-24 lg:py-32 border-b border-orvyn-olive/20 relative">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center space-y-4 mb-16">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block">
-            DES RÉPONSES À VOS QUESTIONS
-          </span>
-          <h2 className="font-display text-3xl font-extrabold text-white sm:text-5xl tracking-[-0.03em]">
-            Foire Aux Questions (FAQ)
-          </h2>
-          <p className="text-xs text-neutral-400 max-w-md mx-auto">
-            Toutes les réponses pour aborder votre programmation nutritionnelle avec sérénité.
-          </p>
+
+        {/* En-tête éditorial */}
+        <div className="mb-16 flex justify-center">
+          <SectionHeader
+            align="center"
+            eyebrow="Des réponses à vos questions"
+            title="Foire Aux Questions"
+            description="Toutes les réponses pour aborder votre programmation nutritionnelle avec sérénité."
+          />
         </div>
 
-        {/* Accordion list */}
-        <div className="space-y-4">
+        {/* Accordion */}
+        <div className="space-y-3">
           {faqList.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className="rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden transition-all duration-300 hover:border-neutral-800"
+                className={`orvyn-clip-sm depth bg-carbon-raised overflow-hidden transition-all duration-300 ${
+                  isOpen ? 'ring-1 ring-lime/30' : ''
+                }`}
               >
                 <button
                   id={`faq-toggle-btn-${index}`}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-5 flex justify-between items-center hover:bg-neutral-900/60 transition cursor-pointer"
+                  className="w-full text-left px-6 py-5 flex justify-between items-center cursor-pointer"
                 >
-                  <span className="text-xs sm:text-sm font-bold text-white leading-snug pr-4 font-display">{item.question}</span>
+                  <span className="text-sm font-semibold text-orvyn-bone leading-snug pr-4">{item.question}</span>
                   {isOpen ? (
-                    <ChevronUp className="h-4 w-4 text-brand-green shrink-0" />
+                    <ChevronUp className="h-4 w-4 text-clay shrink-0" />
                   ) : (
-                    <ChevronDown className="h-4 w-4 text-neutral-500 shrink-0" />
+                    <ChevronDown className="h-4 w-4 text-orvyn-bone/40 shrink-0" />
                   )}
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 border-t border-neutral-900 text-xs text-neutral-400 leading-relaxed font-sans font-light animate-fade-in">
+                  <div className="px-6 pb-6 pt-3 border-t border-olive/20 text-xs text-orvyn-bone/60 leading-relaxed animate-fade-in">
                     {item.answer}
                   </div>
                 )}

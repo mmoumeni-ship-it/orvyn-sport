@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Clock, Scale, Leaf, Target, Shield, Heart, Trophy, ArrowRight } from 'lucide-react';
+import { Clock, Scale, Leaf, Target, Shield, Trophy, ArrowRight } from 'lucide-react';
+import SectionHeader from './ui/SectionHeader';
 
 interface HowItWorksProps {
   setCurrentTab: (tab: string) => void;
 }
 
-export default function HowItWorks({ setCurrentTab }: HowItWorksProps) {
+export default function HowItWorks(_props: HowItWorksProps) {
   const pillars = [
     {
       icon: Clock,
@@ -57,40 +58,37 @@ export default function HowItWorks({ setCurrentTab }: HowItWorksProps) {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   return (
-    <section id="how-it-works-section" className="relative bg-[#050505] py-24 lg:py-36 border-y border-neutral-900 overflow-hidden">
-      {/* Soft circular aura background indicator */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-brand-green/5 blur-[100px] pointer-events-none"></div>
-      
+    <section id="how-it-works-section" className="relative bg-orvyn-carbon py-24 lg:py-36 border-y border-orvyn-olive/20 overflow-hidden">
+      {/* Aura discrète */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none"></div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Title & Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20 lg:mb-28">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block">
-            L'ADN D'ORVYN
-          </span>
-          <h2 className="font-display text-3xl font-extrabold text-white sm:text-5xl tracking-[-0.03em] leading-tight">
-            Pourquoi choisir ORVYN ?
-          </h2>
-          <p className="text-sm text-neutral-400 font-sans max-w-xl mx-auto">
-            Nous avons éliminé la frontière entre la haute gastronomie saine et la rigueur scientifique de la nutrition sportive d'élite.
-          </p>
+
+        {/* En-tête éditorial */}
+        <div className="mb-20 lg:mb-28 flex justify-center">
+          <SectionHeader
+            align="center"
+            eyebrow="L'ADN d'ORVYN"
+            title="Pourquoi choisir ORVYN ?"
+            description="Nous avons éliminé la frontière entre la haute gastronomie saine et la rigueur scientifique de la nutrition sportive d'élite."
+          />
         </div>
 
-        {/* Bento-style Luxury Grid layout */}
-        <motion.div 
+        {/* Grille éditoriale */}
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {pillars.map((pillar, index) => {
             const IconComponent = pillar.icon;
@@ -99,49 +97,44 @@ export default function HowItWorks({ setCurrentTab }: HowItWorksProps) {
                 id={`why-orvyn-card-${index}`}
                 key={index}
                 variants={cardVariants}
-                className="group relative rounded-2xl border border-neutral-900 bg-[#0a0a0a] p-8 hover:border-brand-green/20 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="orvyn-clip-sm depth group relative bg-carbon-raised p-8 flex flex-col justify-between overflow-hidden"
               >
-                {/* Subtle shine on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.01] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
                 <div className="space-y-6">
-                  {/* Micro tag category */}
                   <div className="flex justify-between items-center">
-                    <span className="font-mono text-[9px] font-bold text-neutral-500 tracking-wider">
+                    <span className="text-[10px] font-semibold tracking-[0.18em] text-orvyn-bone/40 uppercase">
                       {pillar.tag}
                     </span>
-                    <IconComponent className="h-5 w-5 text-neutral-400 group-hover:text-brand-green transition-colors duration-300" />
+                    <IconComponent className="h-5 w-5 text-olive transition group-hover:text-clay duration-300" />
                   </div>
 
-                  {/* Pillar content */}
                   <div className="space-y-3">
-                    <h3 className="text-lg font-bold text-white tracking-tight font-display">
+                    <h3 className="font-display text-lg font-semibold text-orvyn-bone tracking-tight">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans font-light">
+                    <p className="text-xs text-orvyn-bone/60 leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Micro accent block at bottom */}
-                <div className="h-0.5 w-0 bg-brand-green group-hover:w-1/3 transition-all duration-500 mt-6 rounded-full"></div>
+                {/* Marqueur de progression */}
+                <div className="mt-6 h-[2px] w-0 bg-clay group-hover:w-1/3 transition-all duration-500"></div>
               </motion.div>
             );
           })}
         </motion.div>
 
-        {/* Bottom micro Action banner */}
+        {/* Bandeau action */}
         <div className="mt-20 text-center animate-fade-in">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-6 rounded-3xl border border-neutral-900 bg-[#090909] px-8 py-5.5 text-xs text-neutral-400">
-            <span className="font-mono tracking-wider">Prêt à optimiser vos gains et votre temps libre ?</span>
+          <div className="inline-flex flex-col sm:flex-row items-center gap-6 orvyn-clip-sm border border-olive/30 bg-carbon-raised px-8 py-6 text-xs text-orvyn-bone/60">
+            <span className="tracking-wide">Prêt à optimiser vos gains et votre temps libre ?</span>
             <button
               id="presentation-discover-menu"
               onClick={() => {
                 const el = document.getElementById('menu-section');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="flex items-center gap-2 font-bold text-white hover:text-brand-green transition group cursor-pointer"
+              className="flex items-center gap-2 font-semibold text-orvyn-bone hover:text-clay transition group cursor-pointer"
             >
               <span>Découvrir notre carte gastronomique</span>
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
