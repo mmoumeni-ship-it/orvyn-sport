@@ -1,68 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
-   ORVYN — LANGAGE VISUEL PROPRIÉTAIRE
-   « Le rythme de la performance »
-   Entre gastronomie contemporaine, design industriel et performance.
+   ORVYN — SYSTÈME D'IDENTITÉ PROPRIÉTAIRE
+   « La référence de la nutrition de performance »
 
    Principes :
-   · Un rituel de nutrition, pas un produit.
-   · Palette de matières naturelles : graphite, pierre, argile,
-     olive fumée, laiton, sable. Aucune couleur n'est décorative.
-   · Géométrie propriétaire (encoche ORVYN) appliquée à tout.
-   · Matière : grain de papier + courbes topographiques + couches.
-   · Composition éditoriale : vide, asymétrie, échelle magazine.
+   · Simple, intuitif, élégant, chaleureux, mémorable.
+   · 80 % neutres / 15 % matières naturelles / 5 % accent.
+   · L'accent (fresh lime) n'apparaît que sur :
+     CTA, état actif, micro-interaction, badge.
+   · Deux familles typographiques seulement :
+     General Sans (titres — présence) + Manrope (corps — lisibilité).
+   · Le site donne une impression de matière (papier, céramique,
+     pierre, lin), jamais d'interface purement numérique.
+   · L'identité doit être reconnaissable sans le logo.
    ============================================================ */
 
 @theme {
-  /* — Typographies — */
+  /* — Typographies (deux familles, intemporelles) — */
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Geist", "Manrope", ui-sans-serif, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "General Sans", "Manrope", ui-sans-serif, sans-serif;
+  --font-mono: "General Sans", "Manrope", ui-sans-serif, sans-serif;
 
-  /* — Palette ORVYN (matière) — */
-  --color-graphite: #1E1C18;
-  --color-graphite-raised: #26231D;
-  --color-stone: #EAE6DB;
-  --color-clay: #B25E38;
-  --color-olive: #6B6A55;
-  --color-brass: #B78C4E;
-  --color-brass-soft: #C6A55F;
-  --color-sand: #D6C7B0;
-  --color-moss: #2E2D25;
+  /* — Palette ORVYN — */
+  --color-bone: #F8F5EF;
+  --color-sand: #E8DFD2;
+  --color-carbon: #1E1F1C;
+  --color-carbon-raised: #26241F;
+  --color-clay: #B66A45;
+  --color-olive: #70745F;
+  --color-lime: #C4D94A;
+  --color-lime-soft: #D4E66F;
 
-  /* — Alias ORVYN (héritage) — mêmes matières */
-  --color-orvyn-carbon: #1E1C18;
-  --color-orvyn-bone: #EAE6DB;
-  --color-orvyn-clay: #B25E38;
-  --color-orvyn-olive: #6B6A55;
-  --color-orvyn-performance: #B78C4E;
-  --color-orvyn-sand: #D6C7B0;
-  --color-orvyn-moss: #2E2D25;
+  /* — Alias ORVYN (héritage des composants) — */
+  --color-orvyn-bone: #F8F5EF;
+  --color-orvyn-sand: #E8DFD2;
+  --color-orvyn-carbon: #1E1F1C;
+  --color-orvyn-clay: #B66A45;
+  --color-orvyn-olive: #70745F;
+  --color-orvyn-performance: #C4D94A;
+  --color-orvyn-moss: #1E1F1C;
+
+  /* — Alias structurels (héritage du code récent) — */
+  --color-graphite: #1E1F1C;
+  --color-graphite-raised: #26241F;
+  --color-stone: #F8F5EF;
+  --color-brass: #B66A45;
+  --color-brass-soft: #C4D94A;
 
   /* — Rétro-compatibilité (ancien design) — */
-  --color-brand-green: #B78C4E;
-  --color-brand-green-hover: #C6A55F;
-  --color-brand-green-light: rgba(183, 140, 78, 0.12);
-  --color-brand-dark: #1E1C18;
-  --color-brand-charcoal: #26231D;
+  --color-brand-green: #C4D94A;
+  --color-brand-green-hover: #D4E66F;
+  --color-brand-green-light: rgba(196, 217, 74, 0.12);
+  --color-brand-dark: #1E1F1C;
+  --color-brand-charcoal: #26241F;
   --color-brand-charcoal-light: #2C2A24;
-  --color-brand-charcoal-border: #37342C;
-  --color-brand-gray: #EAE6DB;
+  --color-brand-charcoal-border: #3A3830;
+  --color-brand-gray: #F8F5EF;
 
-  /* — Animations ORVYN — */
-  --animate-orvyn-line: orvyn-line 3.2s ease-in-out infinite;
-  --animate-orvyn-draw: orvyn-draw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-orvyn-o: orvyn-o 1.8s ease-out forwards;
-  --animate-orvyn-pulse-soft: orvyn-pulse-soft 3s ease-in-out infinite;
-  --animate-orvyn-reveal: orvyn-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* — Animations ORVYN (presque invisibles, fluides) — */
+  --animate-orvyn-line: orvyn-line 5s ease-in-out infinite;
+  --animate-orvyn-draw: orvyn-draw 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-orvyn-o: orvyn-o 1.4s ease-out forwards;
+  --animate-orvyn-reveal: orvyn-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
   @keyframes orvyn-line {
-    0% { transform: translateX(-110%); }
-    55% { transform: translateX(110%); }
-    100% { transform: translateX(110%); }
+    0% { transform: translateX(-115%); }
+    60% { transform: translateX(115%); }
+    100% { transform: translateX(115%); }
   }
 
   @keyframes orvyn-draw {
@@ -71,17 +78,12 @@
   }
 
   @keyframes orvyn-o {
-    0% { opacity: 0; transform: scale(0.92); }
+    0% { opacity: 0; transform: scale(0.96); }
     100% { opacity: 1; transform: scale(1); }
   }
 
-  @keyframes orvyn-pulse-soft {
-    0%, 100% { opacity: 0.55; }
-    50% { opacity: 1; }
-  }
-
   @keyframes orvyn-reveal {
-    from { opacity: 0; transform: translateY(18px); }
+    from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: translateY(0); }
   }
 }
@@ -89,8 +91,8 @@
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: #1E1C18;
-    color: #E7E2D5;
+    background-color: #1E1F1C;
+    color: #F8F5EF;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -103,70 +105,60 @@
   }
 
   ::selection {
-    background: #B78C4E;
-    color: #1E1C18;
+    background: #C4D94A;
+    color: #1E1F1C;
   }
 }
 
 /* ============================================================
-   ÉDITORIAL — échelle magazine
+   ÉDITORIAL — hiérarchie, présence, lisibilité
    ============================================================ */
 
-/* Mot en Instrument Serif italique — les moments éditoriaux
-   se comptent, par retenue. */
-.serif-word {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-/* Très grand titre éditorial (Geist, resserré) */
+/* Très grand titre éditorial (General Sans, resserré) */
 .h-editorial {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 0.98;
-  font-size: clamp(2.75rem, 7vw, 6.5rem);
+  font-size: clamp(2.75rem, 6.5vw, 6rem);
   text-wrap: balance;
 }
 
-/* Citation éditoriale (serif) */
+/* Citation éditoriale */
 .pull-quote {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  line-height: 1.12;
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
 }
 
 /* Grand chiffre éditorial */
 .numero {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
 }
 
-/* Micro-label mono — annotation technique */
+/* Micro-label — annotation, jamais d'uppercase criarde */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-brass);
+  color: var(--color-olive);
 }
 
 .eyebrow::before {
   content: "";
-  width: 2rem;
+  width: 1.75rem;
   height: 1px;
-  background: var(--color-brass);
+  background: var(--color-olive);
   opacity: 0.7;
 }
 
@@ -174,7 +166,7 @@
 .hairline {
   height: 1px;
   background: currentColor;
-  opacity: 0.14;
+  opacity: 0.16;
 }
 
 /* ============================================================
@@ -186,22 +178,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1E1C18;
+  background: #1E1F1C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6B6A55;
+  background: #70745F;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B78C4E;
+  background: #B66A45;
 }
 
 /* ============================================================
    GÉOMÉTRIE — l'encoche ORVYN
-   Une seule logique de coupe, appliquée à tout :
-   boutons, cartes, images, badges, navigation, footer.
-   L'angle du coin haut-droit « avance » vers la performance.
+   Même logique de coupe partout : boutons, cartes, images,
+   badges, navigation, footer. L'angle « avance » vers l'avant.
    ============================================================ */
 .orvyn-clip {
   clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
@@ -220,14 +211,30 @@
 }
 
 /* ============================================================
+   CARTE ORVYN — pas de bordure, pas d'ombre forte.
+   Profondeur par le ton de surface et une lumière interne.
+   ============================================================ */
+.depth {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+}
+
+.depth-light {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(30, 31, 28, 0.05);
+}
+
+/* ============================================================
    LA LIGNE — parcours objectif → progression
-   Le geste de progression : l'énergie avance le long du tracé.
+   Geste discret : l'énergie avance le long du tracé.
    ============================================================ */
 .performance-line {
   position: relative;
   overflow: hidden;
   height: 2px;
-  background: rgba(183, 140, 78, 0.16);
+  background: rgba(112, 116, 95, 0.18);
 }
 
 .performance-line::after {
@@ -236,14 +243,15 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 45%;
-  background: linear-gradient(90deg, transparent, #B78C4E, transparent);
-  animation: orvyn-line 3.2s ease-in-out infinite;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, #C4D94A, transparent);
+  opacity: 0.75;
+  animation: orvyn-line 5s ease-in-out infinite;
 }
 
 .performance-line-static {
   height: 2px;
-  background: linear-gradient(90deg, #B78C4E 0%, #6B6A55 55%, #1E1C18 100%);
+  background: linear-gradient(90deg, #B66A45 0%, #70745F 55%, #1E1F1C 100%);
 }
 
 .performance-line-arrow {
@@ -253,8 +261,8 @@
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
-  border-top: 1.5px solid #B78C4E;
-  border-right: 1.5px solid #B78C4E;
+  border-top: 1.5px solid #B66A45;
+  border-right: 1.5px solid #B66A45;
   transform: translateY(-50%) rotate(45deg);
 }
 
@@ -282,8 +290,8 @@
     from 200deg,
     transparent 0deg,
     transparent 70deg,
-    #B78C4E 110deg,
-    #B25E38 200deg,
+    #C4D94A 110deg,
+    #B66A45 200deg,
     transparent 260deg,
     transparent 360deg
   );
@@ -294,16 +302,15 @@
 }
 
 /* ============================================================
-   MATIÈRE ORVYN
-   Grain de papier + courbes topographiques + voiles de matière.
-   Pas un motif décoratif : une matière, posée sur les surfaces.
+   MATIÈRE ORVYN — papier haut de gamme, céramique, lin.
+   Textures très légères, presque invisibles.
    ============================================================ */
 .bg-matiere {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 120% 80% at 16% 10%, rgba(183, 140, 78, 0.05), transparent 55%),
-    radial-gradient(ellipse 100% 90% at 88% 94%, rgba(107, 106, 85, 0.07), transparent 60%),
-    repeating-radial-gradient(ellipse 90% 70% at 52% 42%, rgba(234, 230, 219, 0.022) 0 2px, transparent 2px 28px);
+    radial-gradient(ellipse 120% 80% at 16% 10%, rgba(182, 106, 69, 0.04), transparent 55%),
+    radial-gradient(ellipse 100% 90% at 88% 94%, rgba(112, 116, 95, 0.06), transparent 60%),
+    repeating-radial-gradient(ellipse 90% 70% at 52% 42%, rgba(248, 245, 239, 0.016) 0 2px, transparent 2px 30px);
   background-size: 140px 140px, cover, cover, cover;
   background-blend-mode: overlay, normal, normal, normal;
 }
@@ -311,14 +318,14 @@
 .bg-matiere-light {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 120% 80% at 20% 8%, rgba(178, 94, 56, 0.05), transparent 55%),
-    radial-gradient(ellipse 100% 90% at 86% 92%, rgba(107, 106, 85, 0.08), transparent 60%),
-    repeating-radial-gradient(ellipse 90% 70% at 50% 45%, rgba(30, 28, 24, 0.03) 0 1px, transparent 1px 28px);
+    radial-gradient(ellipse 120% 80% at 20% 8%, rgba(182, 106, 69, 0.04), transparent 55%),
+    radial-gradient(ellipse 100% 90% at 86% 92%, rgba(112, 116, 95, 0.06), transparent 60%),
+    repeating-radial-gradient(ellipse 90% 70% at 50% 45%, rgba(30, 31, 28, 0.022) 0 1px, transparent 1px 30px);
   background-size: 140px 140px, cover, cover, cover;
   background-blend-mode: overlay, normal, normal, normal;
 }
 
-/* Grain photographique — voile posé sur les images */
+/* Grain photographique */
 .photo-grain {
   position: absolute;
   inset: 0;
@@ -326,41 +333,41 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   background-size: 140px 140px;
   mix-blend-mode: overlay;
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
-/* Grade photographique ORVYN — chaleur, matière, retenue */
+/* Grade photographique ORVYN — lumière naturelle, chaleur, retenue */
 .photo-orvyn {
-  filter: sepia(0.12) saturate(0.9) contrast(1.03) brightness(0.98);
+  filter: sepia(0.06) saturate(0.92) contrast(1.02) brightness(1.01);
 }
 
-/* Voile de matière sur les photographies */
+/* Voile lumineux sur les photographies */
 .photo-wash {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(30, 28, 24, 0.06) 0%, transparent 35%),
-    radial-gradient(ellipse 90% 70% at 70% 18%, rgba(183, 140, 78, 0.12), transparent 60%),
-    linear-gradient(180deg, transparent 55%, rgba(30, 28, 24, 0.3) 100%);
+    linear-gradient(180deg, rgba(248, 245, 239, 0.07) 0%, transparent 35%),
+    radial-gradient(ellipse 90% 70% at 72% 16%, rgba(248, 245, 239, 0.14), transparent 60%),
+    linear-gradient(180deg, transparent 55%, rgba(30, 31, 28, 0.28) 100%);
 }
 
-/* Ancienne texture conservée en complément discret */
+/* Grille topographique discrète */
 .bg-orvyn-grid {
   background-image:
-    linear-gradient(rgba(183, 140, 78, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(183, 140, 78, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(112, 116, 95, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(112, 116, 95, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
 /* ============================================================
-   SURFACES — verre et panneaux
+   SURFACES
    ============================================================ */
 .glass-panel {
-  background: rgba(38, 35, 29, 0.72);
+  background: rgba(38, 36, 31, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(183, 140, 78, 0.14);
+  border: 1px solid rgba(248, 245, 239, 0.06);
 }
 
 @keyframes fadeIn {
@@ -369,21 +376,21 @@
 }
 
 @keyframes slideUp {
-  from { transform: translateY(16px); opacity: 0; }
+  from { transform: translateY(14px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Focus visible accessible */
 :focus-visible {
-  outline: 2px solid #B78C4E;
+  outline: 2px solid #C4D94A;
   outline-offset: 3px;
 }
 

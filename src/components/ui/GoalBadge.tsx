@@ -10,11 +10,11 @@ export const GOAL_META: Record<string, { label: string; code: string }> = {
 };
 
 const GOAL_COLORS: Record<string, string> = {
-  'Prise de masse': 'bg-clay/12 text-clay border-clay/30',
-  'Sèche': 'bg-brass/12 text-brass border-brass/30',
-  'Perte de poids': 'bg-brass/12 text-brass border-brass/30',
-  'Récupération': 'bg-olive/15 text-sand border-olive/40',
-  'Performance': 'bg-stone/10 text-stone border-stone/20',
+  'Prise de masse': 'bg-clay/12 text-clay border-clay/25',
+  'Sèche': 'bg-lime/15 text-lime border-lime/30',
+  'Perte de poids': 'bg-lime/15 text-lime border-lime/30',
+  'Récupération': 'bg-olive/20 text-sand border-olive/40',
+  'Performance': 'bg-lime/15 text-lime border-lime/30',
   'Maintien': 'bg-clay/10 text-sand border-clay/25',
 };
 

@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SITE_URL = 'https://orvyn-sport.vercel.app';
-const DEFAULT_OG_IMAGE = 'https://orvyn-sport.vercel.app/src/assets/images/orvyn-hero-founder.png';
+const DEFAULT_OG_IMAGE = 'https://orvyn-sport.vercel.app/og-image.jpg';
 
 export default function SEO({ title, description, canonical, ogImage, ogType = 'website' }: SEOProps) {
   const fullTitle = `${title} | ORVYN`;
@@ -42,8 +42,8 @@ export default function SEO({ title, description, canonical, ogImage, ogType = '
           '@type': 'Organization',
           name: 'ORVYN',
           url: SITE_URL,
-          logo: `${SITE_URL}/src/assets/images/orvyn-hero-founder.png`,
-          description: 'ORVYN - Nutrition sportive premium. Bowls protéinés, shakes et snacks healthy pour sportifs.',
+          logo: `${SITE_URL}/og-image.jpg`,
+          description: 'ORVYN - La référence de la nutrition de performance. Bowls protéinés, shakes et snacks healthy pour sportifs.',
           sameAs: ['https://instagram.com/orvyn', 'https://tiktok.com/@orvyn', 'https://linkedin.com/company/orvyn']
         })}
       </script>

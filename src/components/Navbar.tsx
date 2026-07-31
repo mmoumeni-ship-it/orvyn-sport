@@ -84,7 +84,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo — le O ORVYN */}
         <Link to="/" className="group flex items-center gap-2.5">
-          <span className="orvyn-o flex h-7 w-7 items-center justify-center border-[1.5px] border-orvyn-performance transition group-hover:border-orvyn-clay">
+          <span className="orvyn-o flex h-7 w-7 items-center justify-center border-[1.5px] border-clay transition group-hover:border-orvyn-performance">
             <span className="h-1.5 w-1.5 rounded-full bg-orvyn-clay" />
           </span>
           <span className="font-display text-2xl font-bold tracking-[0.08em] text-orvyn-bone">
@@ -108,7 +108,7 @@ export default function Navbar() {
             </button>
             {objectifsOpen && (
               <div className="absolute top-full left-1/2 mt-3 w-56 -translate-x-1/2 rounded-sm border border-orvyn-olive/30 bg-orvyn-moss p-2 shadow-2xl animate-fade-in z-50">
-                <span className="block border-b border-orvyn-olive/25 px-3 pb-2 pt-1 font-mono text-[9px] tracking-[0.25em] text-orvyn-performance uppercase">
+                <span className="block border-b border-orvyn-olive/25 px-3 pb-2 pt-1 text-[10px] tracking-[0.22em] text-clay uppercase">
                   Choisis ton objectif
                 </span>
                 <div className="mt-1 space-y-0.5">
@@ -148,7 +148,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/repas"
-            className="orvyn-clip-sm relative hidden sm:inline-flex items-center gap-2 overflow-hidden bg-orvyn-performance px-5 py-2.5 text-[10px] font-bold tracking-widest text-orvyn-carbon uppercase transition-all duration-300 hover:bg-white"
+            className="orvyn-clip-sm relative hidden sm:inline-flex items-center gap-2 overflow-hidden bg-lime px-5 py-2.5 text-[10px] font-semibold tracking-widest text-carbon uppercase transition-all duration-300 hover:bg-lime-soft"
           >
             Commander
             <ShoppingBag className="h-3.5 w-3.5" />
@@ -176,7 +176,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-orvyn-olive/25 bg-orvyn-carbon/98 backdrop-blur-xl px-4 py-6 space-y-2 shadow-2xl max-h-[82vh] overflow-y-auto">
           <div className="mb-3 flex items-center justify-between border-b border-orvyn-olive/25 pb-3">
-            <span className="font-mono text-[9px] tracking-[0.3em] text-orvyn-performance uppercase">
+            <span className="text-[10px] tracking-[0.24em] text-clay uppercase">
               Le rythme de la performance
             </span>
           </div>
@@ -237,7 +237,7 @@ export default function Navbar() {
           <Link
             to="/repas"
             onClick={closeMobile}
-            className="orvyn-clip-sm mt-4 flex w-full items-center justify-center gap-2 bg-orvyn-performance py-3.5 text-sm font-bold tracking-widest text-orvyn-carbon uppercase"
+            className="orvyn-clip-sm mt-4 flex w-full items-center justify-center gap-2 bg-lime py-3.5 text-sm font-semibold tracking-widest text-carbon uppercase"
           >
             Commander <ShoppingBag className="h-4 w-4" />
           </Link>

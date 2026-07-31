@@ -99,8 +99,7 @@ export default function HomePage() {
             align="center"
             light
             eyebrow="Pourquoi Orvyn ?"
-            title="La nutrition sportive,"
-            serifWord="simplement"
+            title="La nutrition sportive, simplement"
             description="Des repas adaptés à ta pratique, sans prise de tête. Ni aeronutrition, ni regime : juste une alimentation pensee pour tes objectifs."
           />
 
@@ -137,8 +136,7 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Objectifs sportifs"
-            title="Quel est ton"
-            serifWord="objectif ?"
+            title="Quel est ton objectif ?"
             description="Trouve facilement les repas qui correspondent à ta pratique sportive."
           />
 
@@ -157,15 +155,15 @@ export default function HomePage() {
                   onClick={() => navigate(card.link)}
                   className="group relative orvyn-clip-sm overflow-hidden bg-[#1C1D1A] p-6 text-left cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-[#24251F]"
                 >
-                  <span className="pointer-events-none absolute right-3 top-2 font-mono text-2xl font-bold text-orvyn-olive/25 transition group-hover:text-orvyn-performance/30">
+                  <span className="pointer-events-none absolute right-3 top-2 text-2xl font-semibold text-orvyn-olive/25 transition group-hover:text-clay/40">
                     {card.code}
                   </span>
-                  <div className="flex h-12 w-12 items-center justify-center bg-orvyn-performance/10 text-orvyn-performance mb-5 transition group-hover:bg-orvyn-performance group-hover:text-orvyn-carbon">
+                  <div className="flex h-12 w-12 items-center justify-center bg-clay/10 text-clay mb-5 transition group-hover:bg-clay group-hover:text-bone">
                     <IconComponent className="h-6 w-6" />
                   </div>
-                  <h3 className="font-display text-lg font-bold text-orvyn-bone mb-2 uppercase tracking-wide">{card.title}</h3>
+                  <h3 className="font-display text-lg font-semibold text-orvyn-bone mb-2 uppercase tracking-wide">{card.title}</h3>
                   <p className="text-xs text-orvyn-bone/60 leading-relaxed mb-5">{card.desc}</p>
-                  <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-orvyn-performance group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-widest text-clay group-hover:gap-2 transition-all">
                     Découvrir <ArrowRight className="h-3 w-3" />
                   </span>
                 </button>
@@ -177,14 +175,13 @@ export default function HomePage() {
 
       {/* 4. Produits phares */}
       <section className="relative bg-orvyn-carbon py-24 lg:py-32 border-b border-orvyn-olive/20 overflow-hidden">
-        <div className="absolute top-1/3 right-0 h-[400px] w-[400px] rounded-full bg-orvyn-performance/5 blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/3 right-0 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none"></div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <SectionHeader
               eyebrow="Produits phares"
-              title="Les favoris"
-              serifWord="ORVYN"
+              title="Les favoris ORVYN"
               description="Bowls protéinés, shakes et snacks : des recettes équilibrées pour accompagner chaque entraînement."
             />
             <Link
@@ -226,11 +223,11 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-4 space-y-2">
-                  <h3 className="font-display text-sm font-bold uppercase tracking-wide text-orvyn-bone group-hover:text-orvyn-performance transition-colors">{meal.name}</h3>
+                  <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-orvyn-bone group-hover:text-clay transition-colors">{meal.name}</h3>
                   <p className="text-xs text-orvyn-bone/60 line-clamp-2">{meal.description}</p>
                   <div className="flex items-center justify-between pt-1">
-                    <span className="text-[10px] text-orvyn-bone/40 font-mono uppercase tracking-widest">à partir de</span>
-                    <span className="text-sm font-bold text-orvyn-performance font-mono">{meal.price.toFixed(2)} €</span>
+                    <span className="text-[10px] text-orvyn-bone/40 uppercase tracking-widest">à partir de</span>
+                    <span className="text-sm font-semibold text-clay">{meal.price.toFixed(2)} €</span>
                   </div>
                 </div>
               </Link>
@@ -242,7 +239,7 @@ export default function HomePage() {
       {/* 5. Bowls protéinés */}
       <section className="relative bg-orvyn-moss py-24 lg:py-32 border-b border-orvyn-olive/20 overflow-hidden">
         <div className="absolute inset-0 bg-matiere pointer-events-none" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-orvyn-performance/5 blur-[100px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none"></div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -254,27 +251,26 @@ export default function HomePage() {
             >
               <SectionHeader
                 eyebrow="Bowls protéinés"
-                title="Le bowl qui travaille autant que"
-                serifWord="toi"
+                title="Le bowl qui travaille autant que toi"
                 description="Des recettes équilibrées et riches en protéines, composées pour t'aider à mieux récupérer et à rester régulier dans ton alimentation."
               />
               <ul className="space-y-3 text-xs text-orvyn-bone/70">
                 <li className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 bg-orvyn-performance shrink-0"></span>
+                  <span className="h-1.5 w-1.5 bg-clay shrink-0"></span>
                   Une source de protéines de qualité
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 bg-orvyn-performance shrink-0"></span>
+                  <span className="h-1.5 w-1.5 bg-clay shrink-0"></span>
                   Des glucides adaptés à ta dépense énergétique
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 bg-orvyn-performance shrink-0"></span>
+                  <span className="h-1.5 w-1.5 bg-clay shrink-0"></span>
                   Des légumes et ingrédients équilibrés
                 </li>
               </ul>
               <Link
                 to="/bowls-proteines"
-                className="orvyn-clip-sm group relative inline-flex items-center gap-2 overflow-hidden bg-orvyn-performance px-6 py-3 text-xs font-bold tracking-widest text-orvyn-carbon uppercase transition-all duration-300 hover:bg-white"
+                className="orvyn-clip-sm group relative inline-flex items-center gap-2 overflow-hidden bg-lime px-6 py-3 text-xs font-semibold tracking-widest text-carbon uppercase transition-all duration-300 hover:bg-lime-soft"
               >
                 Découvrir les bowls protéinés <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
               </Link>
@@ -315,8 +311,7 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Compléments"
-            title="Complète ton"
-            serifWord="repas"
+            title="Complète ton repas"
             description="Shakes protéinés, snacks healthy et energy balls pour compléter tes apports entre les repas ou après l'entraînement."
           />
 
@@ -337,8 +332,8 @@ export default function HomePage() {
                   <img src={meal.image} alt={meal.name} className="h-full w-full object-cover group-hover:scale-105 transition duration-700" />
                 </div>
                 <h3 className="font-display text-xs font-bold uppercase tracking-wide text-orvyn-bone mb-1">{meal.name}</h3>
-                <p className="text-[10px] text-orvyn-bone/50 font-mono">{meal.calories} kcal • {meal.proteins}g protéines</p>
-                <p className="text-xs font-bold text-orvyn-performance font-mono mt-2">{meal.price.toFixed(2)} €</p>
+                <p className="text-[10px] text-orvyn-bone/50">{meal.calories} kcal • {meal.proteins}g protéines</p>
+                <p className="text-xs font-semibold text-clay mt-2">{meal.price.toFixed(2)} €</p>
               </Link>
             ))}
           </motion.div>
@@ -366,8 +361,7 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Abonnements"
-            title="Ton alimentation sportive, sans"
-            serifWord="improviser"
+            title="Ton alimentation sportive, sans improviser"
             description="Choisis une formule adaptée à ton rythme et retrouve plus facilement tes repas préférés."
           />
           <div className="mt-14">
@@ -391,8 +385,7 @@ export default function HomePage() {
             align="center"
             light
             eyebrow="Pourquoi Orvyn ?"
-            title="Pourquoi choisir"
-            serifWord="ORVYN ?"
+            title="Pourquoi choisir ORVYN ?"
           />
 
           <motion.div
@@ -440,8 +433,7 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Blog nutrition"
-            title="Conseils nutrition &"
-            serifWord="performance"
+            title="Conseils nutrition & performance"
             description="Toute l'expertise ORVYN pour optimiser ta nutrition sportive au quotidien."
           />
 
@@ -463,9 +455,9 @@ export default function HomePage() {
                   <span className="h-1 w-1 rounded-full bg-orvyn-olive"></span>
                   <span className="font-mono text-[9px] font-bold text-orvyn-bone/40 uppercase tracking-widest">{article.readTime}</span>
                 </div>
-                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-orvyn-bone mb-2 group-hover:text-orvyn-performance transition-colors">{article.title}</h3>
+                <h3 className="font-display text-lg font-semibold uppercase tracking-wide text-orvyn-bone mb-2 group-hover:text-clay transition-colors">{article.title}</h3>
                 <p className="text-xs text-orvyn-bone/60 leading-relaxed mb-5">{article.excerpt}</p>
-                <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-orvyn-performance">
+                <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-widest text-clay">
                   Lire l'article <ExternalLink className="h-3 w-3" />
                 </span>
               </Link>
@@ -499,9 +491,9 @@ export default function HomePage() {
                 <span className="hairline w-10 bg-clay opacity-60" />
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-clay font-semibold">Le marqueur ORVYN</span>
               </div>
-              <blockquote className="pull-quote text-graphite">
-                Le rythme de la performance :{' '}
-                <em className="serif-word text-clay">Effort. Nutrition. Progression.</em>
+              <blockquote className="pull-quote text-carbon">
+                Le rythme de la performance.{' '}
+                <span className="text-clay">Effort. Nutrition. Progression.</span>
               </blockquote>
             </motion.div>
             <motion.div
@@ -526,7 +518,7 @@ export default function HomePage() {
       {/* 13. CTA final */}
       <section className="relative bg-orvyn-moss py-24 lg:py-32 border-t border-orvyn-olive/25 overflow-hidden">
         <div className="absolute inset-0 bg-matiere pointer-events-none" />
-        <div className="orvyn-o pointer-events-none absolute -right-24 -top-24 h-96 w-96 text-orvyn-performance/10" aria-hidden="true" />
+        <div className="orvyn-o pointer-events-none absolute -right-24 -top-24 h-96 w-96 text-clay/10" aria-hidden="true" />
         <div className="absolute top-0 left-0 right-0 performance-line" aria-hidden="true" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
@@ -539,7 +531,7 @@ export default function HomePage() {
             <div className="space-y-4">
               <h2 className="font-display text-4xl font-semibold leading-[1.04] tracking-[-0.02em] text-orvyn-bone sm:text-5xl lg:text-[3.5rem]">
                 Prêt à mieux manger <br />
-                <em className="serif-word text-orvyn-performance">après l'entraînement</em>
+                <span className="text-clay">après l'entraînement</span>
               </h2>
               <p className="text-sm text-orvyn-bone/70 max-w-2xl mx-auto">
                 Choisis ton objectif et découvre les repas ORVYN adaptés à ton rythme.
