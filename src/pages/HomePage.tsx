@@ -99,7 +99,8 @@ export default function HomePage() {
             align="center"
             light
             eyebrow="Pourquoi Orvyn ?"
-            title="La nutrition sportive, simplement"
+            title="La nutrition sportive,"
+            serifWord="simplement"
             description="Des repas adaptés à ta pratique, sans prise de tête. Ni aeronutrition, ni regime : juste une alimentation pensee pour tes objectifs."
           />
 
@@ -136,7 +137,8 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Objectifs sportifs"
-            title="Quel est ton objectif ?"
+            title="Quel est ton"
+            serifWord="objectif ?"
             description="Trouve facilement les repas qui correspondent à ta pratique sportive."
           />
 
@@ -181,7 +183,8 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <SectionHeader
               eyebrow="Produits phares"
-              title="Les favoris ORVYN"
+              title="Les favoris"
+              serifWord="ORVYN"
               description="Bowls protéinés, shakes et snacks : des recettes équilibrées pour accompagner chaque entraînement."
             />
             <Link
@@ -238,7 +241,7 @@ export default function HomePage() {
 
       {/* 5. Bowls protéinés */}
       <section className="relative bg-orvyn-moss py-24 lg:py-32 border-b border-orvyn-olive/20 overflow-hidden">
-        <div className="absolute inset-0 bg-orvyn-texture pointer-events-none" />
+        <div className="absolute inset-0 bg-matiere pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-orvyn-performance/5 blur-[100px] pointer-events-none"></div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -251,7 +254,8 @@ export default function HomePage() {
             >
               <SectionHeader
                 eyebrow="Bowls protéinés"
-                title="Le bowl qui travaille autant que toi"
+                title="Le bowl qui travaille autant que"
+                serifWord="toi"
                 description="Des recettes équilibrées et riches en protéines, composées pour t'aider à mieux récupérer et à rester régulier dans ton alimentation."
               />
               <ul className="space-y-3 text-xs text-orvyn-bone/70">
@@ -311,7 +315,8 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Compléments"
-            title="Complète ton repas"
+            title="Complète ton"
+            serifWord="repas"
             description="Shakes protéinés, snacks healthy et energy balls pour compléter tes apports entre les repas ou après l'entraînement."
           />
 
@@ -361,7 +366,8 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Abonnements"
-            title="Ton alimentation sportive, sans improviser"
+            title="Ton alimentation sportive, sans"
+            serifWord="improviser"
             description="Choisis une formule adaptée à ton rythme et retrouve plus facilement tes repas préférés."
           />
           <div className="mt-14">
@@ -385,7 +391,8 @@ export default function HomePage() {
             align="center"
             light
             eyebrow="Pourquoi Orvyn ?"
-            title="Pourquoi choisir ORVYN ?"
+            title="Pourquoi choisir"
+            serifWord="ORVYN ?"
           />
 
           <motion.div
@@ -433,7 +440,8 @@ export default function HomePage() {
           <SectionHeader
             align="center"
             eyebrow="Blog nutrition"
-            title="Conseils nutrition & performance"
+            title="Conseils nutrition &"
+            serifWord="performance"
             description="Toute l'expertise ORVYN pour optimiser ta nutrition sportive au quotidien."
           />
 
@@ -475,7 +483,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11. FAQ */}
+      {/* 11. Marqueur éditorial */}
+      <section className="relative bg-stone py-24 lg:py-32 border-b border-orvyn-olive/20 overflow-hidden">
+        <div className="absolute inset-0 bg-matiere-light pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-8"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <span className="hairline w-10 bg-clay opacity-60" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-clay font-semibold">Le marqueur ORVYN</span>
+              </div>
+              <blockquote className="pull-quote text-graphite">
+                Le rythme de la performance :{' '}
+                <em className="serif-word text-clay">Effort. Nutrition. Progression.</em>
+              </blockquote>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-4 flex justify-start lg:justify-end"
+            >
+              <div className="orvyn-o h-40 w-40 text-brass/40" aria-hidden="true" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 12. FAQ */}
       <FAQ />
 
       {/* 12. Contact */}
@@ -483,7 +525,7 @@ export default function HomePage() {
 
       {/* 13. CTA final */}
       <section className="relative bg-orvyn-moss py-24 lg:py-32 border-t border-orvyn-olive/25 overflow-hidden">
-        <div className="absolute inset-0 bg-orvyn-texture pointer-events-none" />
+        <div className="absolute inset-0 bg-matiere pointer-events-none" />
         <div className="orvyn-o pointer-events-none absolute -right-24 -top-24 h-96 w-96 text-orvyn-performance/10" aria-hidden="true" />
         <div className="absolute top-0 left-0 right-0 performance-line" aria-hidden="true" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -495,9 +537,9 @@ export default function HomePage() {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.01em] text-orvyn-bone sm:text-5xl">
+              <h2 className="font-display text-4xl font-semibold leading-[1.04] tracking-[-0.02em] text-orvyn-bone sm:text-5xl lg:text-[3.5rem]">
                 Prêt à mieux manger <br />
-                <span className="text-orvyn-performance">après l'entraînement ?</span>
+                <em className="serif-word text-orvyn-performance">après l'entraînement</em>
               </h2>
               <p className="text-sm text-orvyn-bone/70 max-w-2xl mx-auto">
                 Choisis ton objectif et découvre les repas ORVYN adaptés à ton rythme.

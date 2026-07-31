@@ -7,6 +7,7 @@ interface SectionHeaderProps {
   description?: string;
   align?: 'left' | 'center';
   light?: boolean;
+  serifWord?: string;
 }
 
 export default function SectionHeader({
@@ -15,6 +16,7 @@ export default function SectionHeader({
   description,
   align = 'left',
   light = false,
+  serifWord,
 }: SectionHeaderProps) {
   const center = align === 'center';
   return (
@@ -22,24 +24,31 @@ export default function SectionHeader({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`${center ? 'text-center mx-auto' : 'text-left'} max-w-3xl space-y-5`}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className={`${center ? 'text-center mx-auto' : 'text-left'} max-w-3xl space-y-6`}
     >
-      <div className={`flex items-center gap-3 ${center ? 'justify-center' : ''}`}>
-        <span className="h-[2px] w-8 bg-orvyn-performance" />
-        <span className={`font-mono text-[10px] uppercase tracking-[0.3em] font-bold ${light ? 'text-orvyn-olive' : 'text-orvyn-performance'}`}>
+      <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
+        <span className="hairline w-8 bg-brass opacity-60" />
+        <span className={`font-mono text-[10px] uppercase tracking-[0.3em] font-semibold ${light ? 'text-olive' : 'text-brass'}`}>
           {eyebrow}
         </span>
+        {center && <span className="hairline w-8 bg-brass opacity-60" />}
       </div>
       <h2
-        className={`font-display text-4xl font-bold leading-[1.05] tracking-[-0.01em] sm:text-5xl ${
-          light ? 'text-orvyn-carbon' : 'text-orvyn-bone'
+        className={`text-4xl font-semibold leading-[1.04] tracking-[-0.02em] sm:text-5xl lg:text-[3.25rem] ${
+          light ? 'text-graphite' : 'text-orvyn-bone'
         }`}
       >
         {title}
+        {serifWord && (
+          <>
+            {' '}
+            <em className="serif-word text-brass">{serifWord}</em>
+          </>
+        )}
       </h2>
       {description && (
-        <p className={`text-sm leading-relaxed ${light ? 'text-orvyn-carbon/70' : 'text-orvyn-bone/70'}`}>
+        <p className={`text-[15px] leading-relaxed font-sans ${light ? 'text-graphite/70' : 'text-orvyn-bone/65'}`}>
           {description}
         </p>
       )}

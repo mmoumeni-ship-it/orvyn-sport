@@ -64,7 +64,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-orvyn-moss text-white border-t border-orvyn-olive/25">
       {/* Grand O décoratif */}
       <div className="orvyn-o pointer-events-none absolute -right-24 -top-24 h-96 w-96 text-orvyn-performance/8" aria-hidden="true" />
-      <div className="absolute inset-0 bg-orvyn-texture pointer-events-none" />
+      <div className="absolute inset-0 bg-matiere pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Bandeau slogan + ligne de performance */}
@@ -75,9 +75,10 @@ export default function Footer() {
             </span>
             <span className="font-display text-3xl font-bold tracking-[0.08em] text-orvyn-bone">ORVYN</span>
           </Link>
-          <p className="max-w-xl font-display text-xl font-bold text-orvyn-bone sm:text-2xl">
-            Le rythme de la performance.
-            <span className="text-orvyn-performance"> Effort. Nutrition. Progression.</span>
+          <p className="max-w-xl font-display text-2xl font-semibold text-orvyn-bone sm:text-3xl">
+            Le rythme de la{' '}
+            <em className="serif-word text-orvyn-performance">performance.</em>{' '}
+            Effort. Nutrition. Progression.
           </p>
           <div className="w-full performance-line" aria-hidden="true" />
         </div>

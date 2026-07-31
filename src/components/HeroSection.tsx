@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, ShieldCheck, BarChart3, Zap, Trophy, Dumbbell, Timer } from 'lucide-react';
+import { ArrowRight, ShieldCheck, BarChart3, Zap, Trophy, Dumbbell, Timer } from 'lucide-react';
 import heroImg from '../assets/images/orvyn-hero-founder.png';
 
 interface HeroSectionProps {
@@ -20,9 +20,8 @@ export default function HeroSection(_props: HeroSectionProps) {
 
   return (
     <section className="relative overflow-hidden bg-orvyn-moss py-20 lg:py-28">
-      {/* Texture + grille subtile */}
-      <div className="absolute inset-0 bg-orvyn-texture pointer-events-none" />
-      <div className="absolute inset-0 bg-grain opacity-50 pointer-events-none" />
+      {/* Matière ORVYN */}
+      <div className="absolute inset-0 bg-matiere pointer-events-none" />
 
       {/* Performance line haute */}
       <div className="absolute top-0 left-0 right-0 performance-line" aria-hidden="true" />
@@ -36,9 +35,11 @@ export default function HeroSection(_props: HeroSectionProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex self-start items-center gap-2 rounded-sm border border-orvyn-olive/40 bg-orvyn-carbon/60 px-3.5 py-1 font-mono text-[10px] font-bold tracking-[0.25em] text-orvyn-performance uppercase"
+              className="inline-flex self-start items-center gap-2.5 rounded-sm border border-orvyn-olive/40 bg-orvyn-carbon/60 px-3.5 py-1.5 font-mono text-[10px] font-semibold tracking-[0.25em] text-orvyn-performance uppercase"
             >
-              <Sparkles className="h-3 w-3 animate-pulse" />
+              <span className="orvyn-o flex h-3.5 w-3.5 items-center justify-center border-[1.5px] border-orvyn-performance">
+                <span className="h-1 w-1 rounded-full bg-orvyn-clay" />
+              </span>
               <span>Le rythme de la performance</span>
             </motion.div>
 
@@ -47,14 +48,13 @@ export default function HeroSection(_props: HeroSectionProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display text-5xl font-bold leading-[0.98] tracking-[-0.01em] text-orvyn-bone sm:text-7xl lg:text-[5.5rem]"
+                className="font-display text-5xl font-semibold leading-[0.98] tracking-[-0.02em] text-orvyn-bone sm:text-7xl lg:text-[5.5rem]"
               >
                 Des repas sportifs
                 <br />
-                <span className="text-orvyn-performance">adaptés à tes</span>
-                <br />
+                adaptés à tes{' '}
+                <em className="serif-word text-orvyn-performance">objectifs</em>
                 <span className="relative inline-block">
-                  objectifs
                   <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-orvyn-clay orvyn-clip-sm" />
                 </span>
               </motion.h1>
@@ -141,8 +141,10 @@ export default function HeroSection(_props: HeroSectionProps) {
                   <img
                     src={heroImg}
                     alt="Fondatrice ORVYN - Nutrition Sportive Premium"
-                    className="aspect-[4/5] h-full w-full object-cover"
+                    className="photo-orvyn aspect-[4/5] h-full w-full object-cover"
                   />
+                  <div className="photo-grain" />
+                  <div className="photo-wash" />
                   <div className="absolute inset-0 bg-gradient-to-t from-orvyn-carbon/70 via-transparent to-transparent" />
 
                   {/* Badge bas — marqueur nutrition */}

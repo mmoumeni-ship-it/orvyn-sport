@@ -1,45 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
-   ORVYN DESIGN SYSTEM — « LE RYTHME DE LA PERFORMANCE »
+   ORVYN — LANGAGE VISUEL PROPRIÉTAIRE
+   « Le rythme de la performance »
+   Entre gastronomie contemporaine, design industriel et performance.
+
+   Principes :
+   · Un rituel de nutrition, pas un produit.
+   · Palette de matières naturelles : graphite, pierre, argile,
+     olive fumée, laiton, sable. Aucune couleur n'est décorative.
+   · Géométrie propriétaire (encoche ORVYN) appliquée à tout.
+   · Matière : grain de papier + courbes topographiques + couches.
+   · Composition éditoriale : vide, asymétrie, échelle magazine.
    ============================================================ */
 
 @theme {
-  /* Typographies */
+  /* — Typographies — */
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Saira Condensed", "Manrope", sans-serif;
+  --font-display: "Geist", "Manrope", ui-sans-serif, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Palettes principales ORVYN */
-  --color-orvyn-carbon: #171815;
-  --color-orvyn-bone: #F1EEE6;
-  --color-orvyn-clay: #C96F4A;
-  --color-orvyn-olive: #69705A;
-  --color-orvyn-performance: #C5D86D;
-  --color-orvyn-sand: #D8CCB8;
-  --color-orvyn-moss: #30382B;
+  /* — Palette ORVYN (matière) — */
+  --color-graphite: #1E1C18;
+  --color-graphite-raised: #26231D;
+  --color-stone: #EAE6DB;
+  --color-clay: #B25E38;
+  --color-olive: #6B6A55;
+  --color-brass: #B78C4E;
+  --color-brass-soft: #C6A55F;
+  --color-sand: #D6C7B0;
+  --color-moss: #2E2D25;
 
-  /* Rétro-compatibilité — héritage Tailwind de l'ancien design */
-  --color-brand-green: #C5D86D;
-  --color-brand-green-hover: #A9C453;
-  --color-brand-green-light: rgba(197, 216, 109, 0.12);
-  --color-brand-dark: #171815;
-  --color-brand-charcoal: #1C1D1A;
-  --color-brand-charcoal-light: #24251F;
-  --color-brand-charcoal-border: #2E2F29;
-  --color-brand-gray: #F1EEE6;
+  /* — Alias ORVYN (héritage) — mêmes matières */
+  --color-orvyn-carbon: #1E1C18;
+  --color-orvyn-bone: #EAE6DB;
+  --color-orvyn-clay: #B25E38;
+  --color-orvyn-olive: #6B6A55;
+  --color-orvyn-performance: #B78C4E;
+  --color-orvyn-sand: #D6C7B0;
+  --color-orvyn-moss: #2E2D25;
 
-  /* Rayons ORVYN */
-  --radius-orvyn-sm: 8px;
-  --radius-orvyn-md: 14px;
-  --radius-orvyn-lg: 22px;
+  /* — Rétro-compatibilité (ancien design) — */
+  --color-brand-green: #B78C4E;
+  --color-brand-green-hover: #C6A55F;
+  --color-brand-green-light: rgba(183, 140, 78, 0.12);
+  --color-brand-dark: #1E1C18;
+  --color-brand-charcoal: #26231D;
+  --color-brand-charcoal-light: #2C2A24;
+  --color-brand-charcoal-border: #37342C;
+  --color-brand-gray: #EAE6DB;
 
-  /* Animations */
+  /* — Animations ORVYN — */
   --animate-orvyn-line: orvyn-line 3.2s ease-in-out infinite;
   --animate-orvyn-draw: orvyn-draw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-orvyn-o: orvyn-o 1.8s ease-out forwards;
   --animate-orvyn-pulse-soft: orvyn-pulse-soft 3s ease-in-out infinite;
+  --animate-orvyn-reveal: orvyn-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
   @keyframes orvyn-line {
     0% { transform: translateX(-110%); }
@@ -61,25 +79,102 @@
     0%, 100% { opacity: 0.55; }
     50% { opacity: 1; }
   }
+
+  @keyframes orvyn-reveal {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
 
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: #171815;
-    color: #E8E5DC;
+    background-color: #1E1C18;
+    color: #E7E2D5;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   ::selection {
-    background: #C5D86D;
-    color: #171815;
+    background: #B78C4E;
+    color: #1E1C18;
   }
+}
+
+/* ============================================================
+   ÉDITORIAL — échelle magazine
+   ============================================================ */
+
+/* Mot en Instrument Serif italique — les moments éditoriaux
+   se comptent, par retenue. */
+.serif-word {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Très grand titre éditorial (Geist, resserré) */
+.h-editorial {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  font-size: clamp(2.75rem, 7vw, 6.5rem);
+  text-wrap: balance;
+}
+
+/* Citation éditoriale (serif) */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+/* Grand chiffre éditorial */
+.numero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* Micro-label mono — annotation technique */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: var(--color-brass);
+  opacity: 0.7;
+}
+
+/* Filet éditorial */
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.14;
 }
 
 /* ============================================================
@@ -91,33 +186,22 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #171815;
+  background: #1E1C18;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #69705A;
-  border-radius: 9999px;
+  background: #6B6A55;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C5D86D;
+  background: #B78C4E;
 }
 
 /* ============================================================
-   GRAIN — texture photographique légère
-   ============================================================ */
-.bg-grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-.bg-grain-bone {
-  background-image: radial-gradient(rgba(23, 24, 21, 0.05) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-/* ============================================================
-   L'ANGLE ORVYN — encoche asymétrique (mouvement vers l'avant)
+   GÉOMÉTRIE — l'encoche ORVYN
+   Une seule logique de coupe, appliquée à tout :
+   boutons, cartes, images, badges, navigation, footer.
+   L'angle du coin haut-droit « avance » vers la performance.
    ============================================================ */
 .orvyn-clip {
   clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
@@ -136,13 +220,14 @@
 }
 
 /* ============================================================
-   LA LIGNE DE PERFORMANCE — parcours objectif → progression
+   LA LIGNE — parcours objectif → progression
+   Le geste de progression : l'énergie avance le long du tracé.
    ============================================================ */
 .performance-line {
   position: relative;
   overflow: hidden;
   height: 2px;
-  background: rgba(197, 216, 109, 0.18);
+  background: rgba(183, 140, 78, 0.16);
 }
 
 .performance-line::after {
@@ -152,16 +237,15 @@
   left: 0;
   height: 100%;
   width: 45%;
-  background: linear-gradient(90deg, transparent, #C5D86D, transparent);
+  background: linear-gradient(90deg, transparent, #B78C4E, transparent);
   animation: orvyn-line 3.2s ease-in-out infinite;
 }
 
 .performance-line-static {
   height: 2px;
-  background: linear-gradient(90deg, #C5D86D 0%, #69705A 55%, #171815 100%);
+  background: linear-gradient(90deg, #B78C4E 0%, #6B6A55 55%, #1E1C18 100%);
 }
 
-/* Encoche terminale de la ligne (petit chevron) */
 .performance-line-arrow {
   position: absolute;
   right: -1px;
@@ -169,13 +253,14 @@
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
-  border-top: 1.5px solid #C5D86D;
-  border-right: 1.5px solid #C5D86D;
+  border-top: 1.5px solid #B78C4E;
+  border-right: 1.5px solid #B78C4E;
   transform: translateY(-50%) rotate(45deg);
 }
 
 /* ============================================================
-   LE « O » ORVYN — cycle ouvert (effort → nutrition → récupération)
+   LE « O » ORVYN — cycle ouvert
+   effort → nutrition → récupération, la boucle n'est jamais fermée.
    ============================================================ */
 .orvyn-o {
   position: relative;
@@ -197,8 +282,8 @@
     from 200deg,
     transparent 0deg,
     transparent 70deg,
-    #C5D86D 110deg,
-    #C96F4A 200deg,
+    #B78C4E 110deg,
+    #B25E38 200deg,
     transparent 260deg,
     transparent 360deg
   );
@@ -209,31 +294,73 @@
 }
 
 /* ============================================================
-   TEXTURE ORVYN — fragments de O + micro-repères
+   MATIÈRE ORVYN
+   Grain de papier + courbes topographiques + voiles de matière.
+   Pas un motif décoratif : une matière, posée sur les surfaces.
    ============================================================ */
-.bg-orvyn-texture {
+.bg-matiere {
   background-image:
-    radial-gradient(circle at 18% 22%, rgba(197, 216, 109, 0.05) 0 2px, transparent 3px),
-    radial-gradient(circle at 78% 68%, rgba(201, 111, 74, 0.05) 0 2px, transparent 3px),
-    radial-gradient(circle at 42% 84%, rgba(104, 112, 90, 0.06) 0 1px, transparent 2px);
-  background-size: 48px 48px, 64px 64px, 80px 80px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 120% 80% at 16% 10%, rgba(183, 140, 78, 0.05), transparent 55%),
+    radial-gradient(ellipse 100% 90% at 88% 94%, rgba(107, 106, 85, 0.07), transparent 60%),
+    repeating-radial-gradient(ellipse 90% 70% at 52% 42%, rgba(234, 230, 219, 0.022) 0 2px, transparent 2px 28px);
+  background-size: 140px 140px, cover, cover, cover;
+  background-blend-mode: overlay, normal, normal, normal;
 }
 
+.bg-matiere-light {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 120% 80% at 20% 8%, rgba(178, 94, 56, 0.05), transparent 55%),
+    radial-gradient(ellipse 100% 90% at 86% 92%, rgba(107, 106, 85, 0.08), transparent 60%),
+    repeating-radial-gradient(ellipse 90% 70% at 50% 45%, rgba(30, 28, 24, 0.03) 0 1px, transparent 1px 28px);
+  background-size: 140px 140px, cover, cover, cover;
+  background-blend-mode: overlay, normal, normal, normal;
+}
+
+/* Grain photographique — voile posé sur les images */
+.photo-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+/* Grade photographique ORVYN — chaleur, matière, retenue */
+.photo-orvyn {
+  filter: sepia(0.12) saturate(0.9) contrast(1.03) brightness(0.98);
+}
+
+/* Voile de matière sur les photographies */
+.photo-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(30, 28, 24, 0.06) 0%, transparent 35%),
+    radial-gradient(ellipse 90% 70% at 70% 18%, rgba(183, 140, 78, 0.12), transparent 60%),
+    linear-gradient(180deg, transparent 55%, rgba(30, 28, 24, 0.3) 100%);
+}
+
+/* Ancienne texture conservée en complément discret */
 .bg-orvyn-grid {
   background-image:
-    linear-gradient(rgba(197, 216, 109, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(197, 216, 109, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(183, 140, 78, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(183, 140, 78, 0.04) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
 /* ============================================================
-   GÉNÉRIQUE — utilitaires premium conservés
+   SURFACES — verre et panneaux
    ============================================================ */
 .glass-panel {
-  background: rgba(28, 29, 26, 0.72);
+  background: rgba(38, 35, 29, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(183, 140, 78, 0.14);
 }
 
 @keyframes fadeIn {
@@ -256,7 +383,7 @@
 
 /* Focus visible accessible */
 :focus-visible {
-  outline: 2px solid #C5D86D;
+  outline: 2px solid #B78C4E;
   outline-offset: 3px;
 }
 

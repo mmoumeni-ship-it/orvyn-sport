@@ -23,8 +23,8 @@ export default function OrvynButton({
     'group relative inline-flex items-center justify-center gap-2 overflow-hidden px-7 py-3.5 text-[11px] font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer';
   const styles =
     variant === 'primary'
-      ? 'bg-orvyn-performance text-orvyn-carbon hover:bg-white'
-      : 'border border-orvyn-olive/50 text-orvyn-bone hover:border-orvyn-performance hover:text-white';
+      ? 'bg-orvyn-performance text-graphite hover:bg-brass-soft'
+      : 'border border-orvyn-olive/50 text-orvyn-bone hover:border-brass hover:text-orvyn-bone';
 
   const inner = (
     <>
@@ -32,8 +32,8 @@ export default function OrvynButton({
         {children}
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
       </span>
-      <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-white/20 transition-transform duration-500 ease-out group-hover:translate-x-0" />
-      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-orvyn-performance transition-all duration-500 group-hover:w-full" />
+      <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-stone/20 transition-transform duration-500 ease-out group-hover:translate-x-0" />
+      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-brass transition-all duration-500 group-hover:w-full" />
     </>
   );
 
