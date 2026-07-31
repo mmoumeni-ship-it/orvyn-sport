@@ -1,75 +1,239 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
+/* ============================================================
+   ORVYN DESIGN SYSTEM — « LE RYTHME DE LA PERFORMANCE »
+   ============================================================ */
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  /* Typographies */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Saira Condensed", "Manrope", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand-green: #10B981;
-  --color-brand-green-hover: #059669;
-  --color-brand-green-light: rgba(16, 185, 129, 0.1);
-  --color-brand-dark: #050505;
-  --color-brand-charcoal: #121212;
-  --color-brand-charcoal-light: #1A1A1A;
-  --color-brand-charcoal-border: #262626;
-  --color-brand-gray: #FAFAFA;
+  /* Palettes principales ORVYN */
+  --color-orvyn-carbon: #171815;
+  --color-orvyn-bone: #F1EEE6;
+  --color-orvyn-clay: #C96F4A;
+  --color-orvyn-olive: #69705A;
+  --color-orvyn-performance: #C5D86D;
+  --color-orvyn-sand: #D8CCB8;
+  --color-orvyn-moss: #30382B;
+
+  /* Rétro-compatibilité — héritage Tailwind de l'ancien design */
+  --color-brand-green: #C5D86D;
+  --color-brand-green-hover: #A9C453;
+  --color-brand-green-light: rgba(197, 216, 109, 0.12);
+  --color-brand-dark: #171815;
+  --color-brand-charcoal: #1C1D1A;
+  --color-brand-charcoal-light: #24251F;
+  --color-brand-charcoal-border: #2E2F29;
+  --color-brand-gray: #F1EEE6;
+
+  /* Rayons ORVYN */
+  --radius-orvyn-sm: 8px;
+  --radius-orvyn-md: 14px;
+  --radius-orvyn-lg: 22px;
+
+  /* Animations */
+  --animate-orvyn-line: orvyn-line 3.2s ease-in-out infinite;
+  --animate-orvyn-draw: orvyn-draw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-orvyn-o: orvyn-o 1.8s ease-out forwards;
+  --animate-orvyn-pulse-soft: orvyn-pulse-soft 3s ease-in-out infinite;
+
+  @keyframes orvyn-line {
+    0% { transform: translateX(-110%); }
+    55% { transform: translateX(110%); }
+    100% { transform: translateX(110%); }
+  }
+
+  @keyframes orvyn-draw {
+    0% { transform: scaleX(0); transform-origin: left; }
+    100% { transform: scaleX(1); transform-origin: left; }
+  }
+
+  @keyframes orvyn-o {
+    0% { opacity: 0; transform: scale(0.92); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes orvyn-pulse-soft {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
 }
 
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: #050505;
-    color: #F4F4F5;
+    background-color: #171815;
+    color: #E8E5DC;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: #C5D86D;
+    color: #171815;
   }
 }
 
-/* Custom premium scrollbar */
+/* ============================================================
+   SCROLLBAR ORVYN
+   ============================================================ */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #171815;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #69705A;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #404040;
+  background: #C5D86D;
 }
 
-/* Premium micro-interactions and elements */
+/* ============================================================
+   GRAIN — texture photographique légère
+   ============================================================ */
 .bg-grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
+.bg-grain-bone {
+  background-image: radial-gradient(rgba(23, 24, 21, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* ============================================================
+   L'ANGLE ORVYN — encoche asymétrique (mouvement vers l'avant)
+   ============================================================ */
+.orvyn-clip {
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+
+.orvyn-clip-sm {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+.orvyn-clip-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+}
+
+.orvyn-clip-img {
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%);
+}
+
+/* ============================================================
+   LA LIGNE DE PERFORMANCE — parcours objectif → progression
+   ============================================================ */
+.performance-line {
+  position: relative;
+  overflow: hidden;
+  height: 2px;
+  background: rgba(197, 216, 109, 0.18);
+}
+
+.performance-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, #C5D86D, transparent);
+  animation: orvyn-line 3.2s ease-in-out infinite;
+}
+
+.performance-line-static {
+  height: 2px;
+  background: linear-gradient(90deg, #C5D86D 0%, #69705A 55%, #171815 100%);
+}
+
+/* Encoche terminale de la ligne (petit chevron) */
+.performance-line-arrow {
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid #C5D86D;
+  border-right: 1.5px solid #C5D86D;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ============================================================
+   LE « O » ORVYN — cycle ouvert (effort → nutrition → récupération)
+   ============================================================ */
+.orvyn-o {
+  position: relative;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.orvyn-o-thin {
+  border-width: 1.5px;
+}
+
+.orvyn-o-frame {
+  position: relative;
+  border-radius: 9999px;
+  padding: 8px;
+  background: conic-gradient(
+    from 200deg,
+    transparent 0deg,
+    transparent 70deg,
+    #C5D86D 110deg,
+    #C96F4A 200deg,
+    transparent 260deg,
+    transparent 360deg
+  );
+}
+
+.orvyn-o-frame > * {
+  border-radius: 9999px;
+}
+
+/* ============================================================
+   TEXTURE ORVYN — fragments de O + micro-repères
+   ============================================================ */
+.bg-orvyn-texture {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(197, 216, 109, 0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 68%, rgba(201, 111, 74, 0.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 84%, rgba(104, 112, 90, 0.06) 0 1px, transparent 2px);
+  background-size: 48px 48px, 64px 64px, 80px 80px;
+}
+
+.bg-orvyn-grid {
+  background-image:
+    linear-gradient(rgba(197, 216, 109, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 216, 109, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ============================================================
+   GÉNÉRIQUE — utilitaires premium conservés
+   ============================================================ */
 .glass-panel {
-  background: rgba(18, 18, 18, 0.7);
+  background: rgba(28, 29, 26, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-panel-hover:hover {
-  background: rgba(26, 26, 26, 0.85);
-  border-color: rgba(16, 185, 129, 0.25);
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes fadeIn {
@@ -90,3 +254,18 @@
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Focus visible accessible */
+:focus-visible {
+  outline: 2px solid #C5D86D;
+  outline-offset: 3px;
+}
+
+/* Accessibilité : mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

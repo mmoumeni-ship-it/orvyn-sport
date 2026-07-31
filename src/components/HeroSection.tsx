@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, ShieldCheck, BarChart3, Zap, Flame, Trophy } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, BarChart3, Zap, Trophy, Dumbbell, Timer } from 'lucide-react';
 import heroImg from '../assets/images/orvyn-hero-founder.png';
 
 interface HeroSectionProps {
@@ -9,150 +9,186 @@ interface HeroSectionProps {
   onOpenAuth?: () => void;
 }
 
+const macroMarkers = [
+  { icon: Dumbbell, value: '55g', label: 'protéines' },
+  { icon: Zap, value: '574', label: 'kcal' },
+  { icon: Timer, value: '30s', label: 'commande' },
+];
+
 export default function HeroSection(_props: HeroSectionProps) {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#050505] py-20 lg:py-32">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:h-[800px] sm:w-[800px] rounded-full bg-brand-green/5 blur-[120px] pointer-events-none"></div>
-      
-      <div className="absolute inset-0 bg-grain opacity-60 pointer-events-none -z-10"></div>
+    <section className="relative overflow-hidden bg-orvyn-moss py-20 lg:py-28">
+      {/* Texture + grille subtile */}
+      <div className="absolute inset-0 bg-orvyn-texture pointer-events-none" />
+      <div className="absolute inset-0 bg-grain opacity-50 pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+      {/* Performance line haute */}
+      <div className="absolute top-0 left-0 right-0 performance-line" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-center">
-          
+
           {/* Hero Left */}
-          <div className="space-y-10 lg:col-span-7 flex flex-col justify-center">
-            
-            <motion.div 
+          <div className="space-y-9 lg:col-span-7 flex flex-col justify-center">
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex self-start items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-3.5 py-1 text-[10px] font-mono font-bold tracking-widest text-neutral-400 uppercase"
+              className="inline-flex self-start items-center gap-2 rounded-sm border border-orvyn-olive/40 bg-orvyn-carbon/60 px-3.5 py-1 font-mono text-[10px] font-bold tracking-[0.25em] text-orvyn-performance uppercase"
             >
-              <Sparkles className="h-3 w-3 text-brand-green animate-pulse" />
-              <span>NUTRITION SPORTIVE • REPAS ADAPTÉS</span>
+              <Sparkles className="h-3 w-3 animate-pulse" />
+              <span>Le rythme de la performance</span>
             </motion.div>
 
-            <div className="space-y-4">
-              <motion.h1 
+            <div className="space-y-5">
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl leading-[1.05]"
+                className="font-display text-5xl font-bold leading-[0.98] tracking-[-0.01em] text-orvyn-bone sm:text-7xl lg:text-[5.5rem]"
               >
-                Des repas sportifs <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-brand-green">
-                  adaptés à tes objectifs
+                Des repas sportifs
+                <br />
+                <span className="text-orvyn-performance">adaptés à tes</span>
+                <br />
+                <span className="relative inline-block">
+                  objectifs
+                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-orvyn-clay orvyn-clip-sm" />
                 </span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-sm sm:text-base text-neutral-400 font-sans leading-relaxed max-w-xl font-normal"
+                className="max-w-xl text-sm leading-relaxed text-orvyn-bone/70 sm:text-base"
               >
                 Bowls protéinés, shakes et snacks pensés pour la prise de masse, la sèche et la récupération. Mange mieux après l'effort, sans perdre de temps.
               </motion.p>
             </div>
 
-            {/* CTA Actions */}
-            <motion.div 
+            {/* CTA */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1"
             >
               <button
                 onClick={() => navigate('/repas')}
-                className="group flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-xs font-bold text-black tracking-wider uppercase transition-all duration-300 hover:bg-brand-green hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer"
+                className="orvyn-clip-sm group relative inline-flex items-center justify-center gap-2 overflow-hidden bg-orvyn-performance px-8 py-4 text-xs font-bold tracking-widest text-orvyn-carbon uppercase transition-all duration-300 hover:bg-white cursor-pointer"
               >
-                <span>Découvrir les repas</span>
-                <ArrowRight className="h-3.5 w-3.5 transition duration-300 group-hover:translate-x-1" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Découvrir les repas
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full bg-black/10 transition-transform duration-500 group-hover:translate-x-0" />
               </button>
 
               <button
                 onClick={() => navigate('/repas')}
-                className="flex items-center justify-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-8 py-4 text-xs font-bold text-neutral-300 tracking-wider uppercase transition-all duration-300 hover:border-neutral-500 hover:text-white cursor-pointer"
+                className="orvyn-clip-sm relative inline-flex items-center justify-center gap-2 overflow-hidden border border-orvyn-olive/60 bg-transparent px-8 py-4 text-xs font-bold tracking-widest text-orvyn-bone uppercase transition-all duration-300 hover:border-orvyn-performance cursor-pointer"
               >
-                <span>Choisir mon objectif</span>
+                <span className="relative z-10">Choisir mon objectif</span>
+                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-orvyn-performance transition-all duration-500 group-hover:w-full" />
               </button>
             </motion.div>
 
-            {/* Reassurance bar */}
-            <motion.div 
+            {/* Reassurance */}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="pt-6 flex flex-wrap items-center gap-6 text-[11px] font-mono tracking-wider text-neutral-500"
+              transition={{ duration: 1, delay: 0.45 }}
+              className="pt-5"
             >
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Riche en protéines</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Infos nutritionnelles claires</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="h-4 w-4 text-brand-green shrink-0" />
-                <span>Commande simple et rapide</span>
+              <div className="performance-line mb-5" aria-hidden="true" />
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-3 font-mono text-[11px] tracking-wider text-orvyn-bone/60">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-orvyn-performance" />
+                  <span>Riche en protéines</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="h-4 w-4 text-orvyn-performance" />
+                  <span>Infos nutritionnelles claires</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-orvyn-performance" />
+                  <span>Commande simple et rapide</span>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Hero Right: Stunning high-end responsive visual layout */}
+          {/* Hero Right — cadre « O » ORVYN */}
           <div className="relative lg:col-span-5 flex justify-center lg:justify-end">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-lg"
+              className="relative w-full max-w-md"
             >
-              {/* Image Frame - Immersive dark background with luxury finish */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950 p-2 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-70"></div>
-                
-                <img
-                  src={heroImg}
-                  alt="Fondatrice ORVYN - Nutrition Sportive Premium"
-                  className="h-full w-full object-cover rounded-2xl transition-all duration-700"
-                />
+              {/* Grand O décoratif */}
+              <div
+                className="orvyn-o pointer-events-none absolute -top-8 -right-6 h-32 w-32 text-orvyn-performance/20"
+                aria-hidden="true"
+              />
 
-                {/* Floating Micro-Badge 2: Premium nutrition */}
-                <motion.div 
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute bottom-8 right-6 z-20 rounded-2xl bg-black/80 border border-neutral-800 p-4.5 shadow-2xl backdrop-blur-xl flex items-center gap-3.5 max-w-[210px]"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-950 text-brand-green">
-                    <Flame className="h-4 w-4" />
+              {/* Cadre O avec dégradé conique */}
+              <div className="orvyn-o-frame">
+                <div className="relative overflow-hidden orvyn-clip-img bg-orvyn-carbon">
+                  <img
+                    src={heroImg}
+                    alt="Fondatrice ORVYN - Nutrition Sportive Premium"
+                    className="aspect-[4/5] h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-orvyn-carbon/70 via-transparent to-transparent" />
+
+                  {/* Badge bas — marqueur nutrition */}
+                  <div className="absolute bottom-5 right-5 rounded-sm border border-orvyn-olive/40 bg-orvyn-carbon/85 px-4 py-3 backdrop-blur-sm">
+                    <p className="font-mono text-[9px] tracking-[0.25em] text-orvyn-performance uppercase">Objectif</p>
+                    <p className="mt-0.5 font-display text-sm font-bold text-orvyn-bone">Sèche • Récupération</p>
                   </div>
-                  <div>
-                    <p className="font-mono text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">ORVYN</p>
-                    <p className="font-display text-sm font-extrabold text-white">💪 Nutrition sportive premium</p>
-                  </div>
-                </motion.div>
+                </div>
               </div>
 
-              {/* Floating Micro-Badge 1: Founder branding — shifted outside the frame */}
-              <motion.div 
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                className="relative -mt-6 ml-4 sm:ml-6 z-20 inline-flex items-center gap-3.5 rounded-2xl bg-black/80 border border-neutral-800 p-4.5 shadow-2xl backdrop-blur-xl max-w-[260px] hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+              {/* Marqueurs macro — colonne latérale */}
+              <motion.div
+                initial={{ opacity: 0, x: -14 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute -left-5 top-1/2 -translate-y-1/2 hidden sm:flex flex-col gap-3"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
-                  <Trophy className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="font-mono text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">FONDATRICE</p>
-                  <p className="font-display text-sm font-extrabold text-white">🏆 Fondatrice ORVYN</p>
-                </div>
+                {macroMarkers.map((m) => (
+                  <div
+                    key={m.label}
+                    className="orvyn-clip-sm flex items-center gap-2.5 border border-orvyn-olive/40 bg-orvyn-carbon/90 px-3.5 py-2.5 backdrop-blur-sm"
+                  >
+                    <m.icon className="h-3.5 w-3.5 text-orvyn-clay" />
+                    <div>
+                      <p className="font-display text-base font-bold leading-none text-orvyn-bone">{m.value}</p>
+                      <p className="font-mono text-[8px] tracking-widest text-orvyn-bone/50 uppercase">{m.label}</p>
+                    </div>
+                  </div>
+                ))}
               </motion.div>
 
-              {/* Decorative background glow behind container frame */}
-              <div className="absolute -inset-1.5 -z-10 rounded-[32px] bg-brand-green opacity-[0.08] blur-xl"></div>
+              {/* Badge fondatrice */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="absolute -bottom-5 -left-4 sm:left-6 z-20 inline-flex items-center gap-3 rounded-sm border border-orvyn-olive/40 bg-orvyn-carbon/90 px-4 py-3 backdrop-blur-sm"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orvyn-performance/15">
+                  <Trophy className="h-4 w-4 text-orvyn-performance" />
+                </div>
+                <div>
+                  <p className="font-mono text-[9px] tracking-[0.25em] text-orvyn-bone/50 uppercase">Fondatrice</p>
+                  <p className="font-display text-sm font-bold text-orvyn-bone">Fondatrice ORVYN</p>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
 
