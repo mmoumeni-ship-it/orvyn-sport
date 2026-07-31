@@ -27,47 +27,47 @@ export default function AboutPage() {
         description="Decouvrez ORVYN : la nutrition sportive reinventee. Une marque premium de repas proteines pour athletes exigeants."
         canonical="/a-propos"
       />
-      <section className="relative bg-[#050505] pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 h-[500px] w-[500px] rounded-full bg-brand-green/5 blur-[120px] pointer-events-none" />
+      <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 h-[500px] w-[500px] rounded-full bg-clay/5 blur-[120px] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block mb-4">NOTRE HISTOIRE</span>
-          <h1 className="font-display text-4xl font-extrabold text-white sm:text-6xl tracking-[-0.03em] mb-6">A propos d'ORVYN</h1>
-          <p className="text-sm text-neutral-400 max-w-2xl mx-auto font-sans">
+          <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">NOTRE HISTOIRE</span>
+          <h1 className="font-display h-editorial text-orvyn-bone tracking-tight mb-6">A propos d'ORVYN</h1>
+          <p className="text-sm text-orvyn-bone/60 max-w-2xl mx-auto font-sans leading-relaxed">
             Decouvrez ORVYN : la nutrition sportive reinventee. Une marque premium de repas proteines pour athletes exigeants.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="space-y-6">
-              <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl tracking-[-0.03em]">La nutrition sportive reinventee</h2>
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-3xl tracking-tight">La nutrition sportive reinventee</h2>
+              <p className="text-sm text-orvyn-bone/60 leading-relaxed font-sans">
                 ORVYN est nee d'un constat simple : les athletes meritent mieux que des barres industrielles et des poudres insipides.
                 Notre mission est de rendre la nutrition sportive premium accessible, pratique et delicieuse.
               </p>
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <p className="text-sm text-orvyn-bone/60 leading-relaxed font-sans">
                 Nous avons reuni des chefs formes a la FoodTech et des nutritionnistes du sport de haut niveau pour creer des repas
                 qui allient gastronomie et precision nutritionnelle. Chaque recette est pensee pour optimiser vos performances,
                 votre recuperation et votre sante sur le long terme.
               </p>
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <p className="text-sm text-orvyn-bone/60 leading-relaxed font-sans">
                 Nos repas sont prepares chaque matin avec des ingredients frais, locaux et de saison, puis deposes dans nos
                 casiers connectes thermo-regules. Vous commandez depuis votre application et recuperez votre repas a la sortie
                 de votre salle de sport. Simple, rapide, efficace.
               </p>
             </div>
             <div className="space-y-6">
-              <div className="bg-[#0a0a0a] border border-neutral-900 rounded-2xl p-8">
-                <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-green/10 to-transparent border border-neutral-800 flex items-center justify-center mb-6">
-                  <span className="text-6xl font-extrabold text-white font-display tracking-tight">O</span>
+              <div className="bg-carbon-raised orvyn-clip-sm depth p-8">
+                <div className="aspect-square rounded-sm bg-clay/5 border border-olive/20 flex items-center justify-center mb-6">
+                  <span className="orvyn-o text-6xl font-semibold text-clay"></span>
                 </div>
                 <div className="space-y-4">
                   {milestones.map((m, idx) => (
                     <div key={idx} className="flex items-start gap-4">
-                      <span className="text-[10px] font-mono font-bold text-brand-green bg-brand-green/10 px-2 py-1 rounded shrink-0">{m.year}</span>
-                      <p className="text-xs text-neutral-300">{m.event}</p>
+                      <span className="text-[10px] font-semibold text-clay bg-clay/10 px-2 py-1 shrink-0">{m.year}</span>
+                      <p className="text-xs text-orvyn-bone/70 font-sans">{m.event}</p>
                     </div>
                   ))}
                 </div>
@@ -77,10 +77,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-2xl font-extrabold text-white sm:text-4xl tracking-[-0.03em] mb-4">Nos valeurs</h2>
-          <p className="text-sm text-neutral-400 max-w-xl mx-auto mb-12">Ce qui nous anime chaque jour</p>
+          <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-4xl tracking-tight mb-4">Nos valeurs</h2>
+          <p className="text-sm text-orvyn-bone/60 max-w-xl mx-auto mb-12 font-sans">Ce qui nous anime chaque jour</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {values.map((v, idx) => (
               <motion.div
@@ -88,26 +88,26 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-[#0a0a0a] border border-neutral-900 rounded-2xl p-6 text-center hover:border-neutral-800 transition group"
+                className="bg-carbon-raised orvyn-clip-sm depth p-6 text-center hover:bg-[#2b2923] transition group"
               >
-                <div className="h-14 w-14 rounded-2xl bg-brand-green/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-green/20 transition">
-                  <v.icon className="h-7 w-7 text-brand-green" />
+                <div className="h-14 w-14 bg-clay/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-clay/20 transition">
+                  <v.icon className="h-7 w-7 text-clay" />
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">{v.title}</h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">{v.desc}</p>
+                <h3 className="text-base font-display font-semibold text-orvyn-bone mb-2">{v.title}</h3>
+                <p className="text-xs text-orvyn-bone/50 leading-relaxed font-sans">{v.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-sand py-16 border-t border-olive/20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-2xl font-extrabold text-white sm:text-4xl tracking-[-0.03em] mb-4">Rejoignez l'aventure ORVYN</h2>
-          <p className="text-sm text-neutral-400 max-w-xl mx-auto mb-8">
+          <h2 className="font-display text-2xl font-semibold text-carbon sm:text-4xl tracking-tight mb-4">Rejoignez l'aventure ORVYN</h2>
+          <p className="text-sm text-carbon/60 max-w-xl mx-auto mb-8 font-sans">
             Que vous soyez athlete, partenaire ou investisseur, construisons ensemble la nutrition de demain.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-8 py-3 text-xs font-mono tracking-wider uppercase font-bold hover:bg-brand-green transition">
+          <Link to="/contact" className="inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
             Nous contacter <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Flame, Award, ChevronDown, ChevronUp, ArrowRight, Check, Wheat, Snowflake, Target, AlertTriangle } from 'lucide-react';
+import { Flame, Award, ChevronDown, ChevronUp, ArrowRight, Check, Target } from 'lucide-react';
 import SEO from '../components/SEO';
 import { MEALS_DATABASE } from '../data/meals';
 
@@ -37,24 +37,24 @@ export default function BowlsProteines() {
         canonical="/bowls-proteines"
       />
       {/* Hero */}
-      <section className="relative bg-[#050505] pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-brand-green/5 blur-[100px] pointer-events-none" />
+      <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block mb-4">SIGNATURE BOWLS</span>
-          <h1 className="font-display text-4xl font-extrabold text-white sm:text-6xl tracking-[-0.03em] mb-6">Bowls protéinés</h1>
-          <p className="text-sm text-neutral-400 max-w-2xl mx-auto font-sans">
+          <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">SIGNATURE BOWLS</span>
+          <h1 className="font-display h-editorial text-orvyn-bone tracking-tight mb-6">Bowls protéinés</h1>
+          <p className="text-sm text-orvyn-bone/60 max-w-2xl mx-auto font-sans leading-relaxed">
             Découvrez nos bowls protéinés premium. Repas équilibrés riches en protéines pour la prise de masse, la sèche ou la récupération musculaire.
           </p>
         </div>
       </section>
 
       {/* Definition */}
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl tracking-[-0.03em]">Qu'est-ce qu'un bowl protéiné ?</h2>
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-3xl tracking-tight">Qu'est-ce qu'un bowl protéiné ?</h2>
+              <p className="text-sm text-orvyn-bone/60 leading-relaxed font-sans">
                 Un bowl protéiné ORVYN est un repas complet et équilibré, assemblé dans un bowl noir mat signature. Chaque bowl contient une source de protéines premium, des glucides complexes, des légumes frais et des lipides sains. Le tout est pesé et calibré pour répondre aux besoins précis des sportifs.
               </p>
               <div className="grid grid-cols-2 gap-4 pt-4">
@@ -64,28 +64,28 @@ export default function BowlsProteines() {
                   { icon: Target, label: 'Macros calibrées', sub: 'Précision au gramme' },
                   { icon: Check, label: 'Prêt en 3 min', sub: 'Réfrigéré, micro-ondable' }
                 ].map((item) => (
-                  <div key={item.label} className="bg-[#0a0a0a] border border-neutral-900 rounded-xl p-4 flex items-start gap-3">
-                    <item.icon className="h-5 w-5 text-brand-green shrink-0 mt-0.5" />
+                  <div key={item.label} className="bg-carbon-raised border border-olive/20 rounded-sm p-4 flex items-start gap-3">
+                    <item.icon className="h-5 w-5 text-clay shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-bold text-white">{item.label}</p>
-                      <p className="text-[10px] text-neutral-500">{item.sub}</p>
+                      <p className="text-xs font-semibold text-orvyn-bone">{item.label}</p>
+                      <p className="text-[10px] text-orvyn-bone/40 font-sans">{item.sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-[#0a0a0a] border border-neutral-900 rounded-2xl p-6">
-              <h3 className="text-sm font-bold text-white mb-4">Valeurs nutritionnelles moyennes</h3>
+            <div className="bg-carbon-raised orvyn-clip-sm depth p-6">
+              <h3 className="text-sm font-semibold text-orvyn-bone mb-4">Valeurs nutritionnelles moyennes</h3>
               <div className="space-y-3">
                 {[
-                  { label: 'Calories', value: '460 - 600 kcal', color: 'text-brand-green' },
-                  { label: 'Protéines', value: '38 - 55 g', color: 'text-white' },
-                  { label: 'Glucides', value: '42 - 60 g', color: 'text-blue-400' },
-                  { label: 'Lipides', value: '12 - 22 g', color: 'text-orange-400' },
+                  { label: 'Calories', value: '460 - 600 kcal', color: 'text-clay' },
+                  { label: 'Protéines', value: '38 - 55 g', color: 'text-orvyn-bone' },
+                  { label: 'Glucides', value: '42 - 60 g', color: 'text-olive' },
+                  { label: 'Lipides', value: '12 - 22 g', color: 'text-clay/80' },
                 ].map((row) => (
-                  <div key={row.label} className="flex justify-between items-center py-2 border-b border-neutral-900 last:border-0">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">{row.label}</span>
-                    <span className={`text-sm font-extrabold font-mono ${row.color}`}>{row.value}</span>
+                  <div key={row.label} className="flex justify-between items-center py-2 border-b border-olive/20 last:border-0">
+                    <span className="text-[10px] uppercase tracking-wider text-orvyn-bone/40">{row.label}</span>
+                    <span className={`text-sm font-semibold ${row.color}`}>{row.value}</span>
                   </div>
                 ))}
               </div>
@@ -95,11 +95,11 @@ export default function BowlsProteines() {
       </section>
 
       {/* Product Grid */}
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-display text-2xl font-extrabold text-white sm:text-4xl tracking-[-0.03em] mb-4">Nos bowls protéinés</h2>
-            <p className="text-sm text-neutral-400 max-w-xl mx-auto">{bowls.length} recettes premium</p>
+            <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-4xl tracking-tight mb-4">Nos bowls protéinés</h2>
+            <p className="text-sm text-orvyn-bone/60 max-w-xl mx-auto font-sans">{bowls.length} recettes premium</p>
           </div>
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {bowls.map((bowl, idx) => (
@@ -108,45 +108,45 @@ export default function BowlsProteines() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="group rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden hover:border-neutral-800 transition-all duration-300"
+                className="group orvyn-clip-sm depth bg-carbon-raised overflow-hidden hover:bg-[#2b2923] transition-all duration-300"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-neutral-950">
-                  <img src={bowl.image} alt={bowl.name} className="h-full w-full object-cover group-hover:scale-105 transition duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                <div className="relative aspect-[4/3] overflow-hidden bg-carbon">
+                  <img src={bowl.image} alt={bowl.name} className="h-full w-full object-cover photo-orvyn group-hover:scale-105 transition duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-carbon-raised via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 flex gap-1.5">
                     {bowl.tags.slice(0, 3).map(t => (
-                      <span key={t} className="text-[8px] font-mono uppercase bg-black/70 text-neutral-300 border border-neutral-700 rounded px-1.5 py-0.5 backdrop-blur-sm">{t}</span>
+                      <span key={t} className="text-[8px] tracking-widest uppercase bg-carbon/80 text-orvyn-bone/70 border border-olive/30 px-1.5 py-0.5 backdrop-blur-sm">{t}</span>
                     ))}
                   </div>
                 </div>
                 <div className="p-5 space-y-4">
-                  <h3 className="text-lg font-extrabold text-white">{bowl.name}</h3>
-                  <div className="grid grid-cols-4 gap-2 text-center font-mono">
-                    <div className="bg-neutral-900/50 rounded-lg p-2">
-                      <span className="block text-brand-green text-xs font-bold">{bowl.calories}</span>
-                      <span className="text-[8px] text-neutral-500 uppercase">Kcal</span>
+                  <h3 className="text-lg font-display font-semibold text-orvyn-bone">{bowl.name}</h3>
+                  <div className="grid grid-cols-4 gap-2 text-center">
+                    <div className="bg-carbon rounded-sm p-2">
+                      <span className="block text-clay text-xs font-semibold">{bowl.calories}</span>
+                      <span className="text-[8px] text-orvyn-bone/40 uppercase">Kcal</span>
                     </div>
-                    <div className="bg-neutral-900/50 rounded-lg p-2">
-                      <span className="block text-white text-xs font-bold">{bowl.proteins}g</span>
-                      <span className="text-[8px] text-neutral-500 uppercase">Prot</span>
+                    <div className="bg-carbon rounded-sm p-2">
+                      <span className="block text-orvyn-bone text-xs font-semibold">{bowl.proteins}g</span>
+                      <span className="text-[8px] text-orvyn-bone/40 uppercase">Prot</span>
                     </div>
-                    <div className="bg-neutral-900/50 rounded-lg p-2">
-                      <span className="block text-blue-400 text-xs font-bold">{bowl.carbs}g</span>
-                      <span className="text-[8px] text-neutral-500 uppercase">Gluc</span>
+                    <div className="bg-carbon rounded-sm p-2">
+                      <span className="block text-olive text-xs font-semibold">{bowl.carbs}g</span>
+                      <span className="text-[8px] text-orvyn-bone/40 uppercase">Gluc</span>
                     </div>
-                    <div className="bg-neutral-900/50 rounded-lg p-2">
-                      <span className="block text-orange-400 text-xs font-bold">{bowl.lipids}g</span>
-                      <span className="text-[8px] text-neutral-500 uppercase">Lip</span>
+                    <div className="bg-carbon rounded-sm p-2">
+                      <span className="block text-clay/80 text-xs font-semibold">{bowl.lipids}g</span>
+                      <span className="text-[8px] text-orvyn-bone/40 uppercase">Lip</span>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {bowl.goals.map(g => (
-                      <span key={g} className="text-[8px] font-mono uppercase bg-brand-green/10 text-brand-green border border-brand-green/20 rounded px-1.5 py-0.5">{g}</span>
+                      <span key={g} className="text-[8px] tracking-widest uppercase bg-lime/10 text-lime border border-lime/20 px-1.5 py-0.5">{g}</span>
                     ))}
                   </div>
-                  <div className="pt-3 border-t border-neutral-900 flex items-center justify-between">
-                    <span className="text-lg font-extrabold text-white font-mono">{bowl.price.toFixed(2)} €</span>
-                    <Link to={`/repas/${bowl.id}`} className="text-[10px] font-mono tracking-wider text-brand-green flex items-center gap-1 hover:gap-2 transition-all">
+                  <div className="pt-3 border-t border-olive/20 flex items-center justify-between">
+                    <span className="text-lg font-semibold text-clay">{bowl.price.toFixed(2)} €</span>
+                    <Link to={`/repas/${bowl.id}`} className="text-[10px] tracking-wider text-clay flex items-center gap-1 hover:gap-2 transition-all">
                       Détails <ArrowRight className="h-3 w-3" />
                     </Link>
                   </div>
@@ -158,16 +158,16 @@ export default function BowlsProteines() {
       </section>
 
       {/* Liens utiles */}
-      <section className="bg-[#050505] py-12 border-t border-neutral-900">
+      <section className="bg-sand py-12 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/repas-prise-de-masse" className="rounded-full bg-[#0a0a0a] border border-neutral-800 text-white px-6 py-3 text-[10px] font-mono tracking-wider uppercase font-bold hover:border-brand-green hover:text-brand-green transition">
+            <Link to="/repas-prise-de-masse" className="orvyn-clip-sm border border-olive/50 text-carbon px-6 py-3 text-[10px] tracking-wider uppercase font-semibold hover:border-clay hover:text-clay transition">
               Repas prise de masse
             </Link>
-            <Link to="/repas-seche" className="rounded-full bg-[#0a0a0a] border border-neutral-800 text-white px-6 py-3 text-[10px] font-mono tracking-wider uppercase font-bold hover:border-brand-green hover:text-brand-green transition">
+            <Link to="/repas-seche" className="orvyn-clip-sm border border-olive/50 text-carbon px-6 py-3 text-[10px] tracking-wider uppercase font-semibold hover:border-clay hover:text-clay transition">
               Repas sèche
             </Link>
-            <Link to="/repas-post-entrainement" className="rounded-full bg-[#0a0a0a] border border-neutral-800 text-white px-6 py-3 text-[10px] font-mono tracking-wider uppercase font-bold hover:border-brand-green hover:text-brand-green transition">
+            <Link to="/repas-post-entrainement" className="orvyn-clip-sm border border-olive/50 text-carbon px-6 py-3 text-[10px] tracking-wider uppercase font-semibold hover:border-clay hover:text-clay transition">
               Repas post-entraînement
             </Link>
           </div>
@@ -175,21 +175,21 @@ export default function BowlsProteines() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block mb-4">FAQ</span>
-            <h2 className="font-display text-2xl font-extrabold text-white sm:text-4xl tracking-[-0.03em]">Questions fréquentes sur les bowls</h2>
+            <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">FAQ</span>
+            <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-4xl tracking-tight">Questions fréquentes sur les bowls</h2>
           </div>
           <div className="space-y-3">
             {faqItems.map((item, idx) => (
-              <div key={idx} className="rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden hover:border-neutral-800 transition">
+              <div key={idx} className="orvyn-clip-sm depth bg-carbon-raised overflow-hidden transition">
                 <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full text-left px-6 py-5 flex justify-between items-center">
-                  <span className="text-sm font-bold text-white">{item.q}</span>
-                  {openFaq === idx ? <ChevronUp className="h-4 w-4 text-brand-green shrink-0" /> : <ChevronDown className="h-4 w-4 text-neutral-500 shrink-0" />}
+                  <span className="text-sm font-semibold text-orvyn-bone">{item.q}</span>
+                  {openFaq === idx ? <ChevronUp className="h-4 w-4 text-clay shrink-0" /> : <ChevronDown className="h-4 w-4 text-orvyn-bone/40 shrink-0" />}
                 </button>
                 {openFaq === idx && (
-                  <div className="px-6 pb-6 pt-2 border-t border-neutral-900 text-xs text-neutral-400 leading-relaxed">{item.a}</div>
+                  <div className="px-6 pb-6 pt-2 border-t border-olive/20 text-xs text-orvyn-bone/60 leading-relaxed font-sans">{item.a}</div>
                 )}
               </div>
             ))}
@@ -198,11 +198,11 @@ export default function BowlsProteines() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-2xl font-extrabold text-white mb-4">Prêt à passer commande ?</h2>
-          <p className="text-sm text-neutral-400 mb-8">Choisissez votre bowl protéiné et récupérez-le dans votre casier connecté.</p>
-          <Link to="/abonnements" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-8 py-3 text-xs font-mono tracking-wider uppercase font-bold hover:bg-brand-green transition">
+          <h2 className="font-display text-2xl font-semibold text-orvyn-bone mb-4">Prêt à passer commande ?</h2>
+          <p className="text-sm text-orvyn-bone/60 mb-8 font-sans">Choisissez votre bowl protéiné et récupérez-le dans votre casier connecté.</p>
+          <Link to="/abonnements" className="inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
             Voir les abonnements <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -76,25 +76,25 @@ export default function FAQPage() {
         description="Questions fréquentes sur ORVYN : composition des repas, prise de masse, sèche, allergènes, conservation, commande, abonnements."
         canonical="/faq"
       />
-      <section className="relative bg-[#050505] pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-brand-green/5 blur-[100px] pointer-events-none" />
+      <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block mb-4">FAQ</span>
-          <h1 className="font-display text-4xl font-extrabold text-white sm:text-6xl tracking-[-0.03em] mb-6">Foire Aux Questions</h1>
-          <p className="text-sm text-neutral-400 max-w-2xl mx-auto font-sans">
+          <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">FAQ</span>
+          <h1 className="font-display h-editorial text-orvyn-bone tracking-tight mb-6">Foire Aux Questions</h1>
+          <p className="text-sm text-orvyn-bone/60 max-w-2xl mx-auto font-sans leading-relaxed">
             Questions fréquentes sur ORVYN : composition des repas, prise de masse, sèche, allergènes, conservation, commande, abonnements.
           </p>
           <div className="relative max-w-md mx-auto mt-8">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-orvyn-bone/35" />
             <input
               type="text"
               placeholder="Rechercher dans la FAQ..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl bg-neutral-950 border border-neutral-800 py-3 pl-10 pr-10 text-sm text-white placeholder-neutral-500 focus:border-brand-green focus:outline-none focus:ring-1 focus:ring-brand-green/30 transition-all"
+              className="w-full rounded-sm bg-carbon border border-olive/30 py-3 pl-10 pr-10 text-sm text-orvyn-bone placeholder-orvyn-bone/25 focus:border-lime focus:outline-none focus:ring-1 focus:ring-lime/20 transition-all"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white">
+              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-orvyn-bone/40 hover:text-orvyn-bone">
                 <X className="h-4 w-4" />
               </button>
             )}
@@ -102,40 +102,40 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {filtered.length === 0 ? (
-            <div className="text-center py-20 bg-[#0a0a0a] rounded-2xl border border-neutral-900 p-8 max-w-md mx-auto">
-              <HelpCircle className="h-10 w-10 text-brand-green mx-auto mb-4" />
-              <h3 className="font-bold text-white text-base mb-2">Aucun résultat trouvé</h3>
-              <p className="text-xs text-neutral-400">Essayez d'autres termes de recherche.</p>
+            <div className="text-center py-20 bg-carbon-raised orvyn-clip-sm depth p-8 max-w-md mx-auto">
+              <HelpCircle className="h-10 w-10 text-clay mx-auto mb-4" />
+              <h3 className="font-display font-semibold text-orvyn-bone text-base mb-2">Aucun résultat trouvé</h3>
+              <p className="text-xs text-orvyn-bone/50 font-sans">Essayez d'autres termes de recherche.</p>
             </div>
           ) : (
             <div className="space-y-8">
               {filtered.map((cat, catIdx) => (
                 <div key={cat.category}>
-                  <h2 className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold mb-4">{cat.category}</h2>
+                  <h2 className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold mb-4">{cat.category}</h2>
                   <div className="space-y-3">
                     {cat.items.map((item, itemIdx) => {
                       const isOpen = openIndex?.catIdx === catIdx && openIndex?.itemIdx === itemIdx;
                       return (
                         <div
                           key={item.q}
-                          className="rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden hover:border-neutral-800 transition"
+                          className="orvyn-clip-sm depth bg-carbon-raised overflow-hidden transition"
                         >
                           <button
                             onClick={() => setOpenIndex(isOpen ? null : { catIdx, itemIdx })}
                             className="w-full text-left px-6 py-5 flex justify-between items-center"
                           >
-                            <span className="text-sm font-bold text-white">{item.q}</span>
+                            <span className="text-sm font-semibold text-orvyn-bone">{item.q}</span>
                             {isOpen ? (
-                              <ChevronUp className="h-4 w-4 text-brand-green shrink-0" />
+                              <ChevronUp className="h-4 w-4 text-clay shrink-0" />
                             ) : (
-                              <ChevronDown className="h-4 w-4 text-neutral-500 shrink-0" />
+                              <ChevronDown className="h-4 w-4 text-orvyn-bone/40 shrink-0" />
                             )}
                           </button>
                           {isOpen && (
-                            <div className="px-6 pb-6 pt-2 border-t border-neutral-900 text-xs text-neutral-400 leading-relaxed">
+                            <div className="px-6 pb-6 pt-2 border-t border-olive/20 text-xs text-orvyn-bone/60 leading-relaxed font-sans">
                               {item.a}
                             </div>
                           )}

@@ -24,37 +24,37 @@ export default function PostEntrainement() {
         description="Repas de récupération post-workout. Protéines, glucides et nutriments essentiels pour reconstruire le muscle après l'effort."
         canonical="/repas-post-entrainement"
       />
-      <section className="relative bg-[#050505] pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
-        <div className="absolute top-1/4 right-1/3 h-[400px] w-[400px] rounded-full bg-brand-green/5 blur-[100px] pointer-events-none" />
+      <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="absolute top-1/4 right-1/3 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block mb-4">RÉCUPÉRATION MUSCULAIRE</span>
-          <h1 className="font-display text-4xl font-extrabold text-white sm:text-6xl tracking-[-0.03em] mb-6">Repas post-entraînement</h1>
-          <p className="text-sm text-neutral-400 max-w-2xl mx-auto font-sans">
+          <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">RÉCUPÉRATION MUSCULAIRE</span>
+          <h1 className="font-display h-editorial text-orvyn-bone tracking-tight mb-6">Repas post-entraînement</h1>
+          <p className="text-sm text-orvyn-bone/60 max-w-2xl mx-auto font-sans leading-relaxed">
             Repas de récupération post-workout. Protéines, glucides et nutriments essentiels pour reconstruire le muscle après l'effort.
           </p>
           <div className="flex justify-center gap-6 mt-8">
             <div className="text-center">
-              <p className="text-2xl font-extrabold text-brand-green font-mono">{recoveryMeals.length}</p>
-              <p className="text-[10px] font-mono uppercase text-neutral-500 tracking-wider">Repas adaptés</p>
+              <p className="text-2xl font-semibold text-clay">{recoveryMeals.length}</p>
+              <p className="text-[10px] uppercase text-orvyn-bone/40 tracking-wider">Repas adaptés</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-extrabold text-white font-mono">26-55g</p>
-              <p className="text-[10px] font-mono uppercase text-neutral-500 tracking-wider">Protéines/repas</p>
+              <p className="text-2xl font-semibold text-orvyn-bone">26-55g</p>
+              <p className="text-[10px] uppercase text-orvyn-bone/40 tracking-wider">Protéines/repas</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-extrabold text-blue-400 font-mono">145-596</p>
-              <p className="text-[10px] font-mono uppercase text-neutral-500 tracking-wider">Kcal/repas</p>
+              <p className="text-2xl font-semibold text-olive">145-596</p>
+              <p className="text-[10px] uppercase text-orvyn-bone/40 tracking-wider">Kcal/repas</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6">
-              <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl tracking-[-0.03em]">L'importance de la récupération nutritionnelle</h2>
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-3xl tracking-tight">L'importance de la récupération nutritionnelle</h2>
+              <p className="text-sm text-orvyn-bone/60 leading-relaxed font-sans">
                 Après l'effort, votre corps a besoin de nutriments spécifiques pour réparer les fibres musculaires, reconstituer les réserves de glycogène et réduire l'inflammation. Nos repas post-entraînement sont formulés pour optimiser cette fenêtre de récupération.
               </p>
               <div className="grid grid-cols-2 gap-4 pt-4">
@@ -64,18 +64,18 @@ export default function PostEntrainement() {
                   { icon: Droplet, label: 'Hydratation', sub: 'Équilibre électrolytique' },
                   { icon: Heart, label: 'Antioxydants', sub: 'Réduction inflammation' }
                 ].map(item => (
-                  <div key={item.label} className="bg-[#0a0a0a] border border-neutral-900 rounded-xl p-4 flex items-start gap-3">
-                    <item.icon className="h-5 w-5 text-brand-green shrink-0 mt-0.5" />
+                  <div key={item.label} className="bg-carbon-raised border border-olive/20 rounded-sm p-4 flex items-start gap-3">
+                    <item.icon className="h-5 w-5 text-clay shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-bold text-white">{item.label}</p>
-                      <p className="text-[10px] text-neutral-500">{item.sub}</p>
+                      <p className="text-xs font-semibold text-orvyn-bone">{item.label}</p>
+                      <p className="text-[10px] text-orvyn-bone/40 font-sans">{item.sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-[#0a0a0a] border border-neutral-900 rounded-2xl p-6">
-              <h3 className="text-sm font-bold text-white mb-4">Les clés d'une récupération optimale</h3>
+            <div className="bg-carbon-raised orvyn-clip-sm depth p-6">
+              <h3 className="text-sm font-semibold text-orvyn-bone mb-4">Les clés d'une récupération optimale</h3>
               <ul className="space-y-3">
                 {[
                   'Repas dans les 30-60 min post-workout pour maximiser l\'assimilation',
@@ -84,8 +84,8 @@ export default function PostEntrainement() {
                   'Oméga-3 et antioxydants pour réduire l\'inflammation musculaire',
                   'Hydratation adaptée pour compenser les pertes sudorales'
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs text-neutral-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-green shrink-0 mt-1.5" />
+                  <li key={idx} className="flex items-start gap-2 text-xs text-orvyn-bone/60 font-sans">
+                    <span className="h-1.5 w-1.5 bg-clay shrink-0 mt-1.5" />
                     {item}
                   </li>
                 ))}
@@ -94,7 +94,7 @@ export default function PostEntrainement() {
           </div>
 
           <div className="text-center mb-12">
-            <h2 className="font-display text-2xl font-extrabold text-white sm:text-4xl tracking-[-0.03em] mb-4">Nos repas pour la récupération</h2>
+            <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-4xl tracking-tight mb-4">Nos repas pour la récupération</h2>
           </div>
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {recoveryMeals.map((meal, idx) => (
@@ -103,31 +103,31 @@ export default function PostEntrainement() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="group rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden hover:border-neutral-800 transition-all duration-300"
+                className="group orvyn-clip-sm depth bg-carbon-raised overflow-hidden hover:bg-[#2b2923] transition-all duration-300"
               >
-                <div className="relative aspect-square overflow-hidden bg-neutral-950">
-                  <img src={meal.image} alt={meal.name} className="h-full w-full object-cover group-hover:scale-105 transition duration-700" />
+                <div className="relative aspect-square overflow-hidden bg-carbon">
+                  <img src={meal.image} alt={meal.name} className="h-full w-full object-cover photo-orvyn group-hover:scale-105 transition duration-700" />
                   <div className="absolute top-3 left-3 flex gap-1.5">
                     {meal.tags.slice(0, 2).map(t => (
-                      <span key={t} className="text-[8px] font-mono uppercase bg-black/70 text-neutral-300 border border-neutral-700 rounded px-1.5 py-0.5 backdrop-blur-sm">{t}</span>
+                      <span key={t} className="text-[8px] tracking-widest uppercase bg-carbon/80 text-orvyn-bone/70 border border-olive/30 px-1.5 py-0.5 backdrop-blur-sm">{t}</span>
                     ))}
                   </div>
                 </div>
                 <div className="p-5 space-y-3">
-                  <h3 className="text-base font-extrabold text-white group-hover:text-brand-green transition">{meal.name}</h3>
-                  <div className="flex items-center gap-3 font-mono text-[10px]">
-                    <span className="flex items-center gap-1 text-brand-green font-bold"><Flame className="h-3.5 w-3.5" />{meal.calories} kcal</span>
-                    <span className="text-neutral-800">•</span>
-                    <span className="text-neutral-300 font-semibold">{meal.proteins}g Protéines</span>
+                  <h3 className="text-base font-display font-semibold text-orvyn-bone group-hover:text-clay transition">{meal.name}</h3>
+                  <div className="flex items-center gap-3 text-[10px]">
+                    <span className="flex items-center gap-1 text-clay font-semibold"><Flame className="h-3.5 w-3.5" />{meal.calories} kcal</span>
+                    <span className="text-olive/40">•</span>
+                    <span className="text-orvyn-bone/50 font-medium">{meal.proteins}g Protéines</span>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {meal.goals.map(g => (
-                      <span key={g} className="text-[8px] font-mono uppercase bg-brand-green/10 text-brand-green border border-brand-green/20 rounded px-1.5 py-0.5">{g}</span>
+                      <span key={g} className="text-[8px] tracking-widest uppercase bg-lime/10 text-lime border border-lime/20 px-1.5 py-0.5">{g}</span>
                     ))}
                   </div>
-                  <div className="pt-3 border-t border-neutral-900 flex items-center justify-between">
-                    <span className="text-lg font-extrabold text-white font-mono">{meal.price.toFixed(2)} €</span>
-                    <Link to={`/repas/${meal.id}`} className="text-[10px] font-mono tracking-wider text-brand-green flex items-center gap-1 hover:gap-2 transition-all">Détails <ArrowRight className="h-3 w-3" /></Link>
+                  <div className="pt-3 border-t border-olive/20 flex items-center justify-between">
+                    <span className="text-lg font-semibold text-clay">{meal.price.toFixed(2)} €</span>
+                    <Link to={`/repas/${meal.id}`} className="text-[10px] tracking-wider text-clay flex items-center gap-1 hover:gap-2 transition-all">Détails <ArrowRight className="h-3 w-3" /></Link>
                   </div>
                 </div>
               </motion.div>
@@ -136,30 +136,30 @@ export default function PostEntrainement() {
         </div>
       </section>
 
-      <section className="bg-[#050505] py-12 border-t border-neutral-900">
+      <section className="bg-sand py-12 border-t border-olive/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/bowls-proteines" className="rounded-full bg-[#0a0a0a] border border-neutral-800 text-white px-6 py-3 text-[10px] font-mono tracking-wider uppercase font-bold hover:border-brand-green hover:text-brand-green transition">Bowls protéinés</Link>
-            <Link to="/shakes-proteines" className="rounded-full bg-[#0a0a0a] border border-neutral-800 text-white px-6 py-3 text-[10px] font-mono tracking-wider uppercase font-bold hover:border-brand-green hover:text-brand-green transition">Shakes protéinés</Link>
+            <Link to="/bowls-proteines" className="orvyn-clip-sm border border-olive/50 text-carbon px-6 py-3 text-[10px] tracking-wider uppercase font-semibold hover:border-clay hover:text-clay transition">Bowls protéinés</Link>
+            <Link to="/shakes-proteines" className="orvyn-clip-sm border border-olive/50 text-carbon px-6 py-3 text-[10px] tracking-wider uppercase font-semibold hover:border-clay hover:text-clay transition">Shakes protéinés</Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block mb-4">FAQ</span>
-            <h2 className="font-display text-2xl font-extrabold text-white sm:text-4xl tracking-[-0.03em]">Récupération : vos questions</h2>
+            <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">FAQ</span>
+            <h2 className="font-display text-2xl font-semibold text-orvyn-bone sm:text-4xl tracking-tight">Récupération : vos questions</h2>
           </div>
           <div className="space-y-3">
             {faqItems.map((item, idx) => (
-              <div key={idx} className="rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden hover:border-neutral-800 transition">
+              <div key={idx} className="orvyn-clip-sm depth bg-carbon-raised overflow-hidden transition">
                 <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full text-left px-6 py-5 flex justify-between items-center">
-                  <span className="text-sm font-bold text-white">{item.q}</span>
-                  {openFaq === idx ? <ChevronUp className="h-4 w-4 text-brand-green shrink-0" /> : <ChevronDown className="h-4 w-4 text-neutral-500 shrink-0" />}
+                  <span className="text-sm font-semibold text-orvyn-bone">{item.q}</span>
+                  {openFaq === idx ? <ChevronUp className="h-4 w-4 text-clay shrink-0" /> : <ChevronDown className="h-4 w-4 text-orvyn-bone/40 shrink-0" />}
                 </button>
                 {openFaq === idx && (
-                  <div className="px-6 pb-6 pt-2 border-t border-neutral-900 text-xs text-neutral-400 leading-relaxed">{item.a}</div>
+                  <div className="px-6 pb-6 pt-2 border-t border-olive/20 text-xs text-orvyn-bone/60 leading-relaxed font-sans">{item.a}</div>
                 )}
               </div>
             ))}
@@ -167,11 +167,11 @@ export default function PostEntrainement() {
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-2xl font-extrabold text-white mb-4">Optimisez votre récupération dès maintenant</h2>
-          <p className="text-sm text-neutral-400 mb-8">Commandez vos repas et récupérez-les dans votre casier connecté après l'entraînement.</p>
-          <Link to="/abonnements" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-8 py-3 text-xs font-mono tracking-wider uppercase font-bold hover:bg-brand-green transition">
+          <h2 className="font-display text-2xl font-semibold text-orvyn-bone mb-4">Optimisez votre récupération dès maintenant</h2>
+          <p className="text-sm text-orvyn-bone/60 mb-8 font-sans">Commandez vos repas et récupérez-les dans votre casier connecté après l'entraînement.</p>
+          <Link to="/abonnements" className="inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
             Voir les abonnements <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

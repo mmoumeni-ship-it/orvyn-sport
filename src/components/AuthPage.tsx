@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Lock, Mail, ChevronRight, Eye, ShieldCheck, Dumbbell, Sparkles } from 'lucide-react';
+import { User, Lock, Mail, Eye, Zap, Rocket, ShieldCheck } from 'lucide-react';
 import { UserProfile } from '../types';
 
 interface AuthPageProps {
@@ -32,7 +32,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
         notifications: [
           {
             id: 'n-1',
-            title: 'Repas prêt ! 🟢',
+            title: 'Repas prêt !',
             message: 'Votre Hypertrophy Beef Bowl vous attend au casier STAND-A1-GREEN.',
             time: 'Il y a 5 min',
             read: false,
@@ -80,7 +80,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
         notifications: [
           {
             id: 'n-welcome',
-            title: 'Bienvenue chez ORVYN 🎉',
+            title: 'Bienvenue chez ORVYN',
             message: 'Configurez votre objectif et réservez votre premier repas de précision d\'élite.',
             time: 'À l\'instant',
             read: false,
@@ -102,30 +102,31 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in">
-      <div className="bg-[#0a0a0a] rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-neutral-900 flex flex-col justify-between animate-slide-up relative text-white">
-        
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-carbon/90 backdrop-blur-md p-4 animate-fade-in">
+      <div className="bg-carbon-raised orvyn-clip depth max-w-md w-full overflow-hidden border border-olive/20 flex flex-col justify-between animate-slide-up relative text-orvyn-bone">
+
         {/* Absolute top close button */}
         <button
           id="close-auth-modal-btn"
           onClick={onClose}
-          className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 text-neutral-400 hover:bg-brand-green hover:text-black transition text-sm cursor-pointer"
+          className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center bg-carbon text-orvyn-bone/50 hover:bg-clay hover:text-bone transition text-sm cursor-pointer"
         >
           ×
         </button>
 
         {/* Modal Header */}
-        <div className="bg-black p-8 text-center space-y-3 border-b border-neutral-900">
+        <div className="bg-carbon p-8 text-center space-y-3 border-b border-olive/20">
           <div className="flex justify-center">
-            <span className="font-display font-extrabold tracking-widest text-white px-3.5 py-1.5 rounded-lg text-xs border border-neutral-900">
-              ORVYN<span className="h-1.5 w-1.5 rounded-full bg-brand-green inline-block ml-1 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+            <span className="font-display font-semibold tracking-widest text-orvyn-bone px-3.5 py-1.5 text-xs border border-olive/30 flex items-center gap-2">
+              <span className="orvyn-o text-sm text-clay"></span>
+              ORVYN
             </span>
           </div>
           <div className="space-y-1">
-            <h3 className="font-display text-lg font-bold tracking-tight">
+            <h3 className="font-display text-lg font-semibold tracking-tight">
               {forgotPasswordMode ? 'Récupération de compte' : isLogin ? 'Connexion Espace Membre' : 'Rejoindre ORVYN'}
             </h3>
-            <p className="text-[11px] text-neutral-400 font-sans font-light">
+            <p className="text-[11px] text-orvyn-bone/50 font-sans">
               {forgotPasswordMode ? 'Recevez un lien de réinitialisation' : 'Accédez à votre programmation nutritionnelle d\'élite.'}
             </p>
           </div>
@@ -133,29 +134,29 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
 
         {/* Modal Body */}
         <div className="p-8 space-y-6">
-          
+
           {forgotPasswordMode ? (
             /* Forgot Password Form */
             <form onSubmit={handleForgotPassword} className="space-y-4">
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider font-mono">Votre Adresse E-mail</label>
+                <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Votre Adresse E-mail</label>
                 <div className="relative">
-                  <Mail className="absolute left-3.5 top-3 h-4 w-4 text-neutral-500" />
+                  <Mail className="absolute left-3.5 top-3 h-4 w-4 text-orvyn-bone/35" />
                   <input
                     id="recovery-email"
                     type="email"
                     placeholder="votre.adresse@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-xl border border-neutral-800 bg-neutral-950 p-3 pl-11 text-xs text-white focus:outline-none focus:border-brand-green transition"
+                    className="w-full rounded-sm border border-olive/30 bg-carbon p-3 pl-11 text-xs text-orvyn-bone focus:outline-none focus:border-lime transition"
                     required
                   />
                 </div>
               </div>
 
               {recoveryEmailSent ? (
-                <p className="text-xs text-brand-green font-semibold text-center animate-fade-in font-mono">
-                  ✓ Lien de réinitialisation transmis ! Consultez vos e-mails.
+                <p className="text-xs text-lime font-semibold text-center animate-fade-in">
+                  Lien de réinitialisation transmis ! Consultez vos e-mails.
                 </p>
               ) : (
                 <div className="flex gap-3">
@@ -163,14 +164,14 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
                     id="recovery-cancel-btn"
                     type="button"
                     onClick={() => setForgotPasswordMode(false)}
-                    className="w-1/2 rounded-xl border border-neutral-800 py-3 text-center text-xs font-bold text-neutral-400 hover:bg-neutral-950 transition cursor-pointer"
+                    className="w-1/2 orvyn-clip-sm border border-olive/40 py-3 text-center text-xs font-semibold text-orvyn-bone/70 hover:border-bone/50 transition cursor-pointer"
                   >
                     Retour
                   </button>
                   <button
                     id="recovery-submit-btn"
                     type="submit"
-                    className="w-1/2 rounded-xl bg-white hover:bg-brand-green text-black hover:text-black text-xs font-bold py-3 transition cursor-pointer"
+                    className="w-1/2 orvyn-clip-sm bg-lime hover:bg-lime-soft text-carbon text-xs font-semibold py-3 transition cursor-pointer"
                   >
                     Envoyer
                   </button>
@@ -180,19 +181,19 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
           ) : (
             /* Standard Auth Form (Login or SignUp) */
             <form onSubmit={handleSubmit} className="space-y-4">
-              
+
               {!isLogin && (
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider font-mono">Nom Complet</label>
+                  <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Nom Complet</label>
                   <div className="relative">
-                    <User className="absolute left-3.5 top-3 h-4 w-4 text-neutral-500" />
+                    <User className="absolute left-3.5 top-3 h-4 w-4 text-orvyn-bone/35" />
                     <input
                       id="signup-name"
                       type="text"
                       placeholder="Alexandre Dubois"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full rounded-xl border border-neutral-800 bg-neutral-950 p-3 pl-11 text-xs text-white focus:outline-none focus:border-brand-green transition"
+                      className="w-full rounded-sm border border-olive/30 bg-carbon p-3 pl-11 text-xs text-orvyn-bone focus:outline-none focus:border-lime transition"
                       required
                     />
                   </div>
@@ -200,16 +201,16 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
               )}
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider font-mono">Adresse E-mail</label>
+                <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Adresse E-mail</label>
                 <div className="relative">
-                  <Mail className="absolute left-3.5 top-3 h-4 w-4 text-neutral-500" />
+                  <Mail className="absolute left-3.5 top-3 h-4 w-4 text-orvyn-bone/35" />
                   <input
                     id="auth-email"
                     type="email"
                     placeholder="alex.dubois@orvyn.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-xl border border-neutral-800 bg-neutral-950 p-3 pl-11 text-xs text-white focus:outline-none focus:border-brand-green transition"
+                    className="w-full rounded-sm border border-olive/30 bg-carbon p-3 pl-11 text-xs text-orvyn-bone focus:outline-none focus:border-lime transition"
                     required
                   />
                 </div>
@@ -217,34 +218,34 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
 
               <div className="space-y-1.5">
                 <div className="flex justify-between items-center">
-                  <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider font-mono">Mot de passe</label>
+                  <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Mot de passe</label>
                   {isLogin && (
                     <button
                       id="forgot-password-toggle-btn"
                       type="button"
                       onClick={() => setForgotPasswordMode(true)}
-                      className="text-[10px] text-neutral-500 hover:text-white transition cursor-pointer"
+                      className="text-[10px] text-orvyn-bone/50 hover:text-orvyn-bone transition cursor-pointer"
                     >
                       Oublié ?
                     </button>
                   )}
                 </div>
                 <div className="relative">
-                  <Lock className="absolute left-3.5 top-3 h-4 w-4 text-neutral-500" />
+                  <Lock className="absolute left-3.5 top-3 h-4 w-4 text-orvyn-bone/35" />
                   <input
                     id="auth-password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full rounded-xl border border-neutral-800 bg-neutral-950 p-3 pl-11 pr-11 text-xs text-white focus:outline-none focus:border-brand-green transition"
+                    className="w-full rounded-sm border border-olive/30 bg-carbon p-3 pl-11 pr-11 text-xs text-orvyn-bone focus:outline-none focus:border-lime transition"
                     required
                   />
                   <button
                     id="show-pass-btn"
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-3.5 text-neutral-500 hover:text-white transition cursor-pointer"
+                    className="absolute right-3.5 top-3.5 text-orvyn-bone/50 hover:text-orvyn-bone transition cursor-pointer"
                   >
                     <Eye className="h-4 w-4" />
                   </button>
@@ -254,7 +255,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
               <button
                 id="auth-submit-btn"
                 type="submit"
-                className="w-full rounded-full bg-white text-black py-3.5 text-center text-[10px] font-mono tracking-widest uppercase font-bold hover:bg-brand-green transition cursor-pointer"
+                className="w-full orvyn-clip-sm bg-lime text-carbon py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
               >
                 {isLogin ? 'Se connecter' : 'Créer mon compte'}
               </button>
@@ -263,11 +264,11 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
 
           {/* Google Mock OAuth visual integration */}
           {!forgotPasswordMode && (
-            <div className="space-y-4 pt-5 border-t border-neutral-950">
+            <div className="space-y-4 pt-5 border-t border-olive/20">
               <button
                 id="google-mock-auth-btn"
                 onClick={() => handleQuickLogin('user')}
-                className="w-full rounded-full border border-neutral-800 bg-neutral-950 py-3 text-center text-xs font-bold text-neutral-200 hover:bg-neutral-900 flex items-center justify-center gap-2 cursor-pointer transition"
+                className="w-full orvyn-clip-sm border border-olive/40 bg-carbon py-3 text-center text-xs font-semibold text-orvyn-bone/80 hover:border-bone/50 flex items-center justify-center gap-2 cursor-pointer transition"
               >
                 <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -275,28 +276,31 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
                 </svg>
-                <span className="font-mono text-[10px] uppercase tracking-wider">Continuer avec Google</span>
+                <span className="text-[10px] uppercase tracking-wider">Continuer avec Google</span>
               </button>
 
               {/* Instant Switchers for Demo - Critical MVP requirement */}
-              <div className="bg-[#050505] rounded-2xl p-4 border border-neutral-900 space-y-3.5">
-                <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest font-bold block text-center">
-                  ⚡ ACCÈS RAPIDE DÉMONSTRATION INVESTISSEURS
+              <div className="bg-carbon orvyn-clip-sm p-4 border border-olive/20 space-y-3.5">
+                <span className="text-[9px] text-orvyn-bone/40 uppercase tracking-widest font-semibold block text-center">
+                  <Zap className="h-3 w-3 inline-block mr-1 text-clay" />
+                  Accès rapide démonstration investisseurs
                 </span>
-                <div className="grid grid-cols-2 gap-3 text-[10px] font-mono uppercase tracking-wider font-bold">
+                <div className="grid grid-cols-2 gap-3 text-[10px] uppercase tracking-wider font-semibold">
                   <button
                     id="demo-login-athlete-btn"
                     onClick={() => handleQuickLogin('user')}
-                    className="rounded-xl bg-brand-green/10 text-brand-green border border-brand-green/20 hover:bg-brand-green/20 p-2.5 text-center cursor-pointer transition"
+                    className="orvyn-clip-sm bg-lime/10 text-lime border border-lime/30 hover:bg-lime/20 p-2.5 text-center cursor-pointer transition flex items-center justify-center gap-1"
                   >
-                    🚀 Rôle Athlète
+                    <Rocket className="h-3 w-3" />
+                    Rôle Athlète
                   </button>
                   <button
                     id="demo-login-admin-btn"
                     onClick={() => handleQuickLogin('admin')}
-                    className="rounded-xl bg-white text-black p-2.5 text-center cursor-pointer transition hover:bg-brand-green"
+                    className="orvyn-clip-sm bg-bone text-carbon p-2.5 text-center cursor-pointer transition hover:bg-lime flex items-center justify-center gap-1"
                   >
-                    🛡️ Rôle Gérant
+                    <ShieldCheck className="h-3 w-3" />
+                    Rôle Gérant
                   </button>
                 </div>
               </div>
@@ -307,7 +311,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
                   id="switch-auth-mode-btn"
                   type="button"
                   onClick={() => setIsLogin(!isLogin)}
-                  className="text-xs text-neutral-400 hover:text-white transition cursor-pointer font-sans font-light"
+                  className="text-xs text-orvyn-bone/60 hover:text-orvyn-bone transition cursor-pointer font-sans"
                 >
                   {isLogin ? "Nouveau membre ? S'inscrire" : "Déjà inscrit ? Se connecter"}
                 </button>

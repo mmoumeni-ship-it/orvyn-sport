@@ -276,12 +276,12 @@ const BLOG_ARTICLES: Record<string, ArticleContent> = {
 };
 
 const categoryColors: Record<string, string> = {
-  'Récupération': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  'Nutrition': 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-  'Prise de masse': 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  'Sèche': 'bg-red-500/10 text-red-400 border-red-500/20',
-  'Bowls': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-  'Conseils': 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'
+  'Récupération': 'bg-clay/10 text-clay border-clay/20',
+  'Nutrition': 'bg-clay/10 text-clay border-clay/20',
+  'Prise de masse': 'bg-clay/10 text-clay border-clay/20',
+  'Sèche': 'bg-clay/10 text-clay border-clay/20',
+  'Bowls': 'bg-clay/10 text-clay border-clay/20',
+  'Conseils': 'bg-clay/10 text-clay border-clay/20'
 };
 
 function formatDate(dateStr: string): string {
@@ -298,17 +298,17 @@ export default function BlogArticle() {
     return (
       <>
         <SEO title="Article introuvable" description="L'article demandé n'existe pas." />
-        <section className="relative bg-[#050505] pt-28 pb-16 lg:pt-36 lg:pb-20 min-h-screen flex items-center justify-center">
+        <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 min-h-screen flex items-center justify-center">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-display text-4xl font-extrabold text-white sm:text-5xl tracking-[-0.03em] mb-4">
+            <h1 className="font-display text-4xl font-semibold text-orvyn-bone sm:text-5xl tracking-tight mb-4">
               Article introuvable
             </h1>
-            <p className="text-sm text-neutral-400 max-w-md mx-auto mb-8">
+            <p className="text-sm text-orvyn-bone/60 max-w-md mx-auto mb-8 font-sans">
               Cet article n'existe pas ou a été déplacé.
             </p>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-6 py-3 text-[10px] font-mono font-bold uppercase tracking-widest text-white hover:border-brand-green hover:text-brand-green transition"
+              className="inline-flex items-center gap-2 orvyn-clip-sm border border-olive/40 bg-carbon-raised px-6 py-3 text-[10px] font-semibold uppercase tracking-widest text-orvyn-bone hover:border-bone/50 transition"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Retour au blog
@@ -327,42 +327,42 @@ export default function BlogArticle() {
         canonical={`/blog/${article.slug}`}
       />
 
-      <section className="relative bg-[#050505] pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 h-[500px] w-[500px] rounded-full bg-brand-green/5 blur-[120px] pointer-events-none" />
+      <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 h-[500px] w-[500px] rounded-full bg-clay/5 blur-[120px] pointer-events-none" />
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 relative z-10">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 hover:text-brand-green transition mb-8"
+            className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-orvyn-bone/50 hover:text-clay transition mb-8"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Retour au blog
           </Link>
 
           <div className="flex items-center gap-3 flex-wrap mb-4">
-            <span className={`inline-block text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${categoryColors[article.category] || 'bg-neutral-800 text-neutral-400 border-neutral-700'}`}>
+            <span className={`inline-block text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 border ${categoryColors[article.category] || 'bg-carbon-raised text-orvyn-bone/60 border-olive/30'}`}>
               {article.category}
             </span>
-            <span className="flex items-center gap-1 text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+            <span className="flex items-center gap-1 text-[10px] text-orvyn-bone/40 uppercase tracking-wider">
               <Calendar className="h-3 w-3" />
               {formatDate(article.date)}
             </span>
-            <span className="flex items-center gap-1 text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+            <span className="flex items-center gap-1 text-[10px] text-orvyn-bone/40 uppercase tracking-wider">
               <Clock className="h-3 w-3" />
               {article.readTime}
             </span>
           </div>
 
-          <h1 className="font-display text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl tracking-[-0.03em] leading-tight mb-6">
+          <h1 className="font-display text-3xl font-semibold text-orvyn-bone sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-6">
             {article.title}
           </h1>
 
-          <p className="text-sm text-neutral-400 max-w-2xl font-sans leading-relaxed">
+          <p className="text-sm text-orvyn-bone/60 max-w-2xl font-sans leading-relaxed">
             {article.description}
           </p>
         </div>
       </section>
 
-      <section className="bg-[#050505] py-16 border-t border-neutral-900">
+      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
             {article.sections.map((section, index) => (
@@ -373,10 +373,10 @@ export default function BlogArticle() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h2 className="font-display text-xl font-bold text-white sm:text-2xl tracking-[-0.02em] mb-4">
+                <h2 className="font-display text-xl font-semibold text-orvyn-bone sm:text-2xl tracking-tight mb-4">
                   {section.heading}
                 </h2>
-                <p className="text-sm text-neutral-300 leading-relaxed font-sans">
+                <p className="text-sm text-orvyn-bone/70 leading-relaxed font-sans">
                   {section.content}
                 </p>
               </motion.div>
@@ -384,17 +384,17 @@ export default function BlogArticle() {
           </div>
 
           {article.faq.length > 0 && (
-            <div className="mt-16 pt-12 border-t border-neutral-800">
-              <h2 className="font-display text-2xl font-bold text-white tracking-[-0.02em] mb-8">
+            <div className="mt-16 pt-12 border-t border-olive/20">
+              <h2 className="font-display text-2xl font-semibold text-orvyn-bone tracking-tight mb-8">
                 Questions fréquentes
               </h2>
               <div className="space-y-6">
                 {article.faq.map((item, index) => (
-                  <div key={index} className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6">
-                    <h3 className="font-display text-sm font-bold text-white mb-2">
+                  <div key={index} className="bg-carbon-raised orvyn-clip-sm depth p-6">
+                    <h3 className="font-display text-sm font-semibold text-orvyn-bone mb-2">
                       {item.q}
                     </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-sm text-orvyn-bone/60 leading-relaxed font-sans">
                       {item.a}
                     </p>
                   </div>
@@ -406,7 +406,7 @@ export default function BlogArticle() {
           <div className="mt-12 text-center">
             <button
               onClick={() => navigate(article.cta.link)}
-              className="group inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-4 text-xs font-bold text-black tracking-wider uppercase transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] cursor-pointer"
+              className="group inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-4 text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-lime-soft cursor-pointer"
             >
               {article.cta.text}
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
@@ -416,7 +416,7 @@ export default function BlogArticle() {
           <div className="mt-12 text-center">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-6 py-3 text-[10px] font-mono font-bold uppercase tracking-widest text-white hover:border-brand-green hover:text-brand-green transition"
+              className="inline-flex items-center gap-2 orvyn-clip-sm border border-olive/40 bg-carbon-raised px-6 py-3 text-[10px] font-semibold uppercase tracking-widest text-orvyn-bone hover:border-bone/50 transition"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Tous les articles

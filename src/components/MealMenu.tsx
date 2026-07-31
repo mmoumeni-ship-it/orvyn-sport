@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, Check, Info, Flame, Search, X, ShieldAlert, Award, ChevronRight, Droplet, Apple, HelpCircle, FileText } from 'lucide-react';
+import { Plus, Check, Info, Flame, Search, X, ShieldAlert, ChevronRight, Droplet, Apple, HelpCircle, FileText, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { Meal, CartItem } from '../types';
 import { MEALS_DATABASE } from '../data/meals';
 
@@ -81,42 +81,42 @@ export default function MealMenu({
   };
 
   return (
-    <section id="menu-section" className="bg-[#050505] py-24 lg:py-32 border-b border-neutral-900 relative">
+    <section id="menu-section" className="bg-orvyn-carbon py-24 lg:py-32 border-b border-olive/20 relative">
       {/* Soft color glow map */}
-      <div className="absolute bottom-1/4 left-0 h-[400px] w-[400px] rounded-full bg-brand-green/5 blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 left-0 h-[400px] w-[400px] rounded-full bg-clay/5 blur-[100px] pointer-events-none"></div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-brand-green font-bold block">
-            LA CARTE ORVYN NUTRITION
-          </span>
-          <h2 className="font-display text-3xl font-extrabold text-white sm:text-5xl tracking-[-0.03em]">
+        <div className="text-center max-w-3xl mx-auto space-y-5 mb-16">
+          <div className="flex items-center justify-center gap-3">
+            <span className="font-display text-xs font-semibold tracking-[0.25em] text-clay uppercase">La carte ORVYN</span>
+          </div>
+          <h2 className="font-display h-editorial text-orvyn-bone tracking-tight">
             La gastronomie sportive d'élite
           </h2>
-          <p className="text-sm text-neutral-400 font-sans max-w-xl mx-auto">
+          <p className="text-sm text-orvyn-bone/60 font-sans max-w-xl mx-auto leading-relaxed">
             Sélectionnez vos repas de précision, shakers protéinés d'élite ou en-cas d'athlète. Tous nos prix sont affichés de manière 100% transparente.
           </p>
         </div>
 
         {/* Sophisticated Controls Panel (Search & Categories) */}
         <div className="mb-12 space-y-6">
-          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-[#0a0a0a] border border-neutral-900 p-4 rounded-2xl">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-carbon-raised border border-olive/20 p-4 rounded-sm">
             {/* Instant Search Bar */}
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-orvyn-bone/35" />
               <input
                 type="text"
                 placeholder="Rechercher un ingrédient, un plat..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl bg-neutral-950 border border-neutral-800 py-2.5 pl-10 pr-10 text-xs text-white placeholder-neutral-500 focus:border-brand-green focus:outline-none focus:ring-1 focus:ring-brand-green/30 transition-all"
+                className="w-full rounded-sm bg-carbon border border-olive/30 py-2.5 pl-10 pr-10 text-xs text-orvyn-bone placeholder-orvyn-bone/25 focus:border-lime focus:outline-none focus:ring-1 focus:ring-lime/20 transition-all"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-orvyn-bone/40 hover:text-orvyn-bone"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -127,40 +127,40 @@ export default function MealMenu({
             <div className="flex flex-wrap items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
               <button
                 onClick={() => handleSetCategory('')}
-                className={`rounded-lg px-4 py-2 text-[10px] font-mono tracking-wider uppercase font-semibold transition border ${
+                className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === ''
-                    ? 'bg-white text-black border-white'
-                    : 'bg-neutral-950 text-neutral-400 border-neutral-800 hover:text-white'
+                    ? 'bg-lime text-carbon'
+                    : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
                 Tous ({MEALS_DATABASE.length})
               </button>
               <button
                 onClick={() => handleSetCategory('Bowls')}
-                className={`rounded-lg px-4 py-2 text-[10px] font-mono tracking-wider uppercase font-semibold transition border ${
+                className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === 'Bowls'
-                    ? 'bg-white text-black border-white'
-                    : 'bg-neutral-950 text-neutral-400 border-neutral-800 hover:text-white'
+                    ? 'bg-lime text-carbon'
+                    : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
                 Signature Bowls
               </button>
               <button
                 onClick={() => handleSetCategory('Shakers')}
-                className={`rounded-lg px-4 py-2 text-[10px] font-mono tracking-wider uppercase font-semibold transition border ${
+                className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === 'Shakers'
-                    ? 'bg-white text-black border-white'
-                    : 'bg-neutral-950 text-neutral-400 border-neutral-800 hover:text-white'
+                    ? 'bg-lime text-carbon'
+                    : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
                 Signature Protein Shakers
               </button>
               <button
                 onClick={() => handleSetCategory('Snacks')}
-                className={`rounded-lg px-4 py-2 text-[10px] font-mono tracking-wider uppercase font-semibold transition border ${
+                className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === 'Snacks'
-                    ? 'bg-white text-black border-white'
-                    : 'bg-neutral-950 text-neutral-400 border-neutral-800 hover:text-white'
+                    ? 'bg-lime text-carbon'
+                    : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
                 Signature Healthy Snacks
@@ -170,29 +170,29 @@ export default function MealMenu({
 
           {/* Active Sub-Filters feedback bar */}
           {(activeGoal || activeTag || searchQuery) && (
-            <div className="flex flex-wrap items-center gap-2 bg-[#0d0d0d] border border-neutral-950 px-4 py-2.5 rounded-xl text-xs">
-              <span className="text-neutral-500 font-mono text-[10px] uppercase">Filtres appliqués :</span>
+            <div className="flex flex-wrap items-center gap-2 bg-carbon-raised border border-olive/20 px-4 py-2.5 rounded-sm text-xs">
+              <span className="text-orvyn-bone/40 text-[10px] uppercase tracking-wider">Filtres appliqués :</span>
               {activeGoal && (
-                <span className="inline-flex items-center gap-1 rounded bg-neutral-900 border border-brand-green/20 px-2 py-0.5 text-[10px] text-brand-green font-mono uppercase">
+                <span className="inline-flex items-center gap-1 bg-carbon border border-lime/30 px-2 py-0.5 text-[10px] text-lime uppercase">
                   Objectif: {activeGoal}
-                  <button onClick={() => setActiveGoal('')} className="hover:text-red-400 ml-1.5 text-neutral-500">×</button>
+                  <button onClick={() => setActiveGoal('')} className="hover:text-orvyn-bone ml-1.5 text-orvyn-bone/50">×</button>
                 </span>
               )}
               {activeTag && (
-                <span className="inline-flex items-center gap-1 rounded bg-neutral-900 border border-neutral-800 px-2 py-0.5 text-[10px] text-neutral-300 font-mono uppercase">
+                <span className="inline-flex items-center gap-1 bg-carbon border border-olive/30 px-2 py-0.5 text-[10px] text-clay uppercase">
                   Régime: {activeTag}
-                  <button onClick={() => setActiveTag('')} className="hover:text-red-400 ml-1.5 text-neutral-500">×</button>
+                  <button onClick={() => setActiveTag('')} className="hover:text-orvyn-bone ml-1.5 text-orvyn-bone/50">×</button>
                 </span>
               )}
               {searchQuery && (
-                <span className="inline-flex items-center gap-1 rounded bg-neutral-900 border border-neutral-800 px-2 py-0.5 text-[10px] text-neutral-300 font-mono">
+                <span className="inline-flex items-center gap-1 bg-carbon border border-olive/30 px-2 py-0.5 text-[10px] text-orvyn-bone/70">
                   Recherche: "{searchQuery}"
-                  <button onClick={() => setSearchQuery('')} className="hover:text-red-400 ml-1.5 text-neutral-500">×</button>
+                  <button onClick={() => setSearchQuery('')} className="hover:text-orvyn-bone ml-1.5 text-orvyn-bone/50">×</button>
                 </span>
               )}
               <button
                 onClick={handleClearAllFilters}
-                className="text-neutral-400 hover:text-white transition font-mono text-[10px] underline ml-auto uppercase tracking-wider"
+                className="text-orvyn-bone/50 hover:text-orvyn-bone transition text-[10px] underline ml-auto uppercase tracking-wider"
               >
                 Tout effacer
               </button>
@@ -202,23 +202,23 @@ export default function MealMenu({
 
         {/* Meals Grid display */}
         {filteredMeals.length === 0 ? (
-          <div className="text-center py-20 bg-[#0a0a0a] rounded-2xl border border-neutral-900 p-8 max-w-md mx-auto space-y-5 shadow-2xl animate-fade-in">
-            <ShieldAlert className="h-10 w-10 text-brand-green mx-auto" />
+          <div className="text-center py-20 bg-carbon-raised orvyn-clip-sm depth p-8 max-w-md mx-auto space-y-5 animate-fade-in">
+            <ShieldAlert className="h-10 w-10 text-clay mx-auto" />
             <div className="space-y-2">
-              <h3 className="font-bold text-white text-base">Aucune formule trouvée</h3>
-              <p className="text-xs text-neutral-400 font-light">
+              <h3 className="font-display font-semibold text-orvyn-bone text-lg">Aucune formule trouvée</h3>
+              <p className="text-xs text-orvyn-bone/50 font-sans leading-relaxed">
                 Nous n'avons pas d'ingrédients ou de plats correspondant exactement à ces critères. Ajustez votre recherche ou réinitialisez les filtres.
               </p>
             </div>
             <button
               onClick={handleClearAllFilters}
-              className="rounded-full bg-white text-black px-5 py-2.5 text-[10px] font-mono tracking-widest font-bold uppercase hover:bg-brand-green transition"
+              className="orvyn-clip-sm bg-lime text-carbon px-5 py-2.5 text-[10px] tracking-widest font-semibold uppercase hover:bg-lime-soft transition cursor-pointer"
             >
               Réinitialiser les filtres
             </button>
           </div>
         ) : (
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
           >
@@ -236,20 +236,20 @@ export default function MealMenu({
                     id={`meal-card-${meal.id}`}
                     key={meal.id}
                     onClick={() => setSelectedDetailMeal(meal)}
-                    className="group rounded-2xl border border-neutral-900 bg-[#0a0a0a] overflow-hidden flex flex-col justify-between hover:border-neutral-800 transition-all duration-300 cursor-pointer hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                    className="group orvyn-clip-sm depth bg-carbon-raised overflow-hidden flex flex-col justify-between hover:bg-[#2b2923] transition-all duration-300 cursor-pointer"
                   >
                     {/* Meal Cover Image Header */}
-                    <div className="relative aspect-square w-full overflow-hidden bg-neutral-950">
+                    <div className="relative aspect-square w-full overflow-hidden bg-carbon">
                       <img
                         src={meal.image}
                         alt={meal.name}
-                        className="h-full w-full object-cover filter grayscale-[10%] group-hover:grayscale-0 transition duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover photo-orvyn group-hover:grayscale-0 transition duration-700 group-hover:scale-105"
                         referrerPolicy="no-referrer"
                       />
-                      
+
                       {/* Floating Info Button on Hover */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span className="bg-white/90 text-black text-[10px] font-mono tracking-wider uppercase font-extrabold px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-1">
+                      <div className="absolute inset-0 bg-carbon/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="bg-bone/95 text-carbon text-[10px] tracking-wider uppercase font-semibold px-4 py-2 flex items-center gap-1">
                           <Info className="h-3.5 w-3.5 stroke-[2.5]" />
                           Fiche nutritionnelle
                         </span>
@@ -259,45 +259,45 @@ export default function MealMenu({
                     {/* Meal Information Details */}
                     <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                       <div className="space-y-2">
-                        <h3 className="text-base font-extrabold text-white tracking-tight group-hover:text-brand-green transition duration-300">
+                        <h3 className="text-base font-display font-semibold text-orvyn-bone tracking-tight group-hover:text-clay transition duration-300">
                           {meal.name}
                         </h3>
-                        
+
                         {/* Simplified Premium Nutrition Badge Grid */}
-                        <div className="flex items-center gap-3 font-mono text-[10px]">
-                          <span className="flex items-center gap-1 text-brand-green font-bold">
+                        <div className="flex items-center gap-3 text-[10px]">
+                          <span className="flex items-center gap-1 text-clay font-semibold">
                             <Flame className="h-3.5 w-3.5" />
                             <span>{meal.calories} kcal</span>
                           </span>
-                          <span className="text-neutral-800">•</span>
-                          <span className="text-neutral-300 font-semibold">{meal.proteins}g Protéines</span>
+                          <span className="text-olive/40">•</span>
+                          <span className="text-orvyn-bone/50 font-medium">{meal.proteins}g Protéines</span>
                         </div>
                       </div>
 
                       {/* Price & CTA Basket button */}
-                      <div className="pt-3 border-t border-neutral-900 flex items-center justify-between" onClick={(e) => e.stopPropagation()}>
+                      <div className="pt-3 border-t border-olive/20 flex items-center justify-between" onClick={(e) => e.stopPropagation()}>
                         <div className="flex flex-col">
-                          <span className="text-[8px] text-neutral-500 font-mono uppercase tracking-widest">Tarif Unique</span>
-                          <span className="text-base font-extrabold text-white font-mono">{meal.price.toFixed(2)} €</span>
+                          <span className="text-[8px] text-orvyn-bone/40 uppercase tracking-widest">Tarif Unique</span>
+                          <span className="text-base font-semibold text-clay">{meal.price.toFixed(2)} €</span>
                         </div>
 
                         <button
                           id={`add-to-cart-btn-${meal.id}`}
                           onClick={() => onAddToCart(meal)}
-                          className={`rounded-full px-4.5 py-2 text-[10px] font-mono tracking-widest uppercase font-bold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
+                          className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-widest uppercase font-semibold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                             qty > 0
-                              ? 'bg-brand-green text-black hover:bg-white'
-                              : 'bg-white text-black hover:bg-brand-green hover:shadow-[0_0_15px_rgba(16,185,129,0.35)]'
+                              ? 'bg-lime text-carbon hover:bg-lime-soft'
+                              : 'bg-bone text-carbon hover:bg-lime'
                           }`}
                         >
                           {qty > 0 ? (
                             <>
-                              <Check className="h-3 w-3 text-black stroke-[3px]" />
+                              <Check className="h-3 w-3 stroke-[3px]" />
                               <span>Enregistré ({qty})</span>
                             </>
                           ) : (
                             <>
-                              <Plus className="h-3 w-3 text-black stroke-[3px]" />
+                              <Plus className="h-3 w-3 stroke-[3px]" />
                               <span>Prendre</span>
                             </>
                           )}
@@ -312,33 +312,33 @@ export default function MealMenu({
           </motion.div>
         )}
 
-        {/* Meal Detail Popup Dialog (With Premium Glassmorphism) */}
+        {/* Meal Detail Popup Dialog */}
         <AnimatePresence>
           {selectedDetailMeal && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in">
-              <motion.div 
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-carbon/90 p-4 animate-fade-in">
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 15 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-neutral-950 border border-neutral-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl"
+                className="orvyn-clip bg-carbon-raised max-w-lg w-full overflow-hidden depth"
               >
-                
+
                 {/* Visual meal preview */}
                 <div className="relative aspect-video w-full">
                   <img
                     src={selectedDetailMeal.image}
                     alt={selectedDetailMeal.name}
-                    className="h-full w-full object-cover filter grayscale-[10%]"
+                    className="h-full w-full object-cover photo-orvyn"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent z-10"></div>
-                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-carbon-raised via-transparent to-transparent z-10"></div>
+
                   {/* Close button */}
                   <button
                     id="close-meal-detail-btn"
                     onClick={() => setSelectedDetailMeal(null)}
-                    className="absolute top-4 right-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-neutral-400 hover:text-white hover:bg-neutral-900 border border-neutral-800 transition cursor-pointer"
+                    className="absolute top-4 right-4 z-20 flex h-8 w-8 items-center justify-center bg-carbon/90 text-orvyn-bone/60 hover:text-orvyn-bone hover:bg-carbon-raised border border-olive/30 transition cursor-pointer rounded-sm"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -348,50 +348,50 @@ export default function MealMenu({
                 <div className="p-6 space-y-6">
                   <div>
                     <div className="flex flex-wrap gap-1.5 mb-2">
-                      <span className="font-mono text-[8px] font-bold tracking-widest bg-brand-green/10 text-brand-green border border-brand-green/20 px-2 py-0.5 rounded">
+                      <span className="text-[8px] font-bold tracking-widest bg-lime/10 text-lime border border-lime/20 px-2 py-0.5">
                         CATÉGORIE: {selectedDetailMeal.category}
                       </span>
                       {selectedDetailMeal.subCategory && (
-                        <span className="font-mono text-[8px] font-bold tracking-widest bg-neutral-900 text-neutral-400 border border-neutral-800 px-2 py-0.5 rounded">
+                        <span className="text-[8px] font-bold tracking-widest bg-carbon text-orvyn-bone/50 border border-olive/30 px-2 py-0.5">
                           TYPE: {selectedDetailMeal.subCategory}
                         </span>
                       )}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-white tracking-tight">{selectedDetailMeal.name}</h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed mt-2 mb-4 font-light">{selectedDetailMeal.description}</p>
-                    
+                    <h3 className="font-display text-xl font-semibold text-orvyn-bone tracking-tight">{selectedDetailMeal.name}</h3>
+                    <p className="text-xs text-orvyn-bone/60 leading-relaxed mt-2 mb-4 font-sans">{selectedDetailMeal.description}</p>
+
                     {/* Detailed Macro-nutrients Grid */}
-                    <div className="bg-neutral-900/50 rounded-2xl p-4 border border-neutral-900 grid grid-cols-4 gap-2 text-center font-mono">
+                    <div className="bg-carbon rounded-sm p-4 border border-olive/20 grid grid-cols-4 gap-2 text-center">
                       <div>
-                        <span className="block text-neutral-500 text-[8px] uppercase font-bold tracking-wider mb-1">Calories</span>
-                        <span className="text-brand-green font-extrabold text-xs">{selectedDetailMeal.calories} kcal</span>
+                        <span className="block text-orvyn-bone/40 text-[8px] uppercase font-bold tracking-wider mb-1">Calories</span>
+                        <span className="text-clay font-semibold text-xs">{selectedDetailMeal.calories} kcal</span>
                       </div>
                       <div>
-                        <span className="block text-neutral-500 text-[8px] uppercase font-bold tracking-wider mb-1">Protéines</span>
-                        <span className="text-white font-extrabold text-xs">{selectedDetailMeal.proteins}g</span>
+                        <span className="block text-orvyn-bone/40 text-[8px] uppercase font-bold tracking-wider mb-1">Protéines</span>
+                        <span className="text-orvyn-bone font-semibold text-xs">{selectedDetailMeal.proteins}g</span>
                       </div>
                       <div>
-                        <span className="block text-neutral-500 text-[8px] uppercase font-bold tracking-wider mb-1">Glucides</span>
-                        <span className="text-blue-400 font-extrabold text-xs">{selectedDetailMeal.carbs}g</span>
+                        <span className="block text-orvyn-bone/40 text-[8px] uppercase font-bold tracking-wider mb-1">Glucides</span>
+                        <span className="text-olive font-semibold text-xs">{selectedDetailMeal.carbs}g</span>
                       </div>
                       <div>
-                        <span className="block text-neutral-500 text-[8px] uppercase font-bold tracking-wider mb-1">Lipides</span>
-                        <span className="text-orange-400 font-extrabold text-xs">{selectedDetailMeal.lipids}g</span>
+                        <span className="block text-orvyn-bone/40 text-[8px] uppercase font-bold tracking-wider mb-1">Lipides</span>
+                        <span className="text-clay/80 font-semibold text-xs">{selectedDetailMeal.lipids}g</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Ingredients Checklist and Allergens warning */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-5 border-t border-neutral-900">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-5 border-t border-olive/20">
                     <div className="space-y-2.5">
-                      <h4 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono flex items-center gap-1.5">
-                        <Apple className="h-3.5 w-3.5 text-brand-green" />
+                      <h4 className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-widest flex items-center gap-1.5">
+                        <Apple className="h-3.5 w-3.5 text-clay" />
                         Ingrédients sains
                       </h4>
-                      <ul className="text-xs text-neutral-400 space-y-1.5 font-light">
+                      <ul className="text-xs text-orvyn-bone/60 space-y-1.5 font-sans">
                         {selectedDetailMeal.ingredients.map(ing => (
                           <li key={ing} className="flex items-center gap-2">
-                            <span className="h-1 w-1 rounded-full bg-brand-green"></span>
+                            <span className="h-1 w-1 bg-clay"></span>
                             <span>{ing}</span>
                           </li>
                         ))}
@@ -399,27 +399,29 @@ export default function MealMenu({
                     </div>
 
                     <div className="space-y-3">
-                      <h4 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono">Allergènes</h4>
+                      <h4 className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-widest">Allergènes</h4>
                       {selectedDetailMeal.allergens && selectedDetailMeal.allergens.length > 0 ? (
                         <div className="flex flex-wrap gap-1.5">
                           {selectedDetailMeal.allergens.map(all => (
-                            <span key={all} className="rounded-lg bg-red-950/20 text-red-400 border border-red-900/40 text-[9px] font-mono px-2 py-1 flex items-center gap-1">
-                              ⚠️ {all}
+                            <span key={all} className="rounded-sm bg-clay/10 text-clay border border-clay/30 text-[9px] px-2 py-1 flex items-center gap-1">
+                              <AlertTriangle className="h-3 w-3" />
+                              {all}
                             </span>
                           ))}
                         </div>
                       ) : (
-                        <span className="text-xs text-brand-green font-medium flex items-center gap-1">
-                          ✓ Sans allergènes majeurs détectés
+                        <span className="text-xs text-olive font-medium flex items-center gap-1">
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                          Sans allergènes majeurs détectés
                         </span>
                       )}
 
                       {/* Dietary Badges */}
                       <div className="pt-2">
-                        <h4 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest font-mono mb-2">Labels de confiance</h4>
+                        <h4 className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-widest mb-2">Labels de confiance</h4>
                         <div className="flex flex-wrap gap-1">
                           {selectedDetailMeal.tags.map(tag => (
-                            <span key={tag} className="text-[8px] font-mono tracking-widest uppercase bg-neutral-900 text-neutral-400 border border-neutral-800 rounded px-1.5 py-0.5">
+                            <span key={tag} className="text-[8px] tracking-widest uppercase bg-carbon text-orvyn-bone/50 border border-olive/30 px-1.5 py-0.5">
                               {tag}
                             </span>
                           ))}
@@ -429,19 +431,19 @@ export default function MealMenu({
                   </div>
 
                   {/* Floating Action footer in Modal */}
-                  <div className="pt-5 border-t border-neutral-900 flex items-center justify-between">
+                  <div className="pt-5 border-t border-olive/20 flex items-center justify-between">
                     <div className="flex flex-col">
-                      <span className="text-[8px] text-neutral-500 font-mono uppercase tracking-widest">Valeur nutritionnelle</span>
-                      <span className="text-lg font-extrabold text-white font-mono">{selectedDetailMeal.calories} KCAL</span>
+                      <span className="text-[8px] text-orvyn-bone/40 uppercase tracking-widest">Valeur nutritionnelle</span>
+                      <span className="text-lg font-semibold text-clay">{selectedDetailMeal.calories} KCAL</span>
                     </div>
-                    
+
                     <button
                       id={`popup-add-to-cart-btn-${selectedDetailMeal.id}`}
                       onClick={() => {
                         onAddToCart(selectedDetailMeal);
                         setSelectedDetailMeal(null);
                       }}
-                      className="rounded-full bg-white text-black px-6 py-3 text-[10px] font-mono tracking-widest uppercase font-bold hover:bg-brand-green transition"
+                      className="orvyn-clip-sm bg-lime text-carbon px-6 py-3 text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
                     >
                       Ajouter au panier • {selectedDetailMeal.price.toFixed(2)} €
                     </button>
