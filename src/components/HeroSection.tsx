@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ChefHat, BarChart3, Zap } from 'lucide-react';
+import { ChefHat, BarChart3, Zap, Volume2, VolumeX } from 'lucide-react';
 import OrvynButton from './ui/OrvynButton';
 
 interface HeroSectionProps {
@@ -19,6 +19,7 @@ export default function HeroSection(_props: HeroSectionProps) {
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -35,6 +36,13 @@ export default function HeroSection(_props: HeroSectionProps) {
       videoRef.current?.play().catch(() => {});
     }
   }, [reducedMotion]);
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
 
   const scrollToConcept = () => {
     const el = document.getElementById('comment-ca-marche');
@@ -150,7 +158,7 @@ export default function HeroSection(_props: HeroSectionProps) {
                   className="aspect-video w-full object-cover"
                   src="/videos/hero.mp4"
                   autoPlay={!reducedMotion}
-                  muted
+                  muted={isMuted}
                   loop
                   playsInline
                   preload="auto"
@@ -170,6 +178,22 @@ export default function HeroSection(_props: HeroSectionProps) {
                   <p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-sauge">Le concept ORVYN</p>
                   <p className="mt-0.5 text-xs font-semibold text-charbon">Commandez avant. Récupérez après.</p>
                 </div>
+
+                {/* Son */}
+                <button
+                  type="button"
+                  onClick={toggleSound}
+                  aria-pressed={!isMuted}
+                  aria-label={isMuted ? 'Activer le son' : 'Couper le son'}
+                  title={isMuted ? 'Activer le son' : 'Couper le son'}
+                  className="absolute bottom-4 right-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-charbon/55 text-bone backdrop-blur-sm ring-1 ring-inset ring-bone/20 transition-all duration-300 hover:bg-charbon/75 hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  {isMuted ? (
+                    <VolumeX className="h-4 w-4" aria-hidden="true" />
+                  ) : (
+                    <Volume2 className="h-4 w-4" aria-hidden="true" />
+                  )}
+                </button>
               </div>
             </motion.div>
           </div>
