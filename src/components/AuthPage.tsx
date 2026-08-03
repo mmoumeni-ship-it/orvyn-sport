@@ -171,7 +171,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
                   <button
                     id="recovery-submit-btn"
                     type="submit"
-                    className="w-1/2 orvyn-clip-sm bg-lime hover:bg-lime-soft text-carbon text-xs font-semibold py-3 transition cursor-pointer"
+                    className="w-1/2 orvyn-clip-sm bg-sauge hover:bg-sauge-soft text-bone text-xs font-semibold py-3 transition cursor-pointer"
                   >
                     Envoyer
                   </button>
@@ -255,7 +255,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
               <button
                 id="auth-submit-btn"
                 type="submit"
-                className="w-full orvyn-clip-sm bg-lime text-carbon py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
+                className="w-full orvyn-clip-sm bg-sauge text-bone py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
               >
                 {isLogin ? 'Se connecter' : 'Créer mon compte'}
               </button>
@@ -297,7 +297,7 @@ export default function AuthPage({ onSuccessLogin, onClose }: AuthPageProps) {
                   <button
                     id="demo-login-admin-btn"
                     onClick={() => handleQuickLogin('admin')}
-                    className="orvyn-clip-sm bg-bone text-carbon p-2.5 text-center cursor-pointer transition hover:bg-lime flex items-center justify-center gap-1"
+                    className="orvyn-clip-sm bg-bone text-carbon p-2.5 text-center cursor-pointer transition hover:bg-frais flex items-center justify-center gap-1"
                   >
                     <ShieldCheck className="h-3 w-3" />
                     Rôle Gérant

@@ -406,7 +406,7 @@ export default function BlogArticle() {
           <div className="mt-12 text-center">
             <button
               onClick={() => navigate(article.cta.link)}
-              className="group inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-4 text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-lime-soft cursor-pointer"
+              className="group inline-flex items-center gap-2 orvyn-clip-sm bg-sauge text-bone px-8 py-4 text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:bg-lime-soft cursor-pointer"
             >
               {article.cta.text}
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />

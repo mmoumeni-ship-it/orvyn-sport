@@ -107,7 +107,7 @@ export default function AboutPage() {
           <p className="text-sm text-carbon/60 max-w-xl mx-auto mb-8 font-sans">
             Que vous soyez athlete, partenaire ou investisseur, construisons ensemble la nutrition de demain.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
+          <Link to="/contact" className="inline-flex items-center gap-2 orvyn-clip-sm bg-sauge text-bone px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
             Nous contacter <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

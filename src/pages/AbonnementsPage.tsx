@@ -117,7 +117,7 @@ export default function AbonnementsPage() {
                 <div>
                   {plan.badge && (
                     <span className={`absolute -top-3.5 left-1/2 -translate-x-1/2 text-[8px] font-semibold px-4 py-1.5 uppercase tracking-widest ${
-                      plan.popular ? 'bg-lime text-carbon' : 'bg-olive text-bone'
+                      plan.popular ? 'bg-sauge text-bone' : 'bg-olive text-bone'
                     }`}>
                       {plan.badge}
                     </span>
@@ -154,7 +154,7 @@ export default function AbonnementsPage() {
                   <Link
                     to="/contact"
                     className={`orvyn-clip-sm w-full py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-300 inline-block text-center cursor-pointer ${
-                      plan.popular ? 'bg-lime text-carbon hover:bg-lime-soft' : 'border border-olive/40 text-orvyn-bone hover:border-bone/50'
+                      plan.popular ? 'bg-sauge text-bone hover:bg-lime-soft' : 'border border-olive/40 text-orvyn-bone hover:border-bone/50'
                     }`}
                   >
                     {plan.cta}

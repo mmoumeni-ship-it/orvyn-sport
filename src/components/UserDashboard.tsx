@@ -103,7 +103,7 @@ export default function UserDashboard({
                 id="dash-tab-tracker"
                 onClick={() => setActiveTab('tracker')}
                 className={`flex w-full items-center gap-3 orvyn-clip-sm px-4 py-3.5 text-left text-xs font-semibold tracking-wider uppercase transition cursor-pointer ${
-                  activeTab === 'tracker' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
+                  activeTab === 'tracker' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
                 }`}
               >
                 <Activity className="h-4 w-4" />
@@ -113,7 +113,7 @@ export default function UserDashboard({
                 id="dash-tab-orders"
                 onClick={() => setActiveTab('orders')}
                 className={`flex w-full items-center justify-between orvyn-clip-sm px-4 py-3.5 text-left text-xs font-semibold tracking-wider uppercase transition cursor-pointer ${
-                  activeTab === 'orders' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
+                  activeTab === 'orders' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
                 }`}
               >
                 <span className="flex items-center gap-3">
@@ -121,7 +121,7 @@ export default function UserDashboard({
                   <span>Réservations</span>
                 </span>
                 {orders.length > 0 && (
-                  <span className="orvyn-clip-sm bg-lime text-carbon text-[9px] px-2 py-0.5 font-semibold">
+                  <span className="orvyn-clip-sm bg-sauge text-bone text-[9px] px-2 py-0.5 font-semibold">
                     {orders.length}
                   </span>
                 )}
@@ -130,7 +130,7 @@ export default function UserDashboard({
                 id="dash-tab-favorites"
                 onClick={() => setActiveTab('favorites')}
                 className={`flex w-full items-center gap-3 orvyn-clip-sm px-4 py-3.5 text-left text-xs font-semibold tracking-wider uppercase transition cursor-pointer ${
-                  activeTab === 'favorites' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
+                  activeTab === 'favorites' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
                 }`}
               >
                 <Heart className="h-4 w-4" />
@@ -140,7 +140,7 @@ export default function UserDashboard({
                 id="dash-tab-subscriptions"
                 onClick={() => setActiveTab('subscriptions')}
                 className={`flex w-full items-center gap-3 orvyn-clip-sm px-4 py-3.5 text-left text-xs font-semibold tracking-wider uppercase transition cursor-pointer ${
-                  activeTab === 'subscriptions' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
+                  activeTab === 'subscriptions' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
                 }`}
               >
                 <Zap className="h-4 w-4" />
@@ -150,7 +150,7 @@ export default function UserDashboard({
                 id="dash-tab-profile"
                 onClick={() => setActiveTab('profile')}
                 className={`flex w-full items-center gap-3 orvyn-clip-sm px-4 py-3.5 text-left text-xs font-semibold tracking-wider uppercase transition cursor-pointer ${
-                  activeTab === 'profile' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
+                  activeTab === 'profile' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:bg-carbon hover:text-orvyn-bone'
                 }`}
               >
                 <User className="h-4 w-4" />
@@ -276,7 +276,7 @@ export default function UserDashboard({
                   <button
                     id="dash-order-new-btn"
                     onClick={() => setCurrentTab('menu')}
-                    className="orvyn-clip-sm bg-lime text-carbon hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-3 transition whitespace-nowrap cursor-pointer"
+                    className="orvyn-clip-sm bg-sauge text-bone hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-3 transition whitespace-nowrap cursor-pointer"
                   >
                     Réserver ma nutrition
                   </button>
@@ -299,7 +299,7 @@ export default function UserDashboard({
                     <button
                       id="dash-orders-menu-btn"
                       onClick={() => setCurrentTab('menu')}
-                      className="orvyn-clip-sm bg-lime text-carbon hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-2.5 cursor-pointer"
+                      className="orvyn-clip-sm bg-sauge text-bone hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-2.5 cursor-pointer"
                     >
                       Commander maintenant
                     </button>
@@ -341,19 +341,19 @@ export default function UserDashboard({
                               <div className="absolute top-2.5 left-[12.5%] h-0.5 bg-lime -z-10 transition-all" style={{ width: `${(stepIndex / 3) * 75}%` }} />
 
                               <div className="flex flex-col items-center">
-                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 0 ? 'bg-lime border-lime text-carbon' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>1</div>
+                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 0 ? 'bg-sauge border-sauge text-bone' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>1</div>
                                 <span className={`mt-2 font-semibold ${stepIndex >= 0 ? 'text-orvyn-bone' : 'text-orvyn-bone/35'}`}>Validée</span>
                               </div>
                               <div className="flex flex-col items-center">
-                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 1 ? 'bg-lime border-lime text-carbon' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>2</div>
+                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 1 ? 'bg-sauge border-sauge text-bone' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>2</div>
                                 <span className={`mt-2 font-semibold ${stepIndex >= 1 ? 'text-orvyn-bone' : 'text-orvyn-bone/35'}`}>Cuisine</span>
                               </div>
                               <div className="flex flex-col items-center">
-                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 2 ? 'bg-lime border-lime text-carbon' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>3</div>
+                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 2 ? 'bg-sauge border-sauge text-bone' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>3</div>
                                 <span className={`mt-2 font-semibold ${stepIndex >= 2 ? 'text-orvyn-bone' : 'text-orvyn-bone/35'}`}>Au casier</span>
                               </div>
                               <div className="flex flex-col items-center">
-                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 3 ? 'bg-lime border-lime text-carbon' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>4</div>
+                                <div className={`h-6 w-6 rounded-full border flex items-center justify-center text-[9px] font-semibold ${stepIndex >= 3 ? 'bg-sauge border-sauge text-bone' : 'bg-carbon border-olive/30 text-orvyn-bone/50'}`}>4</div>
                                 <span className={`mt-2 font-semibold ${stepIndex >= 3 ? 'text-orvyn-bone' : 'text-orvyn-bone/35'}`}>Retirée</span>
                               </div>
                             </div>
@@ -395,7 +395,7 @@ export default function UserDashboard({
                     <button
                       id="dash-favs-menu-btn"
                       onClick={() => setCurrentTab('menu')}
-                      className="orvyn-clip-sm bg-lime text-carbon hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-2.5 cursor-pointer"
+                      className="orvyn-clip-sm bg-sauge text-bone hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-2.5 cursor-pointer"
                     >
                       Voir la carte
                     </button>
@@ -424,7 +424,7 @@ export default function UserDashboard({
                           <button
                             id={`dash-fav-add-cart-btn-${meal.id}`}
                             onClick={() => onAddToCart(meal)}
-                            className="orvyn-clip-sm bg-lime hover:bg-lime-soft text-carbon text-[9px] tracking-wider uppercase font-semibold px-3 py-2 transition cursor-pointer"
+                            className="orvyn-clip-sm bg-sauge hover:bg-sauge-soft text-bone text-[9px] tracking-wider uppercase font-semibold px-3 py-2 transition cursor-pointer"
                           >
                             Réserver
                           </button>
@@ -514,7 +514,7 @@ export default function UserDashboard({
                     <button
                       id="save-profile-btn"
                       type="submit"
-                      className="ml-auto orvyn-clip-sm bg-lime text-carbon hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-3 transition flex items-center gap-1.5 cursor-pointer"
+                      className="ml-auto orvyn-clip-sm bg-sauge text-bone hover:bg-lime-soft text-[10px] tracking-widest uppercase font-semibold px-6 py-3 transition flex items-center gap-1.5 cursor-pointer"
                     >
                       <Save className="h-4 w-4 shrink-0 stroke-[2.5px]" />
                       <span>Enregistrer</span>

@@ -26,21 +26,21 @@ export default function SectionHeader({
       className={`${center ? 'text-center mx-auto' : 'text-left'} max-w-3xl space-y-6`}
     >
       <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
-        <span className="hairline w-8 bg-clay opacity-50" />
-        <span className={`text-xs uppercase tracking-[0.24em] font-semibold ${light ? 'text-olive' : 'text-clay'}`}>
+        <span className="hairline w-8 bg-sauge opacity-50" />
+        <span className="text-xs uppercase tracking-[0.24em] font-semibold text-sauge">
           {eyebrow}
         </span>
-        {center && <span className="hairline w-8 bg-clay opacity-50" />}
+        {center && <span className="hairline w-8 bg-sauge opacity-50" />}
       </div>
       <h2
-        className={`text-4xl font-semibold leading-[1.04] tracking-[-0.02em] sm:text-5xl lg:text-[3.25rem] ${
-          light ? 'text-carbon' : 'text-orvyn-bone'
+        className={`text-4xl font-bold leading-[1.06] tracking-[-0.02em] sm:text-5xl lg:text-[3.25rem] ${
+          light ? 'text-charbon' : 'text-bone'
         }`}
       >
         {title}
       </h2>
       {description && (
-        <p className={`text-[15px] leading-relaxed font-sans ${light ? 'text-carbon/70' : 'text-orvyn-bone/65'}`}>
+        <p className={`text-[15px] leading-relaxed font-sans ${light ? 'text-charbon/70' : 'text-bone/65'}`}>
           {description}
         </p>
       )}

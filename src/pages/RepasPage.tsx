@@ -76,7 +76,7 @@ export default function RepasPage() {
                   onClick={() => setActiveCategory(cat.key)}
                   className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                     activeCategory === cat.key
-                      ? 'bg-lime text-carbon'
+                      ? 'bg-sauge text-bone'
                       : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                   }`}
                 >

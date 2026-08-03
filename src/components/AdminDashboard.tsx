@@ -70,14 +70,14 @@ export default function AdminDashboard({
             <button
               id="admin-tab-stats"
               onClick={() => setActiveTab('stats')}
-              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer ${activeTab === 'stats' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
+              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer ${activeTab === 'stats' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
             >
               Rapports
             </button>
             <button
               id="admin-tab-orders"
               onClick={() => setActiveTab('orders')}
-              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer flex items-center gap-2 ${activeTab === 'orders' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
+              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer flex items-center gap-2 ${activeTab === 'orders' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
             >
               <span>Commandes</span>
               {activeOrderCount > 0 && (
@@ -87,14 +87,14 @@ export default function AdminDashboard({
             <button
               id="admin-tab-inventory"
               onClick={() => setActiveTab('inventory')}
-              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer ${activeTab === 'inventory' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
+              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer ${activeTab === 'inventory' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
             >
               Inventaire
             </button>
             <button
               id="admin-tab-gyms"
               onClick={() => setActiveTab('gyms')}
-              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer ${activeTab === 'gyms' ? 'bg-lime text-carbon' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
+              className={`orvyn-clip-sm px-4 py-2 text-[10px] uppercase tracking-wider font-semibold transition cursor-pointer ${activeTab === 'gyms' ? 'bg-sauge text-bone' : 'text-orvyn-bone/50 hover:text-orvyn-bone'}`}
             >
               Lounges
             </button>
@@ -298,7 +298,7 @@ export default function AdminDashboard({
                         <button
                           id={`admin-mark-ready-btn-${order.id}`}
                           onClick={() => onUpdateOrderStatus(order.id, 'ready')}
-                          className="w-full orvyn-clip-sm bg-lime text-carbon text-xs py-2.5 font-semibold tracking-wider uppercase transition cursor-pointer"
+                          className="w-full orvyn-clip-sm bg-sauge text-bone text-xs py-2.5 font-semibold tracking-wider uppercase transition cursor-pointer"
                         >
                           <CheckCircle className="h-3.5 w-3.5 inline-block mr-1" />
                           Déposer au stand ({order.pickupCode})
@@ -432,7 +432,7 @@ export default function AdminDashboard({
                     className={`w-full orvyn-clip-sm text-[9px] tracking-widest uppercase py-3 font-semibold transition text-center cursor-pointer ${
                       gym.status === 'active'
                         ? 'border border-olive/40 text-orvyn-bone/60 hover:text-clay hover:border-clay/30'
-                        : 'bg-lime text-carbon hover:bg-lime-soft'
+                        : 'bg-sauge text-bone hover:bg-lime-soft'
                     }`}
                   >
                     {gym.status === 'active' ? (

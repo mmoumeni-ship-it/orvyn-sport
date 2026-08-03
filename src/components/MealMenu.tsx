@@ -129,7 +129,7 @@ export default function MealMenu({
                 onClick={() => handleSetCategory('')}
                 className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === ''
-                    ? 'bg-lime text-carbon'
+                    ? 'bg-sauge text-bone'
                     : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
@@ -139,7 +139,7 @@ export default function MealMenu({
                 onClick={() => handleSetCategory('Bowls')}
                 className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === 'Bowls'
-                    ? 'bg-lime text-carbon'
+                    ? 'bg-sauge text-bone'
                     : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
@@ -149,7 +149,7 @@ export default function MealMenu({
                 onClick={() => handleSetCategory('Shakers')}
                 className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === 'Shakers'
-                    ? 'bg-lime text-carbon'
+                    ? 'bg-sauge text-bone'
                     : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
@@ -159,7 +159,7 @@ export default function MealMenu({
                 onClick={() => handleSetCategory('Snacks')}
                 className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-wider uppercase font-semibold transition ${
                   activeCategory === 'Snacks'
-                    ? 'bg-lime text-carbon'
+                    ? 'bg-sauge text-bone'
                     : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                 }`}
               >
@@ -212,7 +212,7 @@ export default function MealMenu({
             </div>
             <button
               onClick={handleClearAllFilters}
-              className="orvyn-clip-sm bg-lime text-carbon px-5 py-2.5 text-[10px] tracking-widest font-semibold uppercase hover:bg-lime-soft transition cursor-pointer"
+              className="orvyn-clip-sm bg-sauge text-bone px-5 py-2.5 text-[10px] tracking-widest font-semibold uppercase hover:bg-lime-soft transition cursor-pointer"
             >
               Réinitialiser les filtres
             </button>
@@ -286,8 +286,8 @@ export default function MealMenu({
                           onClick={() => onAddToCart(meal)}
                           className={`orvyn-clip-sm px-4 py-2 text-[10px] tracking-widest uppercase font-semibold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                             qty > 0
-                              ? 'bg-lime text-carbon hover:bg-lime-soft'
-                              : 'bg-bone text-carbon hover:bg-lime'
+                              ? 'bg-sauge text-bone hover:bg-sauge-soft'
+                              : 'bg-bone text-carbon hover:bg-frais'
                           }`}
                         >
                           {qty > 0 ? (
@@ -443,7 +443,7 @@ export default function MealMenu({
                         onAddToCart(selectedDetailMeal);
                         setSelectedDetailMeal(null);
                       }}
-                      className="orvyn-clip-sm bg-lime text-carbon px-6 py-3 text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
+                      className="orvyn-clip-sm bg-sauge text-bone px-6 py-3 text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
                     >
                       Ajouter au panier • {selectedDetailMeal.price.toFixed(2)} €
                     </button>

@@ -102,7 +102,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full orvyn-clip-sm bg-lime text-carbon py-3 text-xs font-semibold uppercase tracking-wider hover:bg-lime-soft transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full orvyn-clip-sm bg-sauge text-bone py-3 text-xs font-semibold uppercase tracking-wider hover:bg-lime-soft transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="h-4 w-4" />
                     Envoyer le message

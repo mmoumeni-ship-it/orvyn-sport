@@ -171,7 +171,7 @@ export default function PostEntrainement() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-2xl font-semibold text-orvyn-bone mb-4">Optimisez votre récupération dès maintenant</h2>
           <p className="text-sm text-orvyn-bone/60 mb-8 font-sans">Commandez vos repas et récupérez-les dans votre casier connecté après l'entraînement.</p>
-          <Link to="/abonnements" className="inline-flex items-center gap-2 orvyn-clip-sm bg-lime text-carbon px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
+          <Link to="/abonnements" className="inline-flex items-center gap-2 orvyn-clip-sm bg-sauge text-bone px-8 py-3 text-xs tracking-wider uppercase font-semibold hover:bg-lime-soft transition">
             Voir les abonnements <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

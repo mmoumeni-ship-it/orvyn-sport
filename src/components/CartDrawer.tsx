@@ -176,7 +176,7 @@ export default function CartDrawer({
                     <button
                       id="cart-drawer-discover-btn"
                       onClick={onClose}
-                      className="orvyn-clip-sm bg-lime text-carbon px-6 py-2.5 text-[10px] font-semibold tracking-widest uppercase hover:bg-lime-soft transition cursor-pointer"
+                      className="orvyn-clip-sm bg-sauge text-bone px-6 py-2.5 text-[10px] font-semibold tracking-widest uppercase hover:bg-lime-soft transition cursor-pointer"
                     >
                       Découvrir le menu
                     </button>
@@ -355,7 +355,7 @@ export default function CartDrawer({
                   id="checkout-confirm-payment-btn"
                   type="submit"
                   disabled={isPaying}
-                  className="w-full orvyn-clip-sm bg-lime text-carbon py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full orvyn-clip-sm bg-sauge text-bone py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   {isPaying ? (
                     <span>Validation d'élite...</span>
@@ -417,7 +417,7 @@ export default function CartDrawer({
                 <button
                   id="success-close-btn"
                   onClick={handleResetDrawer}
-                  className="w-full orvyn-clip-sm bg-lime text-carbon py-3 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
+                  className="w-full orvyn-clip-sm bg-sauge text-bone py-3 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition cursor-pointer"
                 >
                   Retourner au menu
                 </button>
@@ -448,7 +448,7 @@ export default function CartDrawer({
                     <button
                       id="cart-promo-apply-btn"
                       type="submit"
-                      className="orvyn-clip-sm bg-lime hover:bg-lime-soft text-carbon text-xs px-4 font-semibold tracking-wider transition cursor-pointer"
+                      className="orvyn-clip-sm bg-sauge hover:bg-sauge-soft text-bone text-xs px-4 font-semibold tracking-wider transition cursor-pointer"
                     >
                       Appliquer
                     </button>
@@ -481,7 +481,7 @@ export default function CartDrawer({
                 <button
                   id="cart-proceed-checkout-btn"
                   onClick={() => setCheckoutStep('checkout')}
-                  className="w-full orvyn-clip-sm bg-lime text-carbon py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full orvyn-clip-sm bg-sauge text-bone py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>Passer au paiement</span>
                 </button>

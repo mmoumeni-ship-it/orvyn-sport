@@ -148,7 +148,7 @@ export default function ContactSection() {
                       onClick={() => setSubject('athlete')}
                       className={`orvyn-clip-sm py-3 text-center text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-2 ${
                         subject === 'athlete'
-                          ? 'bg-lime text-carbon'
+                          ? 'bg-sauge text-bone'
                           : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                       }`}
                     >
@@ -161,7 +161,7 @@ export default function ContactSection() {
                       onClick={() => setSubject('gym')}
                       className={`orvyn-clip-sm py-3 text-center text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-2 ${
                         subject === 'gym'
-                          ? 'bg-lime text-carbon'
+                          ? 'bg-sauge text-bone'
                           : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
                       }`}
                     >
@@ -192,7 +192,7 @@ export default function ContactSection() {
                   id="contact-submit-btn"
                   type="submit"
                   disabled={isSubmitting}
-                  className="orvyn-clip-sm w-full bg-lime text-carbon py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="orvyn-clip-sm w-full bg-sauge text-bone py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span>Envoi en cours...</span>
