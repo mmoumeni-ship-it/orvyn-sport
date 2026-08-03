@@ -42,13 +42,14 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq-section" className="bg-orvyn-carbon py-24 lg:py-32 border-b border-orvyn-olive/20 relative">
+    <section id="faq-section" className="bg-bone py-24 lg:py-32 border-b border-line/70 relative">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* En-tête éditorial */}
         <div className="mb-16 flex justify-center">
           <SectionHeader
             align="center"
+            light
             eyebrow="Des réponses à vos questions"
             title="Foire Aux Questions"
             description="Toutes les réponses pour aborder votre programmation nutritionnelle avec sérénité."
@@ -62,8 +63,8 @@ export default function FAQ() {
             return (
               <div
                 key={index}
-                className={`orvyn-clip-sm depth bg-carbon-raised overflow-hidden transition-all duration-300 ${
-                  isOpen ? 'ring-1 ring-lime/30' : ''
+                className={`orvyn-clip-sm bg-white border border-line/70 overflow-hidden transition-all duration-300 ${
+                  isOpen ? 'ring-1 ring-sauge/40' : ''
                 }`}
               >
                 <button
@@ -71,16 +72,16 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full text-left px-6 py-5 flex justify-between items-center cursor-pointer"
                 >
-                  <span className="text-sm font-semibold text-orvyn-bone leading-snug pr-4">{item.question}</span>
+                  <span className="text-sm font-semibold text-charbon leading-snug pr-4">{item.question}</span>
                   {isOpen ? (
-                    <ChevronUp className="h-4 w-4 text-clay shrink-0" />
+                    <ChevronUp className="h-4 w-4 text-sauge shrink-0" />
                   ) : (
-                    <ChevronDown className="h-4 w-4 text-orvyn-bone/40 shrink-0" />
+                    <ChevronDown className="h-4 w-4 text-olive shrink-0" />
                   )}
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-3 border-t border-olive/20 text-xs text-orvyn-bone/60 leading-relaxed animate-fade-in">
+                  <div className="px-6 pb-6 pt-3 border-t border-line/60 text-sm text-olive leading-relaxed animate-fade-in">
                     {item.answer}
                   </div>
                 )}

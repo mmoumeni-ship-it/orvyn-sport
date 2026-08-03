@@ -23,89 +23,87 @@ export default function ContactSection() {
     }, 1500);
   };
 
+  const inputClass = "w-full rounded-xl bg-bg-secondary border border-line/70 p-3 text-sm text-charbon placeholder-olive/60 focus:outline-none focus:border-sauge focus:ring-1 focus:ring-sauge/30 transition-all";
+
   return (
-    <section id="contact-section" className="bg-orvyn-carbon py-24 lg:py-32 relative overflow-hidden">
-      {/* Aura discrète */}
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-clay/5 blur-[120px] pointer-events-none"></div>
+    <section id="contact-section" className="bg-bone py-24 lg:py-32 relative overflow-hidden">
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 h-96 w-96 rounded-full bg-frais/20 blur-[120px] pointer-events-none"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* En-tête éditorial */}
         <div className="mb-20 flex justify-center">
           <SectionHeader
             align="center"
+            light
             eyebrow="Rejoindre notre écosystème"
             title="Prêt à réinventer votre nutrition ?"
-            description="Que vous soyez athlète en quête de gains ou gérant de salle désireux d'offrir le meilleur service d'élite, notre équipe d'experts vous répond en moins de 12 heures."
+            description="Que vous soyez athlète en quête de gains ou gérant de salle désireux d'offrir le meilleur service, notre équipe d'experts vous répond en moins de 12 heures."
           />
         </div>
 
-        {/* 2 colonnes */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:items-start max-w-5xl mx-auto">
 
-          {/* Colonne gauche — coordonnées */}
-          <div className="lg:col-span-5 space-y-8 orvyn-clip-sm depth bg-carbon-raised p-8 relative overflow-hidden">
+          <div className="lg:col-span-5 space-y-8 orvyn-clip-sm bg-white border border-line/70 p-8 relative overflow-hidden">
             <div className="space-y-3">
-              <h3 className="font-display text-xl font-semibold tracking-tight text-orvyn-bone">ORVYN HQ</h3>
-              <p className="text-xs text-orvyn-bone/60 leading-relaxed">
+              <h3 className="font-display text-xl font-semibold tracking-tight text-charbon">ORVYN HQ</h3>
+              <p className="text-sm text-olive leading-relaxed">
                 Siège social national et pôle de recherche & développement culinaire.
               </p>
             </div>
 
-            <div className="space-y-6 pt-6 border-t border-olive/25">
+            <div className="space-y-6 pt-6 border-t border-line/60">
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center bg-clay/10 text-clay shrink-0">
+                <div className="flex h-10 w-10 items-center justify-center bg-sauge/10 text-sauge shrink-0 rounded-xl">
                   <Mail className="h-4 w-4" />
                 </div>
                 <div>
-                  <span className="block text-[9px] uppercase tracking-widest text-orvyn-bone/40">E-mail support</span>
-                  <span className="text-xs font-semibold text-orvyn-bone hover:text-clay transition">contact@orvyn.com</span>
+                  <span className="block text-[10px] uppercase tracking-widest text-olive">E-mail support</span>
+                  <span className="text-sm font-semibold text-charbon">contact@orvyn.com</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center bg-clay/10 text-clay shrink-0">
+                <div className="flex h-10 w-10 items-center justify-center bg-sauge/10 text-sauge shrink-0 rounded-xl">
                   <Phone className="h-4 w-4" />
                 </div>
                 <div>
-                  <span className="block text-[9px] uppercase tracking-widest text-orvyn-bone/40">Téléphone d'élite</span>
-                  <span className="text-xs font-semibold text-orvyn-bone">+33 (0)1 42 78 90 41</span>
+                  <span className="block text-[10px] uppercase tracking-widest text-olive">Téléphone</span>
+                  <span className="text-sm font-semibold text-charbon">+33 (0)1 42 78 90 41</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center bg-clay/10 text-clay shrink-0">
+                <div className="flex h-10 w-10 items-center justify-center bg-sauge/10 text-sauge shrink-0 rounded-xl">
                   <MapPin className="h-4 w-4" />
                 </div>
                 <div>
-                  <span className="block text-[9px] uppercase tracking-widest text-orvyn-bone/40">Adresse bureaux</span>
-                  <span className="text-xs font-medium text-orvyn-bone/80">82 Rue de Courcelles, Paris 75008</span>
+                  <span className="block text-[10px] uppercase tracking-widest text-olive">Adresse bureaux</span>
+                  <span className="text-sm font-medium text-charbon/80">82 Rue de Courcelles, Paris 75008</span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-olive/25 text-[9px] text-orvyn-bone/40 uppercase tracking-widest leading-relaxed">
+            <div className="pt-6 border-t border-line/60 text-[10px] text-olive uppercase tracking-widest leading-relaxed">
               Notre conciergerie nutritionnelle est disponible 7j/7 de 07h à 22h.
             </div>
           </div>
 
-          {/* Colonne droite — formulaire */}
-          <div className="lg:col-span-7 orvyn-clip-sm depth bg-carbon-raised p-8">
+          <div className="lg:col-span-7 orvyn-clip-sm bg-white border border-line/70 p-8">
             {success ? (
               <div className="text-center py-12 space-y-5 animate-fade-in flex flex-col items-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-lime/10 border border-lime/40 text-lime">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sauge/10 border border-sauge/30 text-sauge">
                   <CheckCircle2 className="h-6 w-6" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-display text-lg font-semibold text-orvyn-bone tracking-tight">Message transmis avec succès !</h3>
-                  <p className="text-xs text-orvyn-bone/60 leading-relaxed max-w-sm">
-                    Merci pour votre intérêt envers ORVYN. Notre équipe médicale ou logistique analyse vos informations et vous recontactera sous 12 heures.
+                  <h3 className="font-display text-lg font-semibold text-charbon tracking-tight">Message transmis avec succès !</h3>
+                  <p className="text-sm text-olive leading-relaxed max-w-sm">
+                    Merci pour votre intérêt envers ORVYN. Notre équipe analyse vos informations et vous recontactera sous 12 heures.
                   </p>
                 </div>
                 <button
                   id="contact-reset-btn"
                   onClick={() => setSuccess(false)}
-                  className="orvyn-clip-sm border border-olive/40 text-orvyn-bone px-6 py-2.5 text-[10px] tracking-widest uppercase font-semibold hover:border-bone/50 transition cursor-pointer"
+                  className="orvyn-clip-sm border border-sauge/40 text-charbon px-6 py-2.5 text-xs font-semibold uppercase hover:bg-sauge hover:text-bone transition cursor-pointer"
                 >
                   Envoyer un nouveau message
                 </button>
@@ -114,33 +112,33 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Votre Nom Complet</label>
+                    <label className="text-[11px] font-semibold text-olive uppercase tracking-wider">Votre Nom Complet</label>
                     <input
                       id="contact-name"
                       type="text"
                       placeholder="Alexandre Dubois"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full rounded-sm bg-carbon border border-olive/30 p-3 text-xs text-orvyn-bone placeholder-orvyn-bone/25 focus:outline-none focus:border-lime transition-all"
+                      className={inputClass}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Votre Adresse E-mail</label>
+                    <label className="text-[11px] font-semibold text-olive uppercase tracking-wider">Votre Adresse E-mail</label>
                     <input
                       id="contact-email"
                       type="email"
                       placeholder="alex.dubois@gmail.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full rounded-sm bg-carbon border border-olive/30 p-3 text-xs text-orvyn-bone placeholder-orvyn-bone/25 focus:outline-none focus:border-lime transition-all"
+                      className={inputClass}
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Je suis...</label>
+                  <label className="text-[11px] font-semibold text-olive uppercase tracking-wider">Je suis...</label>
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       id="contact-subject-athlete"
@@ -149,7 +147,7 @@ export default function ContactSection() {
                       className={`orvyn-clip-sm py-3 text-center text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-2 ${
                         subject === 'athlete'
                           ? 'bg-sauge text-bone'
-                          : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
+                          : 'border border-sauge/40 text-charbon/70 hover:text-charbon hover:bg-bg-secondary'
                       }`}
                     >
                       <Dumbbell className="h-3.5 w-3.5" />
@@ -162,7 +160,7 @@ export default function ContactSection() {
                       className={`orvyn-clip-sm py-3 text-center text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-2 ${
                         subject === 'gym'
                           ? 'bg-sauge text-bone'
-                          : 'border border-olive/40 text-orvyn-bone/60 hover:text-orvyn-bone'
+                          : 'border border-sauge/40 text-charbon/70 hover:text-charbon hover:bg-bg-secondary'
                       }`}
                     >
                       <Building2 className="h-3.5 w-3.5" />
@@ -172,7 +170,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-semibold text-orvyn-bone/50 uppercase tracking-wider">Votre Message</label>
+                  <label className="text-[11px] font-semibold text-olive uppercase tracking-wider">Votre Message</label>
                   <textarea
                     id="contact-message"
                     rows={4}
@@ -183,7 +181,7 @@ export default function ContactSection() {
                     }
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full rounded-sm bg-carbon border border-olive/30 p-3 text-xs text-orvyn-bone placeholder-orvyn-bone/25 focus:outline-none focus:border-lime resize-none transition-all"
+                    className={`${inputClass} resize-none`}
                     required
                   />
                 </div>
@@ -192,7 +190,7 @@ export default function ContactSection() {
                   id="contact-submit-btn"
                   type="submit"
                   disabled={isSubmitting}
-                  className="orvyn-clip-sm w-full bg-sauge text-bone py-3.5 text-center text-[10px] tracking-widest uppercase font-semibold hover:bg-lime-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="orvyn-clip-sm w-full bg-sauge text-bone py-3.5 text-center text-xs font-semibold uppercase hover:bg-sauge-soft transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span>Envoi en cours...</span>

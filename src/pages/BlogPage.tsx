@@ -88,24 +88,22 @@ export default function BlogPage() {
         canonical="/blog"
       />
 
-      <section className="relative bg-orvyn-carbon pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 h-[500px] w-[500px] rounded-full bg-clay/5 blur-[120px] pointer-events-none" />
+      <section className="relative bg-beige pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden border-b border-line/70">
+        <div className="absolute top-1/2 left-1/4 h-96 w-96 rounded-full bg-frais/20 blur-[120px] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="font-display text-xs uppercase tracking-[0.25em] text-clay font-semibold block mb-4">
-            BLOG
-          </span>
-          <h1 className="font-display h-editorial text-orvyn-bone tracking-tight mb-6">
+          <span className="eyebrow text-sauge justify-center mb-4">Blog</span>
+          <h1 className="font-display h-editorial text-charbon tracking-tight mb-6">
             Blog Nutrition Sportive
           </h1>
-          <p className="text-sm text-orvyn-bone/60 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="text-base text-olive max-w-2xl mx-auto font-sans leading-relaxed">
             Conseils, guides et astuces pour optimiser votre alimentation sportive. Récupération, prise de masse, sèche et bien plus.
           </p>
         </div>
       </section>
 
-      <section className="bg-orvyn-carbon py-16 border-t border-olive/20">
+      <section className="bg-bone py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {articles.map((article, index) => (
               <motion.article
                 key={article.slug}
@@ -118,30 +116,29 @@ export default function BlogPage() {
                   to={`/blog/${article.slug}`}
                   className="group block h-full"
                 >
-                  <div className="h-full bg-carbon-raised orvyn-clip-sm depth overflow-hidden hover:bg-[#2b2923] transition-all duration-300">
-                    <div className="aspect-[16/9] bg-carbon relative overflow-hidden">
+                  <div className="h-full bg-white orvyn-clip-sm border border-line/70 shadow-[0_1px_4px_rgba(23,26,24,0.06)] overflow-hidden hover:shadow-[0_10px_30px_rgba(23,26,24,0.08)] hover:border-sauge/30 transition-all duration-300">
+                    <div className="aspect-[16/9] bg-bg-secondary relative overflow-hidden">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="orvyn-o text-6xl font-semibold text-clay/30"></span>
+                        <span className="orvyn-o text-6xl font-semibold text-sauge/30"></span>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-carbon-raised via-transparent to-transparent" />
                     </div>
 
                     <div className="p-5 space-y-3">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="inline-block text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 border bg-clay/10 text-clay border-clay/20">
+                        <span className="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 border rounded-lg bg-sauge/10 text-sauge border-sauge/20">
                           {article.category}
                         </span>
                       </div>
 
-                      <h2 className="font-display text-base font-semibold text-orvyn-bone leading-snug group-hover:text-clay transition-colors line-clamp-2">
+                      <h2 className="font-display text-lg font-semibold text-charbon leading-snug group-hover:text-sauge transition-colors line-clamp-2">
                         {article.title}
                       </h2>
 
-                      <p className="text-xs text-orvyn-bone/50 leading-relaxed font-sans line-clamp-3">
+                      <p className="text-sm text-olive leading-relaxed font-sans line-clamp-3">
                         {article.excerpt}
                       </p>
 
-                      <div className="flex items-center gap-3 text-[10px] text-orvyn-bone/40 uppercase tracking-wider pt-1">
+                      <div className="flex items-center gap-3 text-[11px] text-olive uppercase tracking-wider pt-1">
                         <span className="flex items-center gap-1">
                           <Calendar className="h-3 w-3" />
                           {formatDate(article.date)}
@@ -161,7 +158,7 @@ export default function BlogPage() {
           <div className="text-center mt-12">
             <button
               onClick={() => navigate('/repas')}
-              className="inline-flex items-center gap-2 orvyn-clip-sm border border-olive/40 bg-carbon-raised px-6 py-3 text-[10px] font-semibold uppercase tracking-widest text-orvyn-bone hover:border-bone/50 transition cursor-pointer"
+              className="inline-flex items-center gap-2 orvyn-clip-sm border border-sauge/40 bg-white px-6 py-3 text-xs font-semibold uppercase text-charbon hover:bg-sauge hover:text-bone transition cursor-pointer"
             >
               Découvrir nos repas <ArrowRight className="h-3.5 w-3.5" />
             </button>
