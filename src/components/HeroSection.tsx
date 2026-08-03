@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, ShieldCheck, BarChart3, Zap, Dumbbell, Timer } from 'lucide-react';
-import bowlImg from '../assets/images/orvyn_chicken_bowl_1782735030457.jpg';
 
 interface HeroSectionProps {
   setCurrentTab?: (tab: string) => void;
@@ -17,9 +16,27 @@ const macroMarkers = [
 
 export default function HeroSection(_props: HeroSectionProps) {
   const navigate = useNavigate();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      videoRef.current?.pause();
+    } else {
+      videoRef.current?.play().catch(() => {});
+    }
+  }, [reducedMotion]);
 
   return (
-    <section className="relative overflow-hidden bg-carbon py-24 lg:py-36">
+    <section className="relative overflow-hidden bg-carbon py-24 lg:py-32">
       {/* Matière ORVYN */}
       <div className="absolute inset-0 bg-matiere pointer-events-none" />
 
@@ -27,10 +44,10 @@ export default function HeroSection(_props: HeroSectionProps) {
       <div className="absolute top-0 left-0 right-0 performance-line" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 gap-20 lg:grid-cols-12 lg:items-center">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12 lg:items-center">
 
-          {/* Hero Left — le récit */}
-          <div className="space-y-10 lg:col-span-7 flex flex-col justify-center">
+          {/* Hero Left — le récit (40-45 %) */}
+          <div className="space-y-9 lg:col-span-5 flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,7 +103,7 @@ export default function HeroSection(_props: HeroSectionProps) {
 
               <button
                 onClick={() => navigate('/repas')}
-                className="orvyn-clip-sm relative inline-flex items-center justify-center gap-2 overflow-hidden border border-olive/50 bg-transparent px-8 py-4 text-xs font-semibold tracking-widest text-orvyn-bone uppercase transition-all duration-300 hover:border-bone/50 cursor-pointer"
+                className="orvyn-clip-sm group relative inline-flex items-center justify-center gap-2 overflow-hidden border border-olive/50 bg-transparent px-8 py-4 text-xs font-semibold tracking-widest text-orvyn-bone uppercase transition-all duration-300 hover:border-bone/50 cursor-pointer"
               >
                 <span className="relative z-10">Choisir mon objectif</span>
                 <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-clay transition-all duration-500 group-hover:w-full" />
@@ -117,37 +134,54 @@ export default function HeroSection(_props: HeroSectionProps) {
             </motion.div>
           </div>
 
-          {/* Hero Right — le repas est le héros */}
-          <div className="relative lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Hero Right — la vidéo est la pièce maîtresse (55-60 %) */}
+          <div className="relative lg:col-span-7 flex justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-md"
+              className="relative w-full max-w-2xl"
             >
               {/* Grand O décoratif */}
               <div
-                className="orvyn-o pointer-events-none absolute -top-8 -right-6 h-32 w-32 text-clay/15"
+                className="orvyn-o pointer-events-none absolute -top-10 -right-4 h-40 w-40 text-clay/15"
                 aria-hidden="true"
               />
 
-              {/* Cadre O — le bowl, lumière naturelle */}
-              <div className="orvyn-o-frame">
-                <div className="relative overflow-hidden orvyn-clip-img bg-carbon-raised">
-                  <img
-                    src={bowlImg}
-                    alt="Bowl protéiné ORVYN, poulet et riz — nutrition de performance"
-                    className="photo-orvyn aspect-[4/5] h-full w-full object-cover"
-                  />
-                  <div className="photo-grain" />
-                  <div className="photo-wash" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-carbon/60 via-transparent to-transparent" />
+              {/* Cadre offset — filaire décalé */}
+              <div
+                className="absolute -bottom-5 -left-5 h-full w-full rounded-[1.5rem] border border-olive/25"
+                aria-hidden="true"
+              />
 
-                  {/* Badge — marqueur nutrition */}
-                  <div className="absolute bottom-5 right-5 rounded-sm bg-carbon/85 px-4 py-3 backdrop-blur-sm">
-                    <p className="text-[10px] uppercase tracking-[0.22em] font-semibold text-lime">Objectif</p>
-                    <p className="mt-1 text-sm font-semibold text-orvyn-bone">Sèche • Récupération</p>
-                  </div>
+              {/* La vidéo */}
+              <div className="relative overflow-hidden rounded-[1.5rem] bg-carbon-raised shadow-[0_24px_80px_-28px_rgba(0,0,0,0.65)]">
+                <video
+                  ref={videoRef}
+                  className="aspect-video w-full object-cover"
+                  src="/videos/hero.mp4"
+                  autoPlay={!reducedMotion}
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  controlsList="nodownload noplaybackrate nofullscreen"
+                  disablePictureInPicture
+                  aria-hidden="true"
+                  tabIndex={-1}
+                />
+                {/* grain photo pour la cohérence visuelle */}
+                <div className="photo-grain" aria-hidden="true" />
+                {/* liseré intérieur */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-orvyn-bone/10"
+                  aria-hidden="true"
+                />
+
+                {/* Badge — marqueur concept */}
+                <div className="absolute bottom-4 right-4 rounded-sm bg-carbon/80 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-[10px] uppercase tracking-[0.22em] font-semibold text-lime">Le concept ORVYN</p>
+                  <p className="mt-1 text-sm font-semibold text-orvyn-bone">Repas adaptés à l'entraînement</p>
                 </div>
               </div>
 
@@ -156,7 +190,7 @@ export default function HeroSection(_props: HeroSectionProps) {
                 initial={{ opacity: 0, x: -14 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute -left-5 top-1/2 -translate-y-1/2 hidden sm:flex flex-col gap-3"
+                className="absolute -left-4 top-1/2 -translate-y-1/2 hidden sm:flex flex-col gap-3"
               >
                 {macroMarkers.map((m) => (
                   <div
@@ -172,14 +206,14 @@ export default function HeroSection(_props: HeroSectionProps) {
                 ))}
               </motion.div>
 
-              {/* Annotation — le plat signature */}
+              {/* Annotation — la promesse */}
               <motion.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="absolute -bottom-9 left-0 right-0 text-center text-[11px] tracking-[0.14em] text-orvyn-bone/45 uppercase"
+                className="mt-6 text-center text-[11px] tracking-[0.14em] text-orvyn-bone/45 uppercase"
               >
-                Bowl signature — Poulet & Riz
+                Manger mieux après l'effort — sans perdre de temps
               </motion.p>
             </motion.div>
           </div>
