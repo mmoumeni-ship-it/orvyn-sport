@@ -6,9 +6,64 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://orvyn-sport.vercel.app/repas</loc>
+    <loc>https://orvyn-sport.vercel.app/menu</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/bowl-chicken</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/bowl-beef</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/bowl-salmon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/bowl-veggie</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/shake-vanille</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/shake-chocolat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/shake-matcha</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/shake-coffee</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/snack-brownie</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/snack-cookie</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/menu/snack-balls</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://orvyn-sport.vercel.app/bowls-proteines</loc>
@@ -51,21 +106,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://orvyn-sport.vercel.app/a-propos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://orvyn-sport.vercel.app/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://orvyn-sport.vercel.app/faq</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://orvyn-sport.vercel.app/blog/que-manger-apres-seance-musculation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -99,5 +139,20 @@
     <loc>https://orvyn-sport.vercel.app/blog/erreurs-alimentaires-apres-entrainement</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/a-propos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://orvyn-sport.vercel.app/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
