@@ -59,10 +59,16 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="space-y-6">
+              <figure className="relative w-full overflow-hidden rounded-[24px] border border-[#E7E3DA] shadow-[0_20px_50px_rgba(23,26,24,0.08)] aspect-[5/4]">
+                <img
+                  src="/images/about/orvyn-about.webp"
+                  alt="Repas sportif premium ORVYN avec bowl protéiné et shaker."
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover object-center"
+                />
+              </figure>
               <div className="bg-white orvyn-clip border border-line/70 p-8">
-                <div className="aspect-square rounded-2xl bg-sauge/[0.06] border border-line/70 flex items-center justify-center mb-6">
-                  <span className="orvyn-o text-6xl font-semibold text-sauge"></span>
-                </div>
                 <div className="space-y-4">
                   {milestones.map((m, idx) => (
                     <div key={idx} className="flex items-start gap-4">
