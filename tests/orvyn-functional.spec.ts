@@ -165,3 +165,57 @@ test.describe('Checkout & suivi de commande', () => {
     await expect(alert).toContainText('en préparation');
   });
 });
+
+test.describe('Couverture complète en production', () => {
+  const ALL_MEALS: Array<[string, string]> = [
+    ['bowl-chicken', 'Power Chicken Bowl'],
+    ['bowl-beef', 'Beef Performance Bowl'],
+    ['bowl-salmon', 'Salmon Recovery Bowl'],
+    ['bowl-veggie', 'Veggie Protein Bowl'],
+    ['shake-vanille', 'Whey Vanille'],
+    ['shake-chocolat', 'Whey Chocolat'],
+    ['shake-matcha', 'Matcha Protein Signature'],
+    ['shake-coffee', 'Café Protein Boost'],
+    ['snack-brownie', 'Brownie Protéiné'],
+    ['snack-cookie', 'Cookie Protéiné'],
+    ['snack-balls', 'Energy Balls'],
+  ];
+
+  test('Chaque plat de la carte s\'ouvre sur sa fiche sans erreur console', async ({ page }) => {
+    for (const [id, name] of ALL_MEALS) {
+      const errors = trackConsoleErrors(page);
+      await page.goto(`/repas/${id}`, { waitUntil: 'domcontentloaded' });
+      await expect(page.locator('h1')).toHaveText(name, { timeout: 15000 });
+      await expect(page.locator('#detail-add-to-cart')).toBeVisible();
+      expect(errors, `erreurs console sur /repas/${id}`).toEqual([]);
+    }
+  });
+
+  test('Chaque abonnement s\'ajoute au panier et le total est exact', async ({ page }) => {
+    await page.goto('/abonnements', { waitUntil: 'domcontentloaded' });
+
+    const plans: Array<[string, string, string, number]> = [
+      ['Start', 'plan-add-cart-Start', 'cart-item-abonnement-start', 49],
+      ['Pro', 'plan-add-cart-Pro', 'cart-item-abonnement-pro', 129],
+      ['Élite', 'plan-add-cart-Elite', 'cart-item-abonnement-elite', 239],
+    ];
+
+    for (let i = 0; i < plans.length; i++) {
+      const [, addBtn, , price] = plans[i];
+      await page.locator(`#${addBtn}`).click();
+      await expect(page.locator(`#${addBtn}`)).toContainText('Ajouté au panier');
+      await expect(page.locator(CART_BUTTON)).toContainText(String(i + 1));
+      expect(price).toBeGreaterThan(0);
+    }
+
+    await page.locator(CART_BUTTON).click();
+    for (const [planName, , itemId] of plans) {
+      await expect(page.locator(`#${itemId}`)).toBeVisible();
+      await expect(page.locator(`#${itemId}`)).toContainText(`Abonnement ${planName}`);
+      await expect(page.locator(`#${itemId}`)).toContainText('1');
+    }
+
+    const expectedTotal = (49 + 129 + 239).toFixed(2);
+    await expect(page.locator('body')).toContainText(`${expectedTotal} €`);
+  });
+});
