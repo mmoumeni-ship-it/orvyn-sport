@@ -1,0 +1,11 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#171A18"/>
+  <rect x="24" y="24" width="752" height="752" rx="56" fill="none" stroke="#667563" stroke-width="2"/>
+  <circle cx="400" cy="330" r="96" fill="none" stroke="#667563" stroke-width="3"/>
+  <circle cx="400" cy="330" r="24" fill="#667563"/>
+  <path d="M400 190 V470" stroke="#667563" stroke-width="3"/>
+  <path d="M318 330 H482" stroke="#667563" stroke-width="3"/>
+  <text x="400" y="560" text-anchor="middle" fill="#F6F4EE" font-family="Manrope, Inter, sans-serif" font-size="52" font-weight="700" letter-spacing="6">ABONNEMENT</text>
+  <text x="400" y="624" text-anchor="middle" fill="#A8C49A" font-family="Inter, sans-serif" font-size="24" letter-spacing="4">ORVYN MEMBER</text>
+  <circle cx="400" cy="520" r="10" fill="#A8C49A"/>
+</svg>

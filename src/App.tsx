@@ -16,6 +16,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import FAQPage from './pages/FAQPage';
 import RepasPage from './pages/RepasPage';
+import MealDetailPage from './pages/MealDetailPage';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/repas" element={<RepasPage />} />
+            <Route path="/repas/:id" element={<MealDetailPage />} />
             <Route path="/bowls-proteines" element={<BowlsProteines />} />
             <Route path="/repas-prise-de-masse" element={<PriseDeMasse />} />
             <Route path="/repas-seche" element={<Seche />} />

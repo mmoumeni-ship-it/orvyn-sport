@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingBag, Menu, X, ChevronDown } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 const NAV_LINKS = [
   { to: '/repas', label: 'Menu' },
@@ -52,6 +53,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [objectifsOpen, setObjectifsOpen] = useState(false);
   const [mobileObjectifsOpen, setMobileObjectifsOpen] = useState(false);
+  const { totalCount, openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -139,20 +141,25 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <button
+            onClick={openCart}
+            aria-label={`Ouvrir le panier (${totalCount} article${totalCount > 1 ? 's' : ''})`}
+            className="relative p-2 text-charbon/70 transition hover:text-sauge cursor-pointer"
+          >
+            <ShoppingBag className="h-5 w-5" />
+            {totalCount > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-sauge px-1 text-[9px] font-bold text-bone">
+                {totalCount}
+              </span>
+            )}
+          </button>
+
           <Link
             to="/repas"
             className="orvyn-clip-sm relative hidden sm:inline-flex items-center gap-2 overflow-hidden bg-sauge px-5 py-2.5 text-[10px] font-semibold tracking-widest text-bone uppercase transition-all duration-300 hover:bg-sauge-soft"
           >
             Commander
             <ShoppingBag className="h-3.5 w-3.5" />
-          </Link>
-
-          <Link
-            to="/repas"
-            className="relative p-2 text-charbon/70 transition hover:text-sauge lg:hidden"
-            aria-label="Commander"
-          >
-            <ShoppingBag className="h-5 w-5" />
           </Link>
 
           <button

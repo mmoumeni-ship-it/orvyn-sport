@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Check, ChevronDown, ChevronUp, ArrowRight, Award } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp, ArrowRight, Award, Plus, Minus, ShoppingBag, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { findSubscription } from '../data/subscriptions';
+import { useCart } from '../context/CartContext';
 
 const plans = [
   {
@@ -69,6 +71,21 @@ const comparisons = [
 export default function AbonnementsPage() {
   const [selectedPlan, setSelectedPlan] = useState('Pro');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [quantities, setQuantities] = useState<Record<string, number>>({
+    Start: 1,
+    Pro: 1,
+    Elite: 1,
+  });
+  const [addedPlan, setAddedPlan] = useState<string | null>(null);
+  const { addToCart } = useCart();
+
+  const handleAddPlan = (planName: string) => {
+    const sub = findSubscription(planName);
+    if (!sub) return;
+    addToCart(sub, quantities[planName] || 1);
+    setAddedPlan(planName);
+    window.setTimeout(() => setAddedPlan(null), 1600);
+  };
 
   const faqItems = [
     { q: "Comment fonctionnent les crédits repas ?", a: "Chaque mois, votre abonnement vous crédite un nombre de repas utilisables sur l'ensemble de notre carte (bowls, shakes, snacks). Les crédits sont renouvelés automatiquement chaque mois et peuvent être utilisés à tout moment via notre application pour commander vos repas et les récupérer dans vos casiers connectés." },
@@ -153,14 +170,58 @@ export default function AbonnementsPage() {
                   </div>
                 </div>
                 <div className="mt-8 pt-6 border-t border-line/60">
-                  <Link
-                    to="/contact"
-                    className={`orvyn-clip-sm w-full py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 inline-block text-center cursor-pointer ${
-                      plan.popular ? 'bg-sauge text-bone hover:bg-sauge-soft' : 'border border-sauge/40 text-charbon hover:bg-sauge hover:text-bone'
-                    }`}
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-olive">Quantité</span>
+                    <div className="flex items-center gap-3 border border-line/70 bg-white rounded-xl px-2 py-1">
+                      <button
+                        id={`plan-qty-minus-${plan.name}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setQuantities((q) => ({ ...q, [plan.name]: Math.max(1, (q[plan.name] || 1) - 1) }));
+                        }}
+                        aria-label={`Diminuer la quantité ${plan.name}`}
+                        className="p-1.5 text-olive hover:text-sauge transition cursor-pointer"
+                      >
+                        <Minus className="h-4 w-4" />
+                      </button>
+                      <span id={`plan-qty-value-${plan.name}`} className="w-6 text-center text-sm font-semibold text-charbon">
+                        {quantities[plan.name] || 1}
+                      </span>
+                      <button
+                        id={`plan-qty-plus-${plan.name}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setQuantities((q) => ({ ...q, [plan.name]: (q[plan.name] || 1) + 1 }));
+                        }}
+                        aria-label={`Augmenter la quantité ${plan.name}`}
+                        className="p-1.5 text-olive hover:text-sauge transition cursor-pointer"
+                      >
+                        <Plus className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                  <button
+                    id={`plan-add-cart-${plan.name}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddPlan(plan.name);
+                    }}
+                    className={`orvyn-clip-sm w-full py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 inline-flex items-center justify-center gap-2 cursor-pointer ${
+                      plan.popular
+                        ? 'bg-sauge text-bone hover:bg-sauge-soft'
+                        : 'border border-sauge/40 text-charbon hover:bg-sauge hover:text-bone'
+                    } ${addedPlan === plan.name ? 'bg-frais text-charbon border-frais' : ''}`}
                   >
-                    {plan.cta}
-                  </Link>
+                    {addedPlan === plan.name ? (
+                      <>
+                        <CheckCircle className="h-4 w-4" /> Ajouté au panier
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="h-4 w-4" /> {plan.cta}
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
             ))}

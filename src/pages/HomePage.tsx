@@ -13,6 +13,8 @@ import SEO from '../components/SEO';
 import SectionHeader from '../components/ui/SectionHeader';
 import OrvynButton from '../components/ui/OrvynButton';
 import { MEALS_DATABASE } from '../data/meals';
+import { findSubscription } from '../data/subscriptions';
+import { useCart } from '../context/CartContext';
 
 const goalCards = [
   {
@@ -87,6 +89,14 @@ const experienceBenefits = [
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const { addToCart, openCart } = useCart();
+
+  const handleSelectPlan = (planName: string) => {
+    const sub = findSubscription(planName);
+    if (!sub) return;
+    addToCart(sub, 1);
+    openCart();
+  };
 
   const handleNavigate = (tab: string) => {
     switch (tab) {
@@ -501,7 +511,7 @@ export default function HomePage() {
       </section>
 
       {/* 7. Abonnements */}
-      <SubscriptionsSection onSelectPlan={() => {}} onOpenAuth={() => {}} />
+      <SubscriptionsSection onSelectPlan={handleSelectPlan} onOpenAuth={() => {}} />
 
       {/* 8. Témoignages */}
       <section className="relative bg-bone py-24 lg:py-32 border-t border-charbon/8">
