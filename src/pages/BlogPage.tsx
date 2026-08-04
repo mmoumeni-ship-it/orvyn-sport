@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
+import BlogCover, { type BlogCategory } from '../components/BlogCover';
 
 interface BlogArticleMeta {
   slug: string;
@@ -77,6 +78,15 @@ function formatDate(dateStr: string): string {
   return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+const CATEGORY_KEY: Record<string, BlogCategory> = {
+  'Récupération': 'recovery',
+  'Nutrition': 'nutrition',
+  'Prise de masse': 'muscle-gain',
+  'Sèche': 'cut',
+  'Bowls': 'bowls',
+  'Conseils': 'tips'
+};
+
 export default function BlogPage() {
   const navigate = useNavigate();
 
@@ -116,21 +126,17 @@ export default function BlogPage() {
                   to={`/blog/${article.slug}`}
                   className="group block h-full"
                 >
-                  <div className="h-full bg-white orvyn-clip-sm border border-line/70 shadow-[0_1px_4px_rgba(23,26,24,0.06)] overflow-hidden hover:shadow-[0_10px_30px_rgba(23,26,24,0.08)] hover:border-sauge/30 transition-all duration-300">
-                    <div className="aspect-[16/9] bg-bg-secondary relative overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="orvyn-o text-6xl font-semibold text-sauge/30"></span>
-                      </div>
-                    </div>
+                  <div className="flex h-full flex-col overflow-hidden rounded-xl border border-[rgba(36,40,36,0.10)] bg-[#FCFBF8] shadow-[0_1px_2px_rgba(36,40,36,0.04)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[rgba(36,40,36,0.22)] hover:shadow-[0_12px_28px_rgba(36,40,36,0.09)]">
+                    <BlogCover category={CATEGORY_KEY[article.category] ?? 'nutrition'} label={article.category} />
 
-                    <div className="p-5 space-y-3">
+                    <div className="flex grow flex-col p-5 space-y-3">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 border rounded-lg bg-sauge/10 text-sauge border-sauge/20">
+                        <span className="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 border rounded-md bg-sauge/10 text-sauge border-sauge/20">
                           {article.category}
                         </span>
                       </div>
 
-                      <h2 className="font-display text-lg font-semibold text-charbon leading-snug group-hover:text-sauge transition-colors line-clamp-2">
+                      <h2 className="font-display text-base font-semibold text-charbon leading-snug group-hover:text-sauge transition-colors line-clamp-2 min-h-[44px]">
                         {article.title}
                       </h2>
 
@@ -138,7 +144,7 @@ export default function BlogPage() {
                         {article.excerpt}
                       </p>
 
-                      <div className="flex items-center gap-3 text-[11px] text-olive uppercase tracking-wider pt-1">
+                      <div className="flex items-center gap-3 text-[11px] text-olive uppercase tracking-wider pt-2 mt-auto">
                         <span className="flex items-center gap-1">
                           <Calendar className="h-3 w-3" />
                           {formatDate(article.date)}
