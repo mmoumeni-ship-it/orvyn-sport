@@ -133,6 +133,23 @@ export default function ShakesProteines() {
         </div>
       </section>
 
+      {/* Liens utiles */}
+      <section className="bg-beige py-12 border-t border-line/70">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/bowls-proteines" className="orvyn-clip-sm border border-sauge/40 text-charbon px-6 py-3 text-xs font-semibold uppercase hover:bg-sauge hover:text-bone transition">
+              Bowls protéinés
+            </Link>
+            <Link to="/snacks-healthy" className="orvyn-clip-sm border border-sauge/40 text-charbon px-6 py-3 text-xs font-semibold uppercase hover:bg-sauge hover:text-bone transition">
+              Snacks healthy
+            </Link>
+            <Link to="/repas-post-entrainement" className="orvyn-clip-sm border border-sauge/40 text-charbon px-6 py-3 text-xs font-semibold uppercase hover:bg-sauge hover:text-bone transition">
+              Repas post-entraînement
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="bg-bone py-16 lg:py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
