@@ -4,13 +4,11 @@ import App from './App.tsx';
 import ErrorBoundary from './components/ErrorBoundary';
 import { CartProvider } from './context/CartContext';
 import { initSentry } from './lib/sentry';
-import { initGA } from './lib/analytics';
 import { reportWebVitals } from './lib/web-vitals';
 import './lib/env';
 import './index.css';
 
 initSentry();
-initGA();
 reportWebVitals();
 
 createRoot(document.getElementById('root')!).render(
