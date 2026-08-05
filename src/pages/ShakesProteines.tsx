@@ -52,7 +52,7 @@ export default function ShakesProteines() {
                 className="group orvyn-clip-sm bg-white border border-line/70 shadow-[0_1px_4px_rgba(23,26,24,0.06)] overflow-hidden hover:shadow-[0_10px_30px_rgba(23,26,24,0.08)] hover:border-sauge/30 transition-all duration-300"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-bg-secondary">
-                  <img src={shake.image} alt={shake.name} className="h-full w-full object-cover photo-lumineuse group-hover:scale-105 transition duration-700" />
+                  <img src={shake.image} alt={shake.name} loading="lazy" className="h-full w-full object-cover photo-lumineuse group-hover:scale-105 transition duration-700" />
                   <div className="absolute bottom-3 left-3 flex gap-1.5">
                     {shake.tags.slice(0, 3).map(t => (
                       <span key={t} className="text-[10px] tracking-widest uppercase bg-white/90 text-sauge border border-line/60 px-2 py-1 rounded-lg backdrop-blur-sm">{t}</span>
@@ -87,7 +87,7 @@ export default function ShakesProteines() {
                   </div>
                   <div className="pt-3 border-t border-line/60 flex items-center justify-between">
                     <span className="text-lg font-semibold text-charbon">{shake.price.toFixed(2)} €</span>
-                    <Link to={`/repas/${shake.id}`} className="text-xs font-medium text-sauge flex items-center gap-1 hover:gap-2 transition-all">Détails <ArrowRight className="h-3 w-3" /></Link>
+                    <Link to={`/menu/${shake.slug}`} className="text-xs font-medium text-sauge flex items-center gap-1 hover:gap-2 transition-all">Détails <ArrowRight className="h-3 w-3" /></Link>
                   </div>
                 </div>
               </motion.div>

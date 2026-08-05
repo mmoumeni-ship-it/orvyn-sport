@@ -92,7 +92,7 @@ export default function SnacksHealthy() {
                 className="group orvyn-clip-sm bg-white border border-line/70 shadow-[0_1px_4px_rgba(23,26,24,0.06)] overflow-hidden hover:shadow-[0_10px_30px_rgba(23,26,24,0.08)] hover:border-sauge/30 transition-all duration-300"
               >
                 <div className="relative aspect-square overflow-hidden bg-bg-secondary">
-                  <img src={snack.image} alt={snack.name} className="h-full w-full object-cover photo-lumineuse group-hover:scale-105 transition duration-700" />
+                  <img src={snack.image} alt={snack.name} loading="lazy" className="h-full w-full object-cover photo-lumineuse group-hover:scale-105 transition duration-700" />
                   <div className="absolute top-3 left-3 flex gap-1.5">
                     {snack.tags.slice(0, 2).map(t => (
                       <span key={t} className="text-[10px] tracking-widest uppercase bg-white/90 text-sauge border border-line/60 px-2 py-1 rounded-lg backdrop-blur-sm">{t}</span>
@@ -113,7 +113,7 @@ export default function SnacksHealthy() {
                   </div>
                   <div className="pt-3 border-t border-line/60 flex items-center justify-between">
                     <span className="text-lg font-semibold text-charbon">{snack.price.toFixed(2)} €</span>
-                    <Link to={`/repas/${snack.id}`} className="text-xs font-medium text-sauge flex items-center gap-1 hover:gap-2 transition-all">Détails <ArrowRight className="h-3 w-3" /></Link>
+                    <Link to={`/menu/${snack.slug}`} className="text-xs font-medium text-sauge flex items-center gap-1 hover:gap-2 transition-all">Détails <ArrowRight className="h-3 w-3" /></Link>
                   </div>
                 </div>
               </motion.div>

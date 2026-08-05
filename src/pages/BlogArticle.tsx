@@ -297,7 +297,7 @@ export default function BlogArticle() {
   if (!article) {
     return (
       <>
-        <SEO title="Article introuvable" description="L'article demandé n'existe pas." />
+        <SEO title="Article introuvable" description="L'article demandé n'existe pas." canonical="/blog" />
         <section className="relative bg-beige pt-28 pb-16 lg:pt-36 lg:pb-20 min-h-screen flex items-center justify-center">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="font-display text-4xl font-semibold text-charbon sm:text-5xl tracking-tight mb-4">
@@ -325,6 +325,17 @@ export default function BlogArticle() {
         title={article.title}
         description={article.description}
         canonical={`/blog/${article.slug}`}
+        ogType="article"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: article.title,
+          description: article.description,
+          datePublished: article.date,
+          author: { '@type': 'Organization', name: 'ORVYN' },
+          publisher: { '@type': 'Organization', name: 'ORVYN', logo: { '@type': 'ImageObject', url: 'https://orvyn-sport.vercel.app/og-image.jpg' } },
+          mainEntityOfPage: { '@type': 'WebPage', '@id': `https://orvyn-sport.vercel.app/blog/${article.slug}` }
+        }}
       />
 
       <section className="relative bg-beige pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden border-b border-line/70">

@@ -7,15 +7,51 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   ogType?: string;
+  structuredData?: Record<string, unknown>;
 }
 
 const SITE_URL = 'https://orvyn-sport.vercel.app';
 const DEFAULT_OG_IMAGE = 'https://orvyn-sport.vercel.app/og-image.jpg';
 
-export default function SEO({ title, description, canonical, ogImage, ogType = 'website' }: SEOProps) {
-  const fullTitle = `${title} | ORVYN`;
-  const url = canonical || SITE_URL;
+function buildTitle(title: string): string {
+  if (title.includes('ORVYN')) return title;
+  return `${title} | ORVYN`;
+}
+
+function resolveCanonical(canonical?: string): string {
+  if (!canonical) return SITE_URL;
+  if (canonical.startsWith('http')) return canonical;
+  return `${SITE_URL}${canonical.startsWith('/') ? '' : '/'}${canonical}`;
+}
+
+export { SITE_URL };
+
+export default function SEO({ title, description, canonical, ogImage, ogType = 'website', structuredData }: SEOProps) {
+  const fullTitle = buildTitle(title);
+  const url = resolveCanonical(canonical);
   const image = ogImage || DEFAULT_OG_IMAGE;
+
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'ORVYN',
+    url: SITE_URL,
+    logo: `${SITE_URL}/og-image.jpg`,
+    description: 'ORVYN - La référence de la nutrition de performance. Bowls protéinés, shakes et snacks healthy pour sportifs.',
+    sameAs: ['https://instagram.com/orvyn', 'https://tiktok.com/@orvyn', 'https://linkedin.com/company/orvyn']
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ORVYN',
+    url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_URL}/menu?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  };
 
   return (
     <Helmet>
@@ -37,16 +73,16 @@ export default function SEO({ title, description, canonical, ogImage, ogType = '
       <meta name="twitter:image" content={image} />
 
       <script type="application/ld+json">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: 'ORVYN',
-          url: SITE_URL,
-          logo: `${SITE_URL}/og-image.jpg`,
-          description: 'ORVYN - La référence de la nutrition de performance. Bowls protéinés, shakes et snacks healthy pour sportifs.',
-          sameAs: ['https://instagram.com/orvyn', 'https://tiktok.com/@orvyn', 'https://linkedin.com/company/orvyn']
-        })}
+        {JSON.stringify(orgSchema)}
       </script>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
+      </script>
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
     </Helmet>
   );
 }

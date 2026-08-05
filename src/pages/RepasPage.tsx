@@ -31,7 +31,7 @@ export default function RepasPage() {
       <SEO
         title="Nos repas sportifs"
         description="Découvrez tous les repas ORVYN : bowls protéinés, shakes et snacks healthy adaptés à vos objectifs sportifs."
-        canonical="/repas"
+        canonical="/menu"
       />
       {/* Hero */}
       <section className="relative bg-beige pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden border-b border-line/70">
@@ -102,13 +102,14 @@ export default function RepasPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.4 }}
-                    onClick={() => navigate(`/repas/${meal.id}`)}
+                    onClick={() => navigate(`/menu/${meal.slug}`)}
                     className="group orvyn-clip-sm bg-white border border-line/70 shadow-[0_1px_4px_rgba(23,26,24,0.06)] overflow-hidden flex flex-col hover:shadow-[0_10px_30px_rgba(23,26,24,0.08)] hover:border-sauge/30 transition-all duration-300 cursor-pointer"
                   >
                     <div className="relative aspect-square w-full overflow-hidden bg-bg-secondary">
                       <img
                         src={meal.image}
                         alt={meal.name}
+                        loading="lazy"
                         className="h-full w-full object-cover photo-lumineuse transition duration-700 group-hover:scale-105"
                       />
                       <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">

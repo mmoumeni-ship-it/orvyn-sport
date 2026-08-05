@@ -36,7 +36,7 @@ const goalCards = [
     title: 'Perte de poids',
     desc: 'Des repas équilibrés et rassasiants pour accompagner sereinement votre rééquilibrage alimentaire.',
     example: 'Veggie Protein Bowl — 468 kcal · 38 g de protéines',
-    link: '/repas',
+    link: '/menu',
   },
   {
     icon: Activity,
@@ -89,25 +89,32 @@ const experienceBenefits = [
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const { addToCart, openCart } = useCart();
+  const { addItem } = useCart();
 
   const handleSelectPlan = (planName: string) => {
     const sub = findSubscription(planName);
     if (!sub) return;
-    addToCart(sub, 1);
-    openCart();
+    addItem({
+      id: `subscription-${sub.slug}`,
+      type: 'subscription',
+      name: sub.name,
+      price: Number(sub.price),
+      quantity: 1,
+      plan: sub.slug,
+      billingPeriod: 'monthly',
+    });
   };
 
   const handleNavigate = (tab: string) => {
     switch (tab) {
       case 'how-it-works':
-        navigate('/repas');
+        navigate('/menu');
         break;
       case 'menu':
-        navigate('/repas');
+        navigate('/menu');
         break;
       case 'goals':
-        navigate('/repas');
+        navigate('/menu');
         break;
       case 'subscriptions':
         navigate('/abonnements');
@@ -120,9 +127,9 @@ export default function HomePage() {
   return (
     <div className="bg-bone min-h-screen text-charbon">
       <SEO
-        title="ORVYN | Repas sportifs et bowls protéinés"
+        title="Repas sportifs et bowls protéinés"
         description="Découvrez ORVYN : bowls protéinés, repas post-entraînement, shakes et snacks adaptés à vos objectifs sportifs."
-        canonical="https://orvyn-sport.vercel.app/"
+        canonical="/"
       />
 
       {/* 1. Hero */}
@@ -190,7 +197,7 @@ export default function HomePage() {
               description="Bowls, shakes et snacks : de grandes photos de nourriture, des informations utiles, zéro tableau complexe."
             />
             <Link
-              to="/repas"
+              to="/menu"
               className="group inline-flex items-center gap-2 rounded-full border border-charbon/20 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-charbon transition hover:border-sauge hover:text-sauge shrink-0"
             >
               Voir le menu <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
@@ -210,11 +217,12 @@ export default function HomePage() {
                 className="absolute -bottom-5 -right-5 h-full w-full rounded-[24px] border border-sauge/25"
                 aria-hidden="true"
               />
-              <Link to="/repas" className="relative block overflow-hidden rounded-[24px] bg-sand group">
+              <Link to="/menu" className="relative block overflow-hidden rounded-[24px] bg-sand group">
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={platDuJour.image}
                     alt={platDuJour.name}
+                    loading="lazy"
                     className="h-full w-full object-cover photo-orvyn group-hover:scale-[1.03] transition duration-700"
                   />
                 </div>
@@ -251,7 +259,7 @@ export default function HomePage() {
               </div>
 
               <div className="pt-2">
-                <OrvynButton to="/repas" variant="primary">
+                <OrvynButton to="/menu" variant="primary">
                   Commander ce repas
                 </OrvynButton>
               </div>
@@ -276,6 +284,7 @@ export default function HomePage() {
                   <img
                     src={meal.image}
                     alt={meal.name}
+                    loading="lazy"
                     className="h-full w-full object-cover photo-orvyn group-hover:scale-[1.04] transition duration-700"
                   />
                 </div>
@@ -296,6 +305,7 @@ export default function HomePage() {
                   <img
                     src={meal.image}
                     alt={meal.name}
+                    loading="lazy"
                     className="h-full w-full object-cover photo-orvyn group-hover:scale-[1.04] transition duration-700"
                   />
                 </div>
@@ -316,6 +326,7 @@ export default function HomePage() {
                   <img
                     src={meal.image}
                     alt={meal.name}
+                    loading="lazy"
                     className="h-full w-full object-cover photo-orvyn group-hover:scale-[1.04] transition duration-700"
                   />
                 </div>
@@ -345,7 +356,7 @@ export default function HomePage() {
                 </div>
               </div>
               <Link
-                to="/repas"
+                to="/menu"
                 className="mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-bone transition hover:gap-3"
               >
                 Personnaliser mon repas <ArrowRight className="h-3.5 w-3.5" />
@@ -398,6 +409,7 @@ export default function HomePage() {
                       <img
                         src={platDuJour.image}
                         alt={platDuJour.name}
+                        loading="lazy"
                         className="h-16 w-16 rounded-xl object-cover photo-orvyn"
                       />
                       <div className="flex-1">
@@ -572,7 +584,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <OrvynButton to="/repas" variant="primary">
+              <OrvynButton to="/menu" variant="primary">
                 Commander avec ORVYN
               </OrvynButton>
               <OrvynButton to="/abonnements" variant="secondary">

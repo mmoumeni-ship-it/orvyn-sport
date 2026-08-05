@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Flame, ArrowLeft, ArrowRight, Plus, Minus, ShoppingBag, Check, Leaf, Crown, UtensilsCrossed } from 'lucide-react';
+import { Flame, ArrowLeft, ArrowRight, Plus, Minus, ShoppingBag, Check, Leaf, UtensilsCrossed } from 'lucide-react';
 import SEO from '../components/SEO';
 import { MEALS_DATABASE } from '../data/meals';
 import { useCart } from '../context/CartContext';
 
 export default function MealDetailPage() {
-  const { id } = useParams<{ id: string }>();
-  const meal = MEALS_DATABASE.find((m) => m.id === id);
+  const { slug, id } = useParams<{ slug?: string; id?: string }>();
+  const lookupKey = slug || id;
+  const meal = MEALS_DATABASE.find((m) => m.slug === lookupKey || m.id === lookupKey);
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
-  const { addToCart, openCart } = useCart();
+  const { addItem } = useCart();
 
   useEffect(() => {
     setQuantity(1);
     setAdded(false);
-  }, [id]);
+  }, [slug]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [id]);
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!meal) {
     return (
       <>
-        <SEO title="Plat introuvable | ORVYN" description="Ce repas n'existe pas ou n'est plus disponible." />
+        <SEO title="Plat introuvable" description="Ce repas n'existe pas ou n'est plus disponible." canonical="/menu" />
         <section className="relative bg-bone pt-36 pb-24 lg:pt-44 lg:pb-32">
           <div className="mx-auto max-w-xl px-4 sm:px-6 lg:px-8 text-center">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sauge/10 text-sauge">
@@ -37,7 +38,7 @@ export default function MealDetailPage() {
               Ce repas n'existe pas ou n'est plus disponible. Découvrez le reste de la carte ORVYN.
             </p>
             <Link
-              to="/repas"
+              to="/menu"
               className="orvyn-clip-sm inline-flex items-center gap-2 bg-sauge px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-bone transition hover:bg-sauge-soft"
             >
               <ArrowLeft className="h-4 w-4" /> Retour au menu
@@ -51,7 +52,14 @@ export default function MealDetailPage() {
   const isSubscription = meal.category === 'Abonnements';
 
   const handleAdd = () => {
-    addToCart(meal, quantity);
+    addItem({
+      id: meal.slug,
+      type: 'dish',
+      name: meal.name,
+      price: Number(meal.price),
+      quantity,
+      slug: meal.slug,
+    });
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1600);
   };
@@ -70,9 +78,32 @@ export default function MealDetailPage() {
   return (
     <>
       <SEO
-        title={`${meal.name} | ORVYN`}
+        title={meal.name}
         description={meal.description}
-        canonical={`/repas/${meal.id}`}
+        canonical={`/menu/${meal.slug}`}
+        ogType="product"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: meal.name,
+          description: meal.description,
+          image: meal.image,
+          brand: { '@type': 'Brand', name: 'ORVYN' },
+          offers: {
+            '@type': 'Offer',
+            price: meal.price,
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+            url: `https://orvyn-sport.vercel.app/menu/${meal.slug}`
+          },
+          nutrition: {
+            '@type': 'NutritionInformation',
+            calories: `${meal.calories} kcal`,
+            proteinContent: `${meal.proteins} g`,
+            carbohydrateContent: `${meal.carbs} g`,
+            fatContent: `${meal.lipids} g`
+          }
+        }}
       />
 
       {/* Hero */}
@@ -80,7 +111,7 @@ export default function MealDetailPage() {
         <div className="absolute -top-20 left-1/4 h-80 w-80 rounded-full bg-frais/20 blur-[120px] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <Link
-            to="/repas"
+            to="/menu"
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-olive hover:text-sauge transition mb-8"
           >
             <ArrowLeft className="h-3.5 w-3.5" /> Retour au menu
@@ -109,11 +140,6 @@ export default function MealDetailPage() {
                       {tag}
                     </span>
                   ))}
-                  {isSubscription && (
-                    <span className="inline-flex items-center gap-1 text-[10px] tracking-widest uppercase bg-charbon/90 text-frais border border-frais/40 px-2.5 py-1 rounded-lg backdrop-blur-sm">
-                      <Crown className="h-3 w-3" /> Membre
-                    </span>
-                  )}
                 </div>
               </div>
             </motion.div>
@@ -236,12 +262,9 @@ export default function MealDetailPage() {
                     ? 'Abonnement mensuel sans engagement — ajouté à votre panier, quantité modifiable.'
                     : 'Préparé chaque matin par nos chefs, récupération au stand ORVYN en 30 secondes.'}
                 </p>
-                <button
-                  onClick={openCart}
-                  className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-sauge hover:text-charbon transition"
-                >
+                <Link to="/panier" className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-sauge hover:text-charbon transition">
                   Voir mon panier <ArrowRight className="h-3.5 w-3.5" />
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -260,7 +283,7 @@ export default function MealDetailPage() {
                 </h2>
               </div>
               <Link
-                to="/repas"
+                to="/menu"
                 className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-sauge transition hover:text-charbon"
               >
                 Voir tout le menu <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition" />
@@ -270,11 +293,11 @@ export default function MealDetailPage() {
               {related.map((r) => (
                 <Link
                   key={r.id}
-                  to={`/repas/${r.id}`}
+                  to={`/menu/${r.slug}`}
                   className="group orvyn-clip-sm bg-white border border-line/70 overflow-hidden hover:border-sauge/30 hover:shadow-[0_10px_30px_rgba(23,26,24,0.08)] transition-all duration-300"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-bg-secondary">
-                    <img src={r.image} alt={r.name} className="h-full w-full object-cover photo-lumineuse group-hover:scale-105 transition duration-700" />
+                    <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover photo-lumineuse group-hover:scale-105 transition duration-700" />
                   </div>
                   <div className="p-5 flex items-center justify-between gap-3">
                     <h3 className="font-display text-sm font-semibold text-charbon group-hover:text-sauge transition">{r.name}</h3>
