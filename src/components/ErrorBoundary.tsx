@@ -1,5 +1,6 @@
-import { Component, type ReactNode } from 'react';
+import { Component, type ReactNode, type ErrorInfo } from 'react';
 import { Link } from 'react-router-dom';
+import * as Sentry from '@sentry/react';
 
 type Props = { children: ReactNode };
 type State = { hasError: boolean };
@@ -12,8 +13,11 @@ export default class ErrorBoundary extends Component<Props, State> {
     return { hasError: true };
   }
 
-  componentDidCatch() {
-    // swallow to avoid white screen
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    Sentry.withScope((scope) => {
+      scope.setExtras({ componentStack: errorInfo.componentStack });
+      Sentry.captureException(error);
+    });
   }
 
   render() {
