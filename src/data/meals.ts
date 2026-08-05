@@ -68,6 +68,7 @@ export const MEALS_DATABASE: Meal[] = [
   // --- SIGNATURE BOWLS (12.90 €) ---
   {
     id: 'bowl-chicken',
+    slug: 'bowl-chicken',
     name: 'Power Chicken Bowl',
     category: 'Bowls',
     subCategory: 'Déjeuner',
@@ -85,6 +86,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'bowl-beef',
+    slug: 'bowl-beef',
     name: 'Beef Performance Bowl',
     category: 'Bowls',
     subCategory: 'Dîner',
@@ -102,6 +104,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'bowl-salmon',
+    slug: 'bowl-salmon',
     name: 'Salmon Recovery Bowl',
     category: 'Bowls',
     subCategory: 'Déjeuner',
@@ -119,6 +122,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'bowl-veggie',
+    slug: 'bowl-veggie',
     name: 'Veggie Protein Bowl',
     category: 'Bowls',
     subCategory: 'Dîner',
@@ -138,6 +142,7 @@ export const MEALS_DATABASE: Meal[] = [
   // --- SIGNATURE PROTEIN SHAKERS (4.90 €) ---
   {
     id: 'shake-vanille',
+    slug: 'shake-vanille',
     name: 'Whey Vanille',
     category: 'Shakers',
     subCategory: 'Suppléments',
@@ -155,6 +160,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'shake-chocolat',
+    slug: 'shake-chocolat',
     name: 'Whey Chocolat',
     category: 'Shakers',
     subCategory: 'Suppléments',
@@ -172,6 +178,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'shake-matcha',
+    slug: 'shake-matcha',
     name: 'Matcha Protein Signature',
     category: 'Shakers',
     subCategory: 'Suppléments',
@@ -189,6 +196,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'shake-coffee',
+    slug: 'shake-coffee',
     name: 'Café Protein Boost',
     category: 'Shakers',
     subCategory: 'Petit-déjeuner',
@@ -208,6 +216,7 @@ export const MEALS_DATABASE: Meal[] = [
   // --- SIGNATURE HEALTHY SNACKS (3.90 €) ---
   {
     id: 'snack-brownie',
+    slug: 'snack-brownie',
     name: 'Brownie Protéiné',
     category: 'Snacks',
     subCategory: 'Desserts protéinés',
@@ -225,6 +234,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'snack-cookie',
+    slug: 'snack-cookie',
     name: 'Cookie Protéiné',
     category: 'Snacks',
     subCategory: 'Desserts protéinés',
@@ -242,6 +252,7 @@ export const MEALS_DATABASE: Meal[] = [
   },
   {
     id: 'snack-balls',
+    slug: 'snack-balls',
     name: 'Energy Balls',
     category: 'Snacks',
     subCategory: 'Desserts protéinés',

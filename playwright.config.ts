@@ -17,11 +17,19 @@ export default defineConfig({
     { name: 'mobile', use: { viewport: { width: 390, height: 844 } } },
   ],
   webServer: process.env.BASE_URL
-    ? undefined
-    : {
-        command: 'npm run dev',
-        url: 'http://localhost:3000',
-        reuseExistingServer: true,
-        timeout: 120000,
-      },
+      ? undefined
+      : [
+          {
+            command: 'node_modules\\.bin\\tsx.cmd scripts/dev-api.ts',
+            port: 3010,
+            reuseExistingServer: true,
+            timeout: 120000,
+          },
+          {
+            command: 'node_modules\\.bin\\vite.cmd --port=3000 --host=0.0.0.0',
+            url: 'http://localhost:3000',
+            reuseExistingServer: true,
+            timeout: 120000,
+          },
+      ],
 });

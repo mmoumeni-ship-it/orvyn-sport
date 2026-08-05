@@ -1,5 +1,6 @@
 export interface Meal {
   id: string;
+  slug: string;
   name: string;
   category: 'Bowls' | 'Shakers' | 'Snacks' | 'Abonnements';
   subCategory?: string; // 'Petit-déjeuner' | 'Déjeuner' | 'Dîner' | 'Desserts protéinés' | 'Suppléments'
@@ -15,6 +16,18 @@ export interface Meal {
   tags: string[];  // ['Halal', 'Vegan', 'Végétarien', 'Sans gluten', 'Sans lactose', 'Sans porc', 'Riches en protéines', 'Faibles calories']
   ingredients: string[];
   allergens: string[];
+}
+
+export interface CartItem {
+  id: string;
+  type: 'dish' | 'subscription';
+  name: string;
+  price: number;
+  quantity: number;
+  slug?: string;
+  plan?: string;
+  billingPeriod?: 'monthly';
+  meal?: Meal;
 }
 
 export interface Goal {
@@ -40,11 +53,6 @@ export interface Gym {
   lockerStandCode: string;
 }
 
-export interface CartItem {
-  meal: Meal;
-  quantity: number;
-}
-
 export interface NotificationItem {
   id: string;
   title: string;
@@ -68,17 +76,14 @@ export interface UserProfile {
 
 export interface Order {
   id: string;
+  reference: string;
   date: string;
-  gymId: string;
   gymName: string;
-  items: CartItem[];
-  subtotal: number;
-  discount: number;
-  total: number;
-  status: 'pending' | 'preparing' | 'ready' | 'collected';
   pickupTime: string;
-  pickupCode: string;
-  userGoal: string;
+  status?: 'pending' | 'preparing' | 'ready' | 'collected';
+  pickupCode?: string;
+  items: CartItem[];
+  total: number;
 }
 
 export interface PromoCode {

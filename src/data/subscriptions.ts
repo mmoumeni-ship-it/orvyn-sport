@@ -4,6 +4,7 @@ import abonnementOrvyn from '../assets/images/abonnement-orvyn.svg';
 export const SUBSCRIPTIONS: Meal[] = [
   {
     id: 'abonnement-start',
+    slug: 'abonnement-start',
     name: 'Abonnement Start',
     category: 'Abonnements',
     subCategory: 'Membre',
@@ -21,6 +22,7 @@ export const SUBSCRIPTIONS: Meal[] = [
   },
   {
     id: 'abonnement-pro',
+    slug: 'abonnement-pro',
     name: 'Abonnement Pro',
     category: 'Abonnements',
     subCategory: 'Membre',
@@ -38,6 +40,7 @@ export const SUBSCRIPTIONS: Meal[] = [
   },
   {
     id: 'abonnement-elite',
+    slug: 'abonnement-elite',
     name: 'Abonnement Élite',
     category: 'Abonnements',
     subCategory: 'Membre',

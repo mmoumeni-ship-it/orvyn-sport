@@ -163,7 +163,7 @@ export default function BlogPage() {
 
           <div className="text-center mt-12">
             <button
-              onClick={() => navigate('/repas')}
+              onClick={() => navigate('/menu')}
               className="inline-flex items-center gap-2 orvyn-clip-sm border border-sauge/40 bg-white px-6 py-3 text-xs font-semibold uppercase text-charbon hover:bg-sauge hover:text-bone transition cursor-pointer"
             >
               Découvrir nos repas <ArrowRight className="h-3.5 w-3.5" />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Send, Instagram, Linkedin, Music2 } from 'lucide-react';
 
 const BRAND_LINKS = [
-  { to: '/repas', label: 'Le menu' },
+  { to: '/menu', label: 'Le menu' },
   { to: '/bowls-proteines', label: 'Bowls protéinés' },
   { to: '/shakes-proteines', label: 'Shakes protéinés' },
   { to: '/snacks-healthy', label: 'Snacks healthy' },
@@ -13,7 +13,7 @@ const BRAND_LINKS = [
 const GOAL_LINKS = [
   { to: '/repas-prise-de-masse', label: 'Prise de masse' },
   { to: '/repas-seche', label: 'Sèche' },
-  { to: '/repas', label: 'Perte de poids' },
+  { to: '/menu', label: 'Perte de poids' },
   { to: '/repas-post-entrainement', label: 'Récupération' },
 ];
 
@@ -140,9 +140,9 @@ export default function Footer() {
               </p>
             )}
             <div className="pt-2 flex items-center gap-4 text-bone/60">
-              <a href="#" aria-label="Instagram" className="transition hover:text-sauge-soft"><Instagram className="h-4 w-4" /></a>
-              <a href="#" aria-label="TikTok" className="transition hover:text-sauge-soft"><Music2 className="h-4 w-4" /></a>
-              <a href="#" aria-label="LinkedIn" className="transition hover:text-sauge-soft"><Linkedin className="h-4 w-4" /></a>
+              <Link to="/contact" aria-label="Instagram" className="transition hover:text-sauge-soft"><Instagram className="h-4 w-4" /></Link>
+              <Link to="/contact" aria-label="TikTok" className="transition hover:text-sauge-soft"><Music2 className="h-4 w-4" /></Link>
+              <Link to="/contact" aria-label="LinkedIn" className="transition hover:text-sauge-soft"><Linkedin className="h-4 w-4" /></Link>
             </div>
           </FooterColumn>
         </div>
@@ -150,7 +150,7 @@ export default function Footer() {
         <div className="mt-16 border-t border-bone/10 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-bone/45">
             {LEGAL_LINKS.map((l) => (
-              <span key={l} className="cursor-pointer transition hover:text-bone">{l}</span>
+              <Link key={l} to="/contact" className="transition hover:text-bone">{l}</Link>
             ))}
           </div>
           <p className="text-xs text-bone/45">© 2026 ORVYN Nutrition SAS. Tous droits réservés.</p>

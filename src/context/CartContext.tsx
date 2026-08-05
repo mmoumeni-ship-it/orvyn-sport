@@ -1,40 +1,53 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { CartItem, Meal, Order } from '../types';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import type { CartItem } from '../types';
 
-const CART_STORAGE_KEY = 'orvyn.cart.v1';
+const CART_STORAGE_KEY = 'orvyn.cart.v2';
 
-interface CartContextValue {
+type CartContextValue = {
   items: CartItem[];
-  isCartOpen: boolean;
-  totalCount: number;
-  subtotal: number;
-  lastOrder: Order | null;
-  addToCart: (meal: Meal, quantity?: number) => void;
-  updateQuantity: (mealId: string, quantity: number) => void;
-  removeItem: (mealId: string) => void;
+  addItem: (item: CartItem) => void;
+  removeItem: (id: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
   clearCart: () => void;
-  openCart: () => void;
-  closeCart: () => void;
-  placeOrder: (order: Order) => void;
-  dismissOrderAlert: () => void;
-}
+  itemCount: number;
+  subtotal: number;
+  addToCart: (item: CartItem) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+};
 
 const CartContext = createContext<CartContextValue | null>(null);
 
+function normalizeItems(items: unknown): CartItem[] {
+  if (!Array.isArray(items)) return [];
+  return items
+    .filter((item): item is CartItem => {
+      if (!item || typeof item !== 'object') return false;
+      const candidate = item as Partial<CartItem>;
+      return (
+        typeof candidate.id === 'string' &&
+        (candidate.type === 'dish' || candidate.type === 'subscription') &&
+        typeof candidate.name === 'string' &&
+        typeof candidate.price === 'number' &&
+        Number.isFinite(candidate.price) &&
+        typeof candidate.quantity === 'number' &&
+        Number.isFinite(candidate.quantity) &&
+        candidate.quantity >= 1
+      );
+    })
+    .map((item) => ({
+      ...item,
+      quantity: Math.max(1, Math.floor(item.quantity)),
+      price: Number(item.price),
+    }));
+}
+
 function loadCart(): CartItem[] {
+  if (typeof window === 'undefined') return [];
   try {
-    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    const raw = window.localStorage.getItem(CART_STORAGE_KEY);
     if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (item) =>
-        item &&
-        typeof item === 'object' &&
-        item.meal &&
-        typeof item.meal.id === 'string' &&
-        typeof item.quantity === 'number'
-    );
+    return normalizeItems(JSON.parse(raw));
   } catch {
     return [];
   }
@@ -42,87 +55,77 @@ function loadCart(): CartItem[] {
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>(loadCart);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [lastOrder, setLastOrder] = useState<Order | null>(null);
-  const alertTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     try {
-      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+      window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
     } catch {
-      /* stockage indisponible : le panier reste en mémoire */
+      // localStorage unavailable
     }
   }, [items]);
 
-  useEffect(() => {
-    return () => {
-      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+  const addItem = useCallback((item: CartItem) => {
+    if (!item || typeof item !== 'object') return;
+    const normalized: CartItem = {
+      id: item.id,
+      type: item.type,
+      name: item.name,
+      price: Number(item.price),
+      quantity: Math.max(1, Math.floor(Number(item.quantity ?? 1))),
+      slug: item.slug,
+      plan: item.plan,
+      billingPeriod: item.billingPeriod,
     };
-  }, []);
-
-  const addToCart = useCallback((meal: Meal, quantity = 1) => {
+    if (!normalized.id || !normalized.name || !Number.isFinite(normalized.price)) return;
     setItems((prev) => {
-      const existing = prev.find((item) => item.meal.id === meal.id);
+      const existing = prev.find((entry) => entry.id === normalized.id);
       if (existing) {
-        return prev.map((item) =>
-          item.meal.id === meal.id ? { ...item, quantity: item.quantity + quantity } : item
+        return prev.map((entry) =>
+          entry.id === normalized.id
+            ? { ...entry, quantity: Math.max(1, entry.quantity + normalized.quantity) }
+            : entry
         );
       }
-      return [...prev, { meal, quantity }];
+      return [...prev, normalized];
     });
   }, []);
 
-  const updateQuantity = useCallback((mealId: string, quantity: number) => {
-    setItems((prev) =>
-      quantity <= 0
-        ? prev.filter((item) => item.meal.id !== mealId)
-        : prev.map((item) => (item.meal.id === mealId ? { ...item, quantity } : item))
-    );
+  const updateQuantity = useCallback((id: string, quantity: number) => {
+    const safeQuantity = Math.max(1, Math.floor(Number(quantity || 1)));
+    setItems((prev) => prev.map((item) => (item.id === id ? { ...item, quantity: safeQuantity } : item)));
   }, []);
 
-  const removeItem = useCallback((mealId: string) => {
-    setItems((prev) => prev.filter((item) => item.meal.id !== mealId));
+  const increaseQuantity = useCallback((id: string) => {
+    setItems((prev) => prev.map((item) => (item.id === id ? { ...item, quantity: item.quantity + 1 } : item)));
+  }, []);
+
+  const decreaseQuantity = useCallback((id: string) => {
+    setItems((prev) => prev.map((item) => (item.id === id ? { ...item, quantity: Math.max(1, item.quantity - 1) } : item)));
+  }, []);
+
+  const removeItem = useCallback((id: string) => {
+    setItems((prev) => prev.filter((item) => item.id !== id));
   }, []);
 
   const clearCart = useCallback(() => setItems([]), []);
 
-  const openCart = useCallback(() => setIsCartOpen(true), []);
-  const closeCart = useCallback(() => setIsCartOpen(false), []);
+  const itemCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
+  const subtotal = useMemo(() => items.reduce((sum, item) => sum + item.price * item.quantity, 0), [items]);
 
-  const placeOrder = useCallback((order: Order) => {
-    setLastOrder(order);
-    if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-    alertTimerRef.current = setTimeout(() => setLastOrder(null), 8000);
-  }, []);
-
-  const dismissOrderAlert = useCallback(() => {
-    if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-    setLastOrder(null);
-  }, []);
-
-  const totalCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
-  const subtotal = useMemo(
-    () => items.reduce((sum, item) => sum + item.meal.price * item.quantity, 0),
-    [items]
-  );
-
-  const value = useMemo<CartContextValue>(
+  const value = useMemo(
     () => ({
       items,
-      isCartOpen,
-      totalCount,
-      subtotal,
-      lastOrder,
-      addToCart,
-      updateQuantity,
+      addItem,
       removeItem,
+      increaseQuantity,
+      decreaseQuantity,
       clearCart,
-      openCart,
-      closeCart,
-      placeOrder,
-      dismissOrderAlert,
+      itemCount,
+      subtotal,
+      addToCart: addItem,
+      updateQuantity,
     }),
-    [items, isCartOpen, totalCount, subtotal, lastOrder, addToCart, updateQuantity, removeItem, clearCart, openCart, closeCart, placeOrder, dismissOrderAlert]
+    [items, addItem, removeItem, increaseQuantity, decreaseQuantity, clearCart, itemCount, subtotal, updateQuantity]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './Layout';
 import HomePage from './pages/HomePage';
@@ -17,6 +17,10 @@ import ContactPage from './pages/ContactPage';
 import FAQPage from './pages/FAQPage';
 import RepasPage from './pages/RepasPage';
 import MealDetailPage from './pages/MealDetailPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -25,7 +29,9 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/repas" element={<RepasPage />} />
+            <Route path="/menu" element={<RepasPage />} />
+            <Route path="/menu/:slug" element={<MealDetailPage />} />
+            <Route path="/repas" element={<Navigate to="/menu" replace />} />
             <Route path="/repas/:id" element={<MealDetailPage />} />
             <Route path="/bowls-proteines" element={<BowlsProteines />} />
             <Route path="/repas-prise-de-masse" element={<PriseDeMasse />} />
@@ -34,11 +40,15 @@ export default function App() {
             <Route path="/shakes-proteines" element={<ShakesProteines />} />
             <Route path="/snacks-healthy" element={<SnacksHealthy />} />
             <Route path="/abonnements" element={<AbonnementsPage />} />
+            <Route path="/panier" element={<CartPage />} />
+            <Route path="/commande" element={<CheckoutPage />} />
+            <Route path="/commande-confirmee" element={<OrderConfirmationPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/a-propos" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -47,7 +47,7 @@ export default function HeroSection(_props: HeroSectionProps) {
   const scrollToConcept = () => {
     const el = document.getElementById('comment-ca-marche');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
-    else navigate('/repas');
+    else navigate('/menu');
   };
 
   return (
@@ -102,7 +102,7 @@ export default function HeroSection(_props: HeroSectionProps) {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
             >
-              <OrvynButton to="/repas" variant="primary">
+              <OrvynButton to="/menu" variant="primary">
                 Commander mon repas
               </OrvynButton>
               <OrvynButton onClick={scrollToConcept} variant="secondary" light>

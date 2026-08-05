@@ -77,12 +77,20 @@ export default function AbonnementsPage() {
     Elite: 1,
   });
   const [addedPlan, setAddedPlan] = useState<string | null>(null);
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
 
   const handleAddPlan = (planName: string) => {
     const sub = findSubscription(planName);
     if (!sub) return;
-    addToCart(sub, quantities[planName] || 1);
+    addItem({
+      id: `subscription-${sub.slug}`,
+      type: 'subscription',
+      name: sub.name,
+      price: Number(sub.price),
+      quantity: quantities[planName] || 1,
+      plan: sub.slug,
+      billingPeriod: 'monthly',
+    });
     setAddedPlan(planName);
     window.setTimeout(() => setAddedPlan(null), 1600);
   };
@@ -218,7 +226,7 @@ export default function AbonnementsPage() {
                       </>
                     ) : (
                       <>
-                        <ShoppingBag className="h-4 w-4" /> {plan.cta}
+                        <ShoppingBag className="h-4 w-4" /> Choisir cet abonnement
                       </>
                     )}
                   </button>
@@ -291,7 +299,7 @@ export default function AbonnementsPage() {
           <span className="eyebrow text-frais justify-center mb-4">Commander avec ORVYN</span>
           <h2 className="font-display text-3xl font-semibold text-bone mb-4">Chaque repas compte pour votre progression</h2>
           <p className="text-base text-bone/70 mb-8 font-sans">Rejoignez la communauté ORVYN et faites de chaque séance un pas de plus vers vos objectifs.</p>
-          <Link to="/repas" className="inline-flex items-center gap-2 orvyn-clip-sm bg-sauge text-bone px-8 py-3.5 text-xs font-semibold uppercase hover:bg-sauge-soft transition">
+          <Link to="/menu" className="inline-flex items-center gap-2 orvyn-clip-sm bg-sauge text-bone px-8 py-3.5 text-xs font-semibold uppercase hover:bg-sauge-soft transition">
             Découvrir la carte <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
