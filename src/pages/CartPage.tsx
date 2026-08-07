@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { useCart } from '../context/CartContext';
+import { trackViewCart } from '../lib/analytics';
 
 export default function CartPage() {
   const navigate = useNavigate();
   const { items, increaseQuantity, decreaseQuantity, removeItem, subtotal, itemCount } = useCart();
+  const tracked = useRef(false);
+
+  useEffect(() => {
+    if (!tracked.current && items.length > 0) {
+      tracked.current = true;
+      trackViewCart(
+        items.map((i) => ({
+          item_id: i.id,
+          item_name: i.name,
+          price: i.price,
+          quantity: i.quantity,
+        }))
+      );
+    }
+  }, [items]);
 
   return (
     <>

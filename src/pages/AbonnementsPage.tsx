@@ -5,6 +5,7 @@ import { Check, ChevronDown, ChevronUp, ArrowRight, Award, Plus, Minus, Shopping
 import SEO from '../components/SEO';
 import { findSubscription } from '../data/subscriptions';
 import { useCart } from '../context/CartContext';
+import { trackAddToCart } from '../lib/analytics';
 
 const plans = [
   {
@@ -82,14 +83,22 @@ export default function AbonnementsPage() {
   const handleAddPlan = (planName: string) => {
     const sub = findSubscription(planName);
     if (!sub) return;
+    const qty = quantities[planName] || 1;
     addItem({
       id: `subscription-${sub.slug}`,
       type: 'subscription',
       name: sub.name,
       price: Number(sub.price),
-      quantity: quantities[planName] || 1,
+      quantity: qty,
       plan: sub.slug,
       billingPeriod: 'monthly',
+    });
+    trackAddToCart({
+      item_id: sub.slug,
+      item_name: sub.name,
+      price: Number(sub.price),
+      quantity: qty,
+      item_category: 'Abonnements',
     });
     setAddedPlan(planName);
     window.setTimeout(() => setAddedPlan(null), 1600);

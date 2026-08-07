@@ -15,6 +15,7 @@ import OrvynButton from '../components/ui/OrvynButton';
 import { MEALS_DATABASE } from '../data/meals';
 import { findSubscription } from '../data/subscriptions';
 import { useCart } from '../context/CartContext';
+import { trackAddToCart } from '../lib/analytics';
 
 const goalCards = [
   {
@@ -102,6 +103,13 @@ export default function HomePage() {
       quantity: 1,
       plan: sub.slug,
       billingPeriod: 'monthly',
+    });
+    trackAddToCart({
+      item_id: sub.slug,
+      item_name: sub.name,
+      price: Number(sub.price),
+      quantity: 1,
+      item_category: 'Abonnements',
     });
   };
 

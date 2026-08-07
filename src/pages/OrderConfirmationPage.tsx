@@ -1,16 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import { useCart } from '../context/CartContext';
+import { trackPurchase } from '../lib/analytics';
 
 export default function OrderConfirmationPage() {
   const [searchParams] = useSearchParams();
-  const { clearCart } = useCart();
+  const { items, clearCart } = useCart();
+  const tracked = useRef(false);
 
   useEffect(() => {
+    if (!tracked.current && items.length > 0) {
+      tracked.current = true;
+      const ref = searchParams.get('session_id') || Date.now().toString();
+      trackPurchase(
+        ref,
+        items.map((i) => ({
+          item_id: i.id,
+          item_name: i.name,
+          price: i.price,
+          quantity: i.quantity,
+        }))
+      );
+    }
     clearCart();
-  }, [clearCart]);
+  }, [items, clearCart, searchParams]);
 
   const sessionId = searchParams.get('session_id') || '';
   const reference = sessionId ? sessionId.slice(-8).toUpperCase() : 'ORVYN-TEST';

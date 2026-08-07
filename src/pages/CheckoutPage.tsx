@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { GYMS_DATABASE } from '../data/gyms';
 import { useCart } from '../context/CartContext';
+import { trackBeginCheckout } from '../lib/analytics';
 
 type FormState = {
   firstName: string;
@@ -60,6 +61,15 @@ export default function CheckoutPage() {
 
     setLoading(true);
     try {
+      trackBeginCheckout(
+        items.map((i) => ({
+          item_id: i.id,
+          item_name: i.name,
+          price: i.price,
+          quantity: i.quantity,
+        }))
+      );
+
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

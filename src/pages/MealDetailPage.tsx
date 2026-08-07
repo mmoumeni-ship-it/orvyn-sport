@@ -5,6 +5,7 @@ import { Flame, ArrowLeft, ArrowRight, Plus, Minus, ShoppingBag, Check, Leaf, Ut
 import SEO from '../components/SEO';
 import { MEALS_DATABASE } from '../data/meals';
 import { useCart } from '../context/CartContext';
+import { trackViewItem, trackAddToCart } from '../lib/analytics';
 
 export default function MealDetailPage() {
   const { slug, id } = useParams<{ slug?: string; id?: string }>();
@@ -22,6 +23,17 @@ export default function MealDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  useEffect(() => {
+    if (meal) {
+      trackViewItem({
+        item_id: meal.slug,
+        item_name: meal.name,
+        price: meal.price,
+        item_category: meal.category,
+      });
+    }
+  }, [meal?.slug]);
 
   if (!meal) {
     return (
@@ -59,6 +71,13 @@ export default function MealDetailPage() {
       price: Number(meal.price),
       quantity,
       slug: meal.slug,
+    });
+    trackAddToCart({
+      item_id: meal.slug,
+      item_name: meal.name,
+      price: meal.price,
+      quantity,
+      item_category: meal.category,
     });
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1600);
