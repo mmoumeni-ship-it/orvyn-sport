@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 export default function NotFoundPage() {
   return (
     <>
-      <SEO title="Page introuvable" description="La page demandée n'existe pas." />
+      <SEO title="Page introuvable" description="La page demandée n'existe pas." robots="noindex, follow" />
       <section className="bg-bone py-28 lg:py-36">
         <div className="mx-auto max-w-xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="eyebrow text-sauge justify-center">404</span>

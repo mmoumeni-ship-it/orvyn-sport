@@ -26,7 +26,7 @@ export default function CartPage() {
 
   return (
     <>
-      <SEO title="Panier" description="Votre panier ORVYN." canonical="/panier" />
+      <SEO title="Panier" description="Votre panier ORVYN." canonical="/panier" robots="noindex, follow" />
       <section className="bg-beige py-28 lg:py-36 border-b border-line/70">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10">

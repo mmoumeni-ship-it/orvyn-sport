@@ -32,7 +32,7 @@ export default function OrderConfirmationPage() {
 
   return (
     <>
-      <SEO title="Commande confirmée" description="Votre commande ORVYN est confirmée." canonical="/commande-confirmee" />
+      <SEO title="Commande confirmée" description="Votre commande ORVYN est confirmée." canonical="/commande-confirmee" robots="noindex, follow" />
       <section className="bg-bone py-28 lg:py-36">
         <div className="mx-auto max-w-xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sauge/10 text-sauge">

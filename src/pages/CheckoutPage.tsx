@@ -99,7 +99,7 @@ export default function CheckoutPage() {
 
   return (
     <>
-      <SEO title="Commande" description="Finalisez votre commande ORVYN." canonical="/commande" />
+      <SEO title="Commande" description="Finalisez votre commande ORVYN." canonical="/commande" robots="noindex, follow" />
       <section className="bg-beige py-28 lg:py-36 border-b border-line/70">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
